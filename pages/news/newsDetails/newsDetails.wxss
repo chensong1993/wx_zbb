@@ -1,0 +1,37 @@
+.main{
+margin: 0rpx 20rpx  60rpx 20rpx;
+}
+
+.newsTitle{
+  font-size: 40rpx;
+}
+
+.titlebar{
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
+.type{
+  border: 1rpx solid;
+  border-radius: 15rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  margin-right: 10rpx;
+}
+
+.corporation{
+  color: #4093ff;
+  margin-right: 10rpx;
+}
+
+.date{
+  margin-left: 10rpx;
+margin-right: 10rpx;
+}
+
+.author{
+  margin-left: 10rpx;
+}
+
+.briefContent{
+   font-size: 30rpx;
+}

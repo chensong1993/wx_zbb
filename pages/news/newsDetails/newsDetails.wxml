@@ -1,0 +1,24 @@
+<import src="../../../wxParse/wxParse.wxml"/> 
+<!-- 标题 -->
+<view class='main'>
+<view>
+<text class='newsTitle'>{{newsDetails.title}}</text>
+</view>
+
+<view class='titlebar'>
+<text class='type'>{{newsDetails.newsType}}</text>
+<text class='corporation'>{{newsDetails.source}}</text>
+<text>·</text>
+<text class='date'>{{newsDate}}</text>
+<text>·</text>
+<text class='author'>{{newsDetails.author}}</text>
+</view>
+
+<view class='brief'>
+<text class='briefContent'>{{newsDetails.lead_in}}</text>
+
+</view>
+<view class="wxParse">
+    	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+</view>
