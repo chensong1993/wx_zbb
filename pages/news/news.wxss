@@ -89,10 +89,11 @@ color: transparent;
   content: "";
   display: block;
   height: 8rpx;
-  width: 62rpx;
+  width: 52rpx;
   background: #4675f9;
   position: absolute;
   bottom: 0;
+  left: 5rpx;
   border-radius: 16rpx;
 }
 
@@ -133,4 +134,12 @@ color: transparent;
    background: white;
    color: black;
    text-align: center;
+}
+.refresh{
+  position: fixed;
+  z-index: 9999;
+  bottom: 30rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height:60rpx;
 }

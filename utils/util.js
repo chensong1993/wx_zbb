@@ -50,7 +50,32 @@ if (Seconds < 10) {
 }
 return CurrentDate  ;
 }
+
+function buttonClicked(self) {
+  self.setData({
+
+  buttonClicked: false
+
+  })
+
+  setTimeout(function () {
+    self.setData({
+
+      buttonClicked: true
+
+    })
+
+  },2000)
+ return buttonClicked;
+}
+
+
+
 //扩展的方法需要在Module里去声明
 module.exports = {
-  renderTime: renderTime
+  renderTime: renderTime,
+ buttonClicked: buttonClicked,
 }
+
+
+

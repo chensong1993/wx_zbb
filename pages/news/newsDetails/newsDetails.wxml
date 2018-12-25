@@ -1,5 +1,6 @@
 <import src="../../../wxParse/wxParse.wxml"/> 
 <!-- 标题 -->
+<view wx:if='{{content>0}}'>
 <view class='main'>
 <view>
 <text class='newsTitle'>{{newsDetails.title}}</text>
@@ -18,7 +19,30 @@
 <text class='briefContent'>{{newsDetails.lead_in}}</text>
 
 </view>
+<view class='fengex'>________________</view>
 <view class="wxParse">
     	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<block wx:for="{{newsDetails.tags}}">
+<view class='newsTags'>{{newsDetails.tags[index].name}}</view>
+</block>
+</view>
+<view class='otherNews'>
+<view class='selectNews'>— 精选新闻 —</view>
+<block wx:for="{{newsDetails.otherLinks}}" wx:key=''>
+          <view class='views'  bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>
+            <view class='mainContent'>
+              <text class='title' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
+              <text class='newsType' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
+              <text class='publish' wx:if='{{item.newsType!=null}}' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
+              <text class='publish' wx:else style='left:{{20}}rpx;' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
+            </view>
+            <view class='mainImg'>
+              <image class='newsImg' src="{{item.featured_image}} "  wx:for-index="index " data-index='{{index}}'></image>
+            </view>
+
+          </view>
+
+</block>
 </view>
 </view>

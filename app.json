@@ -56,8 +56,8 @@
     ]
   },
   "networkTimeout": {
-    "request": 6000,
-    "downloadFile": 10000
+    "request": 2000,
+    "downloadFile": 6000
   },
   "debug": true,
   "navigateToMiniProgramAppIdList": [
