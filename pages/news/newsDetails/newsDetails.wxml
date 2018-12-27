@@ -23,8 +23,8 @@
 <view class="wxParse">
     	<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view>
-<block wx:for="{{newsDetails.tags}}">
-<view class='newsTags'>{{newsDetails.tags[index].name}}</view>
+<block wx:for="{{newsDetails.tags}}" wx:key>
+<view class='newsTags' bindtap='detailTag' data-tag="{{newsDetails.tags[index].name}}">{{newsDetails.tags[index].name}}</view>
 </block>
 </view>
 <view class='otherNews'>

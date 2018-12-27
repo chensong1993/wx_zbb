@@ -1,0 +1,28 @@
+/* pages/news/topicDetails/topicDetails.wxss */
+@import '../commonStyle/commonStyle.wxss';
+.topicMain{
+  margin: 10rpx 10rpx;
+  font-size: 25rpx;
+  
+}
+
+.topicTitle{
+  font-size: 30rpx;
+  line-height: 80rpx;
+  
+}
+.source{
+  color: rgb(148, 147, 147);
+ 
+}
+.mainContents{
+  margin: 5rpx 0
+}
+.m{
+  font-weight: bold
+}
+.newsTrends{
+  line-height: 80rpx;
+  background: gainsboro;
+  padding-left: 10rpx;
+}

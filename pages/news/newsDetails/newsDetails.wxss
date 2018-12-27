@@ -1,17 +1,21 @@
 @import "/wxParse/wxParse.wxss";
-.main{
-margin: 0rpx 20rpx  0rpx 20rpx;
+
+.main {
+  margin: 0rpx 20rpx 0rpx 20rpx;
 }
 
-.newsTitle{
+
+
+.newsTitle {
   font-size: 40rpx;
 }
 
-.titlebar{
+.titlebar {
   font-size: 30rpx;
   line-height: 100rpx;
 }
-.type{
+
+.type {
   border: 1rpx solid;
   border-radius: 15rpx;
   border-color: gainsboro;
@@ -21,37 +25,37 @@ margin: 0rpx 20rpx  0rpx 20rpx;
   color: rgb(148, 147, 147);
 }
 
-.corporation{
+.corporation {
   color: #4093ff;
   margin-right: 10rpx;
 }
 
-.date{
+.date {
   margin-left: 10rpx;
-margin-right: 10rpx;
+  margin-right: 10rpx;
 }
 
-.author{
+.author {
   margin-left: 10rpx;
 }
 
-.briefContent{
-   font-size: 30rpx;
+.briefContent {
+  font-size: 30rpx;
 }
-.fengex{
+
+.fengex {
   text-align: center;
   font-size: 30rpx;
   margin-bottom: 30rpx;
-  
 }
 
-.wxParse{
+.wxParse {
   margin-bottom: 30rpx;
-  margin-left:0rpx;
-  margin-right: 0rpx; 
+  margin-left: 0rpx;
+  margin-right: 0rpx;
 }
 
-.newsTags{
+.newsTags {
   display: inline-block;
   padding: 3rpx 2rpx;
   margin-right: 20rpx;
@@ -59,7 +63,9 @@ margin-right: 10rpx;
   border-radius: 15rpx;
   font-size: 30rpx;
 }
+
 /* //新闻列表 */
+
 .views {
   font-size: 24rpx;
   clear: both;
@@ -110,10 +116,10 @@ margin-right: 10rpx;
   position: relative;
 }
 
-.selectNews{
+.selectNews {
   margin-top: 30rpx;
   padding: 30rpx 0;
   border-top: 12rpx gainsboro solid;
   text-align: center;
-  font-size: 30rpx
+  font-size: 30rpx;
 }

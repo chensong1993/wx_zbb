@@ -1,0 +1,32 @@
+/* pages/news/topicDetails/topicDetails.wxss */
+@import '../commonStyle/commonStyle.wxss';
+.colimnsMain{
+  margin: 5rpx 10rpx;
+}
+.portrait{
+  width: 100%;
+  text-align: center;
+}
+.headPortrait{
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid;
+  border-radius:  100rpx;
+  
+
+}
+.name{
+  line-height: 80rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.aboutAuthor{
+  font-size: 25rpx;
+  margin-bottom: 10rpx
+}
+.relatedArticles{
+   line-height: 80rpx;
+  background: gainsboro;
+  padding-left: 10rpx;
+  font-weight: bold;
+}

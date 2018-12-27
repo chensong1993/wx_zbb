@@ -76,7 +76,7 @@ color: transparent;
 }
 
 .tab-item {
-  margin: 0 30rpx;
+  margin: 0 33rpx;
   display: inline-block;
 }
 
@@ -99,8 +99,11 @@ color: transparent;
 
 .tab-content {
   margin-top: 80rpx;
+  display: block
 }
-
+.tab-content .active{
+  display: none;
+}
 .scoll-h {
   height: 100%;
 }
@@ -123,13 +126,21 @@ color: transparent;
 
 .loadMore{
   display: none;
-   line-height: 100rpx;
+  
+}
+.loadMore.active{
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
    background: white;
    color: black;
    text-align: center;
 }
-.loadMoreactive{
+.loadMore.more{
   display: block;
+  width: 100%;
+  height: 100rpx;
   line-height: 100rpx;
    background: white;
    color: black;
@@ -138,8 +149,26 @@ color: transparent;
 .refresh{
   position: fixed;
   z-index: 9999;
-  bottom: 30rpx;
+  bottom: 32rpx;
   right: 30rpx;
   width: 60rpx;
   height:60rpx;
+}
+.Brefresh{
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  z-index: 9999;
+  height: 80rpx;
+  width: 80rpx;
+  background: white;
+  border-radius: 100rpx;
+  border: 1rpx solid white;
+  box-shadow: 2rpx 2rpx 10rpx rgb(224, 224, 224) 
+}
+.scroll {
+  display: none
+}
+.scroll .active{
+  display: block
 }

@@ -1,0 +1,9 @@
+<view class='topicMain'>
+ <view class='topicTitle'>{{title}}</view>
+ <view class='source'>来源：{{source}}</view>
+ <view class='mainContents'><text class='m'>核心观点：</text>{{core_ideas}}</view>
+</view>
+<view class='newsTrends'>新闻动态</view>
+<include src='../commonStyle/commonStyle.wxml'/>
+<block wx:for="{{tagList}}" wx:key=''></block>
+

@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/news/news",
-    "pages/data/data",
-    "pages/market/market",
-    "pages/brand/brand",
+   
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",
-    "pages/webview/webview"
+    "pages/webview/webview",
+    "pages/news/detailTag/detailTag",
+    "pages/news/commonStyle/commonStyle",
+    "pages/news/topicDetails/topicDetails",
+    "pages/news/columnsDetails/columnsDetails"
     
   ],
   "window": {
@@ -14,7 +16,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "资本邦",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":false
+    "enablePullDownRefresh":true
    
 
   },
@@ -29,27 +31,10 @@
         "iconPath": "img/tabbar_icon_news_normal.png",
         "selectedIconPath": "img/tabbar_icon_news_highlight.png"
       },
-      {
-        "pagePath": "pages/data/data",
-        "text": "数据",
-        "iconPath": "img/ic_data.png",
-        "selectedIconPath": "img/ic_data_select.png"
-      },
-      {
-        "pagePath": "pages/market/market",
-        "text": "行情",
-        "iconPath": "img/tabbar_icon_market_normal.png",
-        "selectedIconPath": "img/tabbar_icon_market_highlight.png"
-      },
-      {
-        "pagePath": "pages/brand/brand",
-        "text": "品牌",
-        "iconPath": "img/tabbar_icon_brand_normal.png",
-        "selectedIconPath": "img/tabbar_icon_brand_highlight.png"
-      },
+     
       {
         "pagePath": "pages/profile/profile",
-        "text": "自选",
+        "text": "个人中心",
         "iconPath": "img/tabbar_icon_profile_normal.png",
         "selectedIconPath": "img/tabbar_icon_profile_highlight.png"
       }
@@ -63,4 +48,5 @@
   "navigateToMiniProgramAppIdList": [
     "wxe5f52902cf4de896"
   ]
+ 
 }

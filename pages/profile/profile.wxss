@@ -1,0 +1,14 @@
+
+
+.userMain{
+  width: 100%;
+  text-align: center;
+}
+.userNickName{
+  line-height: 60rpx;
+  
+}
+.userAvatarUrl{
+ width: 200rpx;
+ height: 200rpx;
+}

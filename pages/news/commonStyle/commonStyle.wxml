@@ -1,0 +1,18 @@
+
+ <block wx:for="{{tagList}}" wx:key=''>
+        
+          <view class='views'    bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index" data-index='{{index}}'>
+          <view class='mainContent' >
+              <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
+              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
+
+              <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
+            </view>
+            <view class='mainImg'>
+              <image class='newsImg' src="{{item.titlepic}} "  wx:for-index="index " data-index='{{index}}'></image>
+            </view>
+          </view>
+       
+ </block>
+
+ 

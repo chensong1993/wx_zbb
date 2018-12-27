@@ -8,3 +8,24 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+ /* "pages/data/data",
+  "pages/market/market",
+  "pages/brand/brand",
+  {
+    "pagePath": "pages/data/data",
+    "text": "数据",
+    "iconPath": "img/ic_data.png",
+    "selectedIconPath": "img/ic_data_select.png"
+  },
+  {
+    "pagePath": "pages/market/market",
+    "text": "行情",
+    "iconPath": "img/tabbar_icon_market_normal.png",
+    "selectedIconPath": "img/tabbar_icon_market_highlight.png"
+  },
+  {
+    "pagePath": "pages/brand/brand",
+    "text": "品牌",
+    "iconPath": "img/tabbar_icon_brand_normal.png",
+    "selectedIconPath": "img/tabbar_icon_brand_highlight.png"
+  }, */

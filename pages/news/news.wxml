@@ -1,55 +1,23 @@
-<!--pages/news/news.wxml-->
-<!-- <block wx:for="{{newsList}}"wx:key=''> 
-<view class='views'> 
-<view class='mainContent'> 
-<text class='title'>{{item.title}}</text> 
-<text class='newsType'>{{item.newsType}}</text> 
-<text class='publish'>{{item.source}}</text> 
-</view> 
-<view class='mainImg'> 
-<image class='newsImg' src="{{item.titlepic}}"></image> 
-</view> 
- 
-</view> 
-</block> -->
-<!-- <template name="newsLists"bindtap='newsDetails' wx:for-index="index" data-index='{{index}}'  >
-           <view class='views' wx:if="{{category[currentTab].id!=15}}" > 
-            <view class='mainContent' > 
-              <text class='title' bindtap='newsDetails' >{{title}}</text> 
-              <text class='newsType' bindtap='newsDetails' >{{newsType}}</text> 
-              <text class='publish' wx:if='{{newsType!=null}}' bindtap='newsDetails' >{{source}}</text> 
-              <text class='publish' wx:else style='left:{{20}}rpx;'bindtap='newsDetails' >{{source}}</text> 
-            </view> 
-            <view class='mainImg'> 
-              <image class='newsImg' src="{{titlepic}}" bindtap='newsDetails' ></image> 
-            </view> 
-           
-          </view> 
-         
-           </template >
-           
-           
-        <block wx:for="{{newsList}}" wx:key='' >  
-          <template is="newsLists"  data='{{...newsList[index]}}'/> -->
-  
-  <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
-  
+
+  <view class='Brefresh'>
+  <image class='refresh'  src='../../img/refresh.png' bindtap='refresh'></image>
+  </view>
   <!-- //顶部tab -->
-  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
-    <!-- <view bind class="tab-item {{currentTab==0?'active':''}}" data-current="{{index}}" data-id='0' bindtap="swichNav">推荐</view>  -->
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}"scroll-with-animation="{{true}}">
+    
     <block wx:for="{{category}}" wx:key=''>
 
       <view bind class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
 
     </block>
   </scroll-view>
- 
+
   <!-- 导航栏下内容 -->
-  <swiper class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
+  <swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
     <swiper-item wx:for="{{category}}" wx:key='' >
       <!-- bindscrolltolower='bindDownLoad' -->
-      <scroll-view scroll-y="true" class="scoll-h"  bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
-        <view  wx:if="{{category[currentTab].id==0}}">
+      <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true"  bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
+        <view  wx:if="{{currentTab==0}}">
           <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" autoplay='{{autoplay}}' circular='{{circular}}' style='height:{{Hei}}' bindchange='BannerIndex'>
             <block wx:for="{{bannerList}}" wx:key=''>
               <swiper-item>
@@ -60,9 +28,25 @@
           <view class='bannerTitle' wx:if='{{bannerIndexs==null}}'>{{bannerList[0].title}}</view>
           <view class='bannerTitle' wx:else>{{bannerTitle}}</view>
         </view>
-        <block wx:for="{{newsList}}" wx:key=''>
-          <view class='views'    wx:if="{{category[currentTab].id!=15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
-            <view class='mainContent'>
+        <!-- //公共的样式布局 -->
+        <!-- <include src="commonStyle/commonStyle.wxml" />
+        <block wx:for="{{newsList}}" wx:key=''> </block> -->
+         <block wx:for="{{newsList}}" wx:key=''>
+        <!-- 判断是否是专题 -->
+          <view class='views'    wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
+          <view class='mainContent'>
+              <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.name}}</text>
+              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
+
+              <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
+            </view>
+            <view class='mainImg'>
+              <image class='newsImg' src="{{item.photo}} "  wx:for-index="index " data-index='{{index}}'></image>
+            </view>
+          </view>
+          
+          <view class='views'  wx:else bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>
+             <view class='mainContent'>
               <text class='title' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
               <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
               <text class='publish' wx:if='{{item.newsType!=null}}' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
@@ -73,23 +57,10 @@
             </view>
 
           </view>
-          <!-- 判断是否是专题 -->
-          <view class='views'  wx:else bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>
-            <view class='mainContent'>
-              <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.name}}</text>
-              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
-
-              <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
-            </view>
-            <view class='mainImg'>
-              <image class='newsImg' src="{{item.photo}} "  wx:for-index="index " data-index='{{index}}'></image>
-            </view>
-
-          </view>
         </block>
-        
-        <view class="loadMore{{AddList==1?'active':''}}" wx:if="{{LoadMores>0}}" >正在加载...</view>
-        <view class="loadMore{{AddList==1?'active':''}}" wx:else>已加载全部内容</view>
+        <view class="loadMore {{LoadMores==1?'active':''}}"  >正在加载...</view>
+        <view class="loadMore {{LoadMores==2?'more':''}}">已加载全部内容</view>
       </scroll-view>
     </swiper-item>
   </swiper>
+<swiper wx:if="{{scroll!=1}}" style='dispaly:none'></swiper>

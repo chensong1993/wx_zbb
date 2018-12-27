@@ -17,40 +17,15 @@
 // module.exports = {
 //   formatTime: formatTime
 // }
-function renderTime(date) {
-var da = new Date(date);
-var Year = da.getFullYear(); //ie火狐下都可以
-var Month = da.getMonth() + 1;
-var Day = da.getDate();
-var Hours = da.getHours();
-var Minutes = da.getMinutes();
-var Seconds = da.getSeconds();
-var CurrentDate = "";
-CurrentDate += Year + "-";
-if (Month >= 10) {
-  CurrentDate += Month + "-";
-}
-else {
-  CurrentDate += "0" + Month + "-";
-}
-if (Day >= 10) {
-  CurrentDate += Day;
-}
-else {
-  CurrentDate += "0" + Day;
-}
-if (Hours < 10) {
-  Hours = "0" + Hours;
-}
-if (Minutes < 10) {
-  Minutes = "0" + Minutes;
-}
-if (Seconds < 10) {
-  Seconds = "0" + Seconds;
-}
-return CurrentDate  ;
-}
 
+
+function renderTime(date) {
+  var now = new Date(date);
+  var dates = now.getFullYear() + "-" + ((now.getMonth() + 1) < 10 ? "0" : "") + (now.getMonth() + 1) + "-" + (now.getDate() < 10 ? "0" : "") + now.getDate();
+
+return dates  ;
+}
+//防止短时间内重复点击
 function buttonClicked(self) {
   self.setData({
 
@@ -73,6 +48,7 @@ function buttonClicked(self) {
 
 //扩展的方法需要在Module里去声明
 module.exports = {
+ 
   renderTime: renderTime,
  buttonClicked: buttonClicked,
 }

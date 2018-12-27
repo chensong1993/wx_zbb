@@ -1,0 +1,13 @@
+@import "../commonStyle/commonStyle.wxss";
+
+.loadMores.active{
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  display: block;
+}
+
+.loadMores{
+  display: none;
+}
