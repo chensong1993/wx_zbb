@@ -1,39 +1,44 @@
 
-  <view class='Brefresh'>
-  <image class='refresh'  src='../../img/refresh.png' bindtap='refresh'></image>
-  </view>
-  <!-- //顶部tab -->
-  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}"scroll-with-animation="{{true}}">
-    
-    <block wx:for="{{category}}" wx:key=''>
+<navigation-bar  enable="true" show-loading="true" title="123" ></navigation-bar> 
+<view class='Brefresh'>
+  <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
+</view>
+<!-- 搜索按钮 -->
+<view class='v_search' bindtap='newsSearch'>
+  <image src='../../img/ic_search.png' class='search'></image>
+</view>
+<!-- //顶部tab -->
+<scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}" scroll-with-animation="{{true}}">
 
-      <view bind class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
+  <block wx:for="{{category}}" wx:key=''>
 
-    </block>
-  </scroll-view>
+    <view bind class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
 
-  <!-- 导航栏下内容 -->
-  <swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
-    <swiper-item wx:for="{{category}}" wx:key='' >
-      <!-- bindscrolltolower='bindDownLoad' -->
-      <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true"  bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
-        <view  wx:if="{{currentTab==0}}">
-          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" autoplay='{{autoplay}}' circular='{{circular}}' style='height:{{Hei}}' bindchange='BannerIndex'>
-            <block wx:for="{{bannerList}}" wx:key=''>
-              <swiper-item>
-                <image src="{{item.featured_image}}" bindtap='bannerDetail' class="slide-image" mode="widthFix" bindload='imgH' />
-              </swiper-item>
-            </block>
-          </swiper>
-          <view class='bannerTitle' wx:if='{{bannerIndexs==null}}'>{{bannerList[0].title}}</view>
-          <view class='bannerTitle' wx:else>{{bannerTitle}}</view>
-        </view>
-        <!-- //公共的样式布局 -->
-        <!-- <include src="commonStyle/commonStyle.wxml" />
-        <block wx:for="{{newsList}}" wx:key=''> </block> -->
-         <block wx:for="{{newsList}}" wx:key=''>
-        <!-- 判断是否是专题 -->
-          <view class='views'    wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
+  </block>
+</scroll-view>
+
+<!-- 导航栏下内容 -->
+<swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
+  <swiper-item wx:for="{{category}}" wx:key=''>
+    <!-- bindscrolltolower='bindDownLoad' -->
+    <scroll-view  scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
+      <view wx:if="{{index==0}}">
+        <swiper class='bannerH' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" autoplay='{{autoplay}}' circular='{{circular}}'  bindchange='BannerIndex'>
+          <block wx:for="{{bannerList}}" wx:key=''>
+            <swiper-item>
+              <image src="{{item.featured_image}}" bindtap='bannerDetail' class="slide-image" mode="widthFix"  />
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class='bannerTitle' wx:if='{{bannerIndexs==null}}'>{{bannerList[0].title}}</view>
+        <view class='bannerTitle' wx:else>{{bannerTitle}}</view>
+      </view>
+      <!-- //公共的样式布局 -->
+      <include src="commonStyle/commonStyle.wxml" />
+      <block wx:for="{{newsList}}" wx:key=''> </block>
+      <!-- <block wx:for="{{newsList}}" wx:key=''> -->
+      <!-- 判断是否是专题 -->
+      <!-- <view class='views'    wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
           <view class='mainContent'>
               <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.name}}</text>
               <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
@@ -57,10 +62,22 @@
             </view>
 
           </view>
-        </block>
-        <view class="loadMore {{LoadMores==1?'active':''}}"  >正在加载...</view>
-        <view class="loadMore {{LoadMores==2?'more':''}}">已加载全部内容</view>
-      </scroll-view>
-    </swiper-item>
-  </swiper>
-<swiper wx:if="{{scroll!=1}}" style='dispaly:none'></swiper>
+        </block> -->
+      <wxs src="news.wxs" module="news_load"></wxs>
+      <view class="loadMore" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>
+     
+    </scroll-view>
+  </swiper-item>
+</swiper>
+<swiper wx:if="{{scroll!=1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
+  <swiper-item wx:for="{{category}}" wx:key=''>
+    <!-- bindscrolltolower='bindDownLoad' -->
+    <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
+    <view class='mainLoading'>
+    <!-- <image  animation="{{animation}}" class='loadiiii' src='../../img/loading.png'></image> -->
+    <image class='loadText' src='../../img/ic_load_text.png'></image> 
+    </view>
+    
+    </scroll-view>
+  </swiper-item>
+</swiper>

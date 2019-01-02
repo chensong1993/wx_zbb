@@ -18,10 +18,10 @@ Page({
         })
       }
     })
-    //更改顶部标题
-    wx.setNavigationBarTitle({
-      title: '个人中心'
-    })
+    // //更改顶部标题
+    // wx.setNavigationBarTitle({
+    //   title: '个人中心'
+    // })
     
   },
 

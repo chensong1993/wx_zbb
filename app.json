@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/news/news",
-   
+      "pages/news/news",
+    "pages/news/newsSearch/newsSearch",
+  
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",
     "pages/webview/webview",
@@ -9,6 +10,7 @@
     "pages/news/commonStyle/commonStyle",
     "pages/news/topicDetails/topicDetails",
     "pages/news/columnsDetails/columnsDetails"
+   
     
   ],
   "window": {
@@ -18,7 +20,6 @@
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh":true
    
-
   },
   "tabBar": {
     "color":"#666666",

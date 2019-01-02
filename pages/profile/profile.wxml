@@ -1,12 +1,14 @@
-<!--logs.wxml-->
-<!-- <open-data class="userAvatarUrl" type="userAvatarUrl"></open-data>
-<open-data class="userNickName" type="userNickName"></open-data> -->
-<!-- 需要使用 button 来授权登录 -->
-<!-- <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-<view wx:else>请升级微信版本</view> -->
+
+
 <view class='userMain'>
 <view class='userAll' bindtap=''>
 <image class='userAvatarUrl' src='{{userInfo.avatarUrl}}'></image>
+<view class='profile'>
 <view class="userNickName">{{userInfo.nickName}}</view>
+<!-- <view class='gender' wx:if="{{userInfo.gender==1}}">男</view>
+<view class='gender' wx:else if="{{userInfo.gender==2}}">女</view> -->
+<wxs src="profile.wxs" module="some_comms"></wxs>
+<view class='gender' >{{some_comms.gender(userInfo.gender)}}</view>
+</view>
 </view>
 </view>

@@ -37,7 +37,7 @@ Page({
         success(res) {
           that.setData({ //很重要 
             newsDetails: res.data.results[index],
-            newsDate: util.renderTime(res.data.results[index].publishing_date),
+            newsDate: res.data.results[index].publishing_date,
             content: 1,
 
           })
@@ -108,7 +108,7 @@ Page({
         success(res) {
           that.setData({ //很重要 
             newsDetails: res.data.results[index],
-            newsDate: util.renderTime(res.data.results[index].publishing_date),
+            newsDate: res.data.results[index].publishing_date,
             content: 1,
 
           })
@@ -131,11 +131,15 @@ Page({
     var that = this;
     var tag = e.target.dataset.tag;
     console.log(tag)
+    if (that.data.buttonClicked) {
     wx.navigateTo({
       url: '../detailTag/detailTag?detailTag=' + tag,
     })
+    }
+    util.buttonClicked(this);
   },
   wxParseTagATap: function(e) {
+    if (this.data.buttonClicked) {
     var href = e.currentTarget.dataset.src;
     console.log(href);
     var originalId = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html'));
@@ -147,7 +151,8 @@ Page({
       })
     }
 
-
+    }
+    util.buttonClicked(this);
   },
   /** 
   * 用户点击右上角分享 

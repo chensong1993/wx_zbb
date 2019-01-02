@@ -1,0 +1,78 @@
+@import "../commonStyle/commonStyle.wxss";
+
+.vNews {
+  padding: 20rpx 20rpx;
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+  height: 60rpx;
+  position: fixed;
+  z-index: 99;
+  background: white;
+
+}
+.newsList{ 
+  padding-top: 100rpx;
+}
+.newsSearch {
+  width: 550rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: rgb(243, 239, 239);
+  border-radius: 25rpx;
+  margin: 0rpx 20rpx 20rpx 0rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+  float: left;
+  flex: 1;
+}
+.clearAll.show{
+  width: 80rpx;
+  height: 60rpx;
+  padding-top: 10rpx;
+  left: 510rpx;
+  text-align: center;
+  z-index: 99;
+  position: fixed;
+  display: block;
+  
+}
+.clearAll{
+  
+  display: none;
+}
+.clear{
+  width: 40rpx;
+  height: 40rpx;
+}
+.cancle {
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #4093ff;
+  margin-left: 20rpx;
+}
+
+.errs {
+  display: none;
+}
+
+.errs.show {
+  display: block;
+  height: 500rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 500rpx;
+  font-size: 30rpx;
+}
+.loadMores.active{
+  height: 100rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  display: block;
+}
+
+.loadMores{
+  display: none;
+}

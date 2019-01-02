@@ -4,10 +4,11 @@
   display: block;
   text-align: center;
 } */
-::-webkit-scrollbar{
-width: 0;
-height: 0;
-color: transparent;
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 
 .views {
@@ -60,18 +61,38 @@ color: transparent;
   position: relative;
 }
 
+.v_search {
+   width: 65rpx;
+  height: 79rpx;
+  line-height: 79rpx;
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  z-index: 99;
+  border-bottom: 1rpx solid rgb(224, 224, 224);
+}
+
+.search {
+  margin-top: 20rpx;
+  width: 35rpx;
+  height: 35rpx;
+  padding-left: 20rpx;
+}
+
 .tab-h {
   height: 80rpx;
   width: 100%;
+  padding-right: 60rpx;
   box-sizing: border-box;
   overflow: hidden;
-  line-height: 80rpx;
-  background: #f7f7f7;
+  line-height: 72rpx;
+  background: white;
   font-size: 16px;
+  border-bottom: 1rpx solid rgb(224, 224, 224);
   white-space: nowrap;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 65rpx;
   z-index: 99;
 }
 
@@ -82,10 +103,11 @@ color: transparent;
 
 .tab-item.active {
   color: #4675f9;
-  position: relative;
+  border-bottom: 8rpx #4675f9 solid;
+ 
 }
 
-.tab-item.active:after {
+/* .tab-item.active:after {
   content: "";
   display: block;
   height: 8rpx;
@@ -93,23 +115,29 @@ color: transparent;
   background: #4675f9;
   position: absolute;
   bottom: 0;
-  left: 5rpx;
+  text-align: center;
   border-radius: 16rpx;
-}
+} */
 
 .tab-content {
   margin-top: 80rpx;
-  display: block
+  display: block;
 }
-.tab-content .active{
+
+.tab-content .active {
   display: none;
 }
+
 .scoll-h {
   height: 100%;
 }
 
 .slide-image {
   width: 100%;
+  
+}
+.bannerH{
+  height: 410rpx;
 }
 
 .bannerTitle {
@@ -124,37 +152,45 @@ color: transparent;
   text-overflow: ellipsis; /*超出部分文字以...显示*/
 }
 
-.loadMore{
-  display: none;
-  
-}
-.loadMore.active{
+.loadMore {
   display: block;
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-   background: white;
-   color: black;
-   text-align: center;
+  background: white;
+  color: black;
+  text-align: center;
 }
-.loadMore.more{
+/* .loadMore.active {
   display: block;
   width: 100%;
   height: 100rpx;
   line-height: 100rpx;
-   background: white;
-   color: black;
-   text-align: center;
+  background: white;
+  color: black;
+  text-align: center;
 }
-.refresh{
+
+.loadMore.more {
+  display: block;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: white;
+  color: black;
+  text-align: center;
+} */
+
+.refresh {
   position: fixed;
   z-index: 9999;
   bottom: 32rpx;
   right: 30rpx;
   width: 60rpx;
-  height:60rpx;
+  height: 60rpx;
 }
-.Brefresh{
+
+.Brefresh {
   position: fixed;
   bottom: 20rpx;
   right: 20rpx;
@@ -164,11 +200,26 @@ color: transparent;
   background: white;
   border-radius: 100rpx;
   border: 1rpx solid white;
-  box-shadow: 2rpx 2rpx 10rpx rgb(224, 224, 224) 
+  box-shadow: 2rpx 2rpx 10rpx rgb(224, 224, 224);
 }
+
 .scroll {
-  display: none
+  display: none;
 }
-.scroll .active{
-  display: block
+
+.scroll .active {
+  display: block;
+}
+
+
+.mainLoading{
+height: 800rpx;
+width: 100%;
+text-align: center;
+line-height: 800rpx;
+}
+
+.loadText{
+ height: 210rpx;
+ width: 450rpx;
 }

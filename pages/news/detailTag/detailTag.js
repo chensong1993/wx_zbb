@@ -134,7 +134,7 @@ Page({
 
      },
      success(res) {
-       if (res.data.results!=null){
+       if (res.data.results.length!=0){
        var tagList=news.concat(res.data.results);
        that.setData({ //很重要 
          tagList: tagList,
@@ -153,7 +153,9 @@ Page({
        }
      },
      fail() {
-
+       that.setData({ //很重要 
+         more: -1
+       })
        wx.showToast({
          title: '加载失败',
          duration: 2000,

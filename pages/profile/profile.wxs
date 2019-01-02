@@ -1,0 +1,20 @@
+
+
+var man="男";
+var woman="女";
+
+var gender=function(s){
+  switch(s){
+    case 1:
+      return man;
+    break
+    case 2:
+     return woman;
+    break
+  }
+}
+module.exports = {
+  gender: gender,
+  man: man,
+  woman:woman
+};

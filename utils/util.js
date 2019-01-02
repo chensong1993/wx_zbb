@@ -23,35 +23,31 @@ function renderTime(date) {
   var now = new Date(date);
   var dates = now.getFullYear() + "-" + ((now.getMonth() + 1) < 10 ? "0" : "") + (now.getMonth() + 1) + "-" + (now.getDate() < 10 ? "0" : "") + now.getDate();
 
-return dates  ;
+  return dates;
 }
 //防止短时间内重复点击
 function buttonClicked(self) {
   self.setData({
 
-  buttonClicked: false
+    buttonClicked: false
 
   })
 
-  setTimeout(function () {
+  setTimeout(function() {
     self.setData({
 
       buttonClicked: true
 
     })
 
-  },2000)
- return buttonClicked;
+  }, 2000)
+  return buttonClicked;
 }
 
 
 
 //扩展的方法需要在Module里去声明
 module.exports = {
- 
   renderTime: renderTime,
- buttonClicked: buttonClicked,
+  buttonClicked: buttonClicked,
 }
-
-
-
