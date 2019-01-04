@@ -1,21 +1,164 @@
-<!--index.wxml-->
-<view>12313456</view>
-<template name="newsLists">
-  <view class='views' wx:if="{{category[currentTab].id!=15}}" bindtap='newsDetails' wx:for-index="index" data-index='{{index}}'> 
-            <view class='mainContent' > 
-              <text  >{{firstName}}</text> 
-              <text  >{{id}}</text> 
-            </view> 
-            <view class='mainImg'> 
-              <image class='newsImg' src="{{id}}" bindtap='newsDetails' ></image> 
-            </view> 
-           
-          </view>  
-</template>
+<view class='data-main'>
 
-<!-- <template name='staffName' class='news_main'>
-  <view class="title">FirstName: {{firstName}}</view>
-  <view class="content"> LastName: {{lastName}}</view>
-  <image class="imgs"></image>
-</template> -->
-<template is="newsLists" data="{{...staffA}}"></template> 
+  <view class="weui-grids">
+    <view class="weui-grid" wx:for="{{dataCategory}}" wx:key="name">
+      <view class="weui-grid__icon">
+        <image src=" {{item.icon}}" mode="scaleToFill" />
+      </view>
+      <text class="weui-grid__label">{{item.name}}</text>
+    </view>
+  </view>
+
+  <view class='data-distribution'>
+    <view class='diqu-distribution'>
+      <text class='fenbu'>挂牌公司地区分布</text>
+      <text class='diqu'>广东省</text>
+      <text class='percent'>16.21%</text>
+      <text class=''>2059</text>
+    </view>
+
+    <view class='hangye-distribution'>
+      <text class='fenbu'>挂牌公司地区分布</text>
+      <text class='diqu'>广东省</text>
+      <text class='percent'>16.21%</text>
+      <text class=''>2059</text>
+    </view>
+  </view>
+
+  <view class='guapai-mains'>
+    <view class='guapai-gongsi'>
+      <text class='gongsi'>挂牌公司</text>
+      <text class='date'>2019-1-3</text>
+    </view>
+
+    <view class='guapai-main' wx:for="0,1" wx:key="">
+    <text class='guapai-name'>挂牌数量</text>
+    <text class='guapai-num'>10568家</text>
+    </view>
+  </view>
+ 
+  
+  <view class='hangye-main' >
+    <view class='hangye' bindtap='hangye'>
+      <text class='hangye-header'>行业统计</text>
+      <image class='next' src='../../img/ic_back.png'></image>
+    </view>
+  
+    <block wx:for="0,1">
+    <view class='hangye-category' >
+    <view>
+    <text class='hangye-title'>软件和信息及时服务业</text>
+    <text class='hangye-num'>1775家</text>
+    </view>
+    
+    <view class='left-content'>
+    <text class='left-content1'>股本：</text>
+    <text class='left-content2'>1775家</text>
+    </view>
+    <view class='right-content'>
+    <text class='right-content1'>总资产：</text>
+    <text class='right-content2'>1775家</text>
+    </view>
+   
+
+    <view class='left-content'>
+    <text class='left-content1'>营收：</text>
+    <text class='left-content2'>1775家</text>
+    </view>
+    <view class='right-content'>
+    <text class='right-content1'>营收同比增长：</text>
+    <text class='right-content2'>1775家</text>
+    </view>
+    
+
+    
+    <view class='left-content'>
+    <text class='left-content1'>净利润：</text>
+    <text class='left-content2'>1775家</text>
+    </view>
+    
+    <view class='right-content'>
+    <text  class='right-content1'>净利润同比增长：</text>
+    <text  class='right-content2'>1775家</text>
+    </view>
+
+    </view>
+    </block>
+  </view>
+
+   <view class='hangye-main' >
+    <view class='hangye'>
+      <text class='hangye-header' >主办券商排行</text>
+      <image class='next' src='../../img/ic_back.png'></image>
+    </view>
+
+    <view class='zhuban-main'>
+    <text class='data-name'>券商名称</text>
+    <text class='data-num'>主办数量</text>
+    </view>
+    <block wx:for="0,1,2">
+    <view class='zhuban-content'>
+    <text class='name' >申万宏源证券公司</text>
+    <text class='num'>741</text>
+    </view>
+    </block>
+    </view>
+
+    <view class='hangye-main' >
+    <view class='hangye' >
+      <text class='hangye-header' >做市商排行</text>
+      <image class='next' src='../../img/ic_back.png'></image>
+    </view>
+
+    <view class='zhuban-main'>
+    <text class='data-name'>做市商名称</text>
+    <text class='data-num'>做市数量</text>
+    </view>
+
+    <block wx:for="0,1,2">
+    <view class='zhuban-content'>
+    <text class='name' >兴业证券公司</text>
+    <text class='num'>345</text>
+    </view>
+    </block>
+    </view>
+
+    <view class='hangye-main' >
+    <view class='hangye' >
+      <text class='hangye-header' >律师事务所排行</text>
+      <image class='next' src='../../img/ic_back.png'></image>
+    </view>
+
+    <view class='zhuban-main'>
+    <text class='data-name'>律师事务所名称</text>
+    <text class='data-num'>服务数量</text>
+    </view>
+
+    <block wx:for="0,1,2">
+    <view class='zhuban-content'>
+    <text class='name' >北京德恒事务所</text>
+    <text class='num'>300</text>
+    </view>
+    </block>
+    </view>
+
+    <view class='hangye-main' >
+    <view class='hangye' >
+      <text class='hangye-header' >会计事务所排行</text>
+      <image class='next' src='../../img/ic_back.png'></image>
+    </view>
+
+    <view class='zhuban-main'>
+    <text class='data-name'>会计事务所名称</text>
+    <text class='data-num'>服务数量</text>
+    </view>
+
+    <block wx:for="0,1,2">
+    <view class='zhuban-content'>
+    <text class='name' >新历会计事务所</text>
+    <text class='num'>866</text>
+    </view>
+    </block>
+    </view>
+
+</view>

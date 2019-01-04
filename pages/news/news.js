@@ -84,6 +84,7 @@ Page({
   },
   // 滚动切换标签样式 
   switchTab: function(e) {
+    
      var that = this; 
     // that.loadIngMore();
     // var datas = e.target.dataset.id;
@@ -103,7 +104,14 @@ Page({
     //加载动画
    // that.loading();
     var cur = e.detail.current;
-    var singleNavWidth = this.data.windowWidth / 6;
+    console.log(this.data.windowWidth+"-----------------------------");
+    if (this.data.windowWidth > 300 && this.data.windowWidth<375){
+      var singleNavWidth = this.data.windowWidth / 5;
+    } else if (this.data.windowWidth > 375 && this.data.windowWidth < 600){
+      var singleNavWidth = this.data.windowWidth / 6;
+    }else{
+      var singleNavWidth = this.data.windowWidth / 7;
+    }
     var source = e.detail.source;
     if (source) {
       this.setData({
@@ -128,10 +136,10 @@ Page({
         var urls = 'http://api.chinaipo.com/zh-hans/api/articles/';
         break;
     }
-
-    wx.showLoading({
-      title: '加载中',
-    })
+    wx.showNavigationBarLoading();
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     wx.request({
       url: urls,
       method: 'GET',
@@ -162,15 +170,17 @@ Page({
         }
        // clearInterval(that.interval);
         that.data.newsList = res.data.results;
-        wx.hideLoading();
+      //  wx.hideLoading();
+        wx.hideNavigationBarLoading();
       },
       fail() {
-        wx.hideLoading();
+      //  wx.hideLoading();
         wx.showToast({
           title: '加载失败',
           icon: 'none',
           scroll: -1
         })
+        wx.hideNavigationBarLoading();
       //  clearInterval(that.interval);
       }
 
@@ -208,9 +218,10 @@ Page({
           var urls = 'http://api.chinaipo.com/zh-hans/api/articles/';
           break;
       }
-      wx.showLoading({
-        title: '加载中',
-      })
+      wx.showNavigationBarLoading();
+      // wx.showLoading({
+      //   title: '加载中',
+      // })
       wx.request({
         url: urls,
         method: 'GET',
@@ -225,7 +236,8 @@ Page({
           
         },
         success(res) {
-          wx.hideLoading();
+          wx.hideNavigationBarLoading();
+        //  wx.hideLoading();
           if (res.data.results.length < 5) {
             that.setData({
               newsList: res.data.results,
@@ -244,11 +256,12 @@ Page({
           console.log(res.data.results)
         },
         fail(){
-          wx.hideLoading();
+        //  wx.hideLoading();
           wx.showToast({
             title: '加载失败',
             icon:'none'
           })
+          wx.hideNavigationBarLoading();
         //  clearInterval(that.interval);
         }
         
@@ -327,7 +340,7 @@ Page({
   onLoad: function(e) {
     var cout;
     var cout2;
-    
+   
     var arrays = {
       id: 0,
       name: '推荐'
@@ -338,9 +351,10 @@ Page({
     var that = this //很重要 
     //加载动画
    // that.loading();
-    wx.showLoading({
-      title: '加载中',
-    })
+    wx.showNavigationBarLoading();
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',
       method: 'GET',
@@ -375,7 +389,7 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-        wx.hideLoading();
+      //  wx.hideLoading();
       },
       success(res) {
         if (cout != undefined) {
@@ -427,7 +441,7 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete(res) {
-        wx.hideLoading();
+      //  wx.hideLoading();
 
       },
       success(res) {
@@ -436,9 +450,10 @@ Page({
           newsList: res.data.results,
           scroll:1
         })
+        wx.hideNavigationBarLoading()
         that.data.newsList = res.data.results;
         console.log(res.data.results)
-        clearInterval(that.interval);
+       // clearInterval(that.interval);
       },
       fail() {
         wx.showToast({
@@ -446,6 +461,7 @@ Page({
           duration: 2000,
           icon: 'none'
         })
+        wx.hideNavigationBarLoading();
        // clearInterval(that.interval);
       }
 
@@ -501,6 +517,7 @@ Page({
     } else {
       var currentTab = that.data.newsId;
     }
+    wx.showNavigationBarLoading();
     console.log(currentTab);
     var news = that.data.newsList;
     var resArr = [];
@@ -521,7 +538,7 @@ Page({
       LoadMores: 1
     })
 
-    wx.hideLoading();
+   // wx.hideLoading();
     wx.request({
       url: urls,
       method: 'GET',
@@ -532,8 +549,11 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值 
       },
-      complete() {},
+      complete() {
+        
+      },
       success(res) {
+        wx.hideNavigationBarLoading();
         that.setData({ //很重要 
         //  resArr: res.data.results,
         })
@@ -547,11 +567,11 @@ Page({
           })
           that.data.hasMore = true;
         } else {
-          wx.showToast({
-            title: '已加载全部',
-            duration: 2000,
-            icon: 'none'
-          })
+          // wx.showToast({
+          //   title: '已加载全部',
+          //   duration: 2000,
+          //   icon: 'none'
+          // })
           that.setData({
             LoadMores: 2,
 
@@ -561,11 +581,11 @@ Page({
 
       },
       fail() {
-
         that.setData({
           LoadMores: -1,
 
         })
+        wx.hideNavigationBarLoading();
       }
 
     })
@@ -608,7 +628,8 @@ Page({
       oneTab: '0',
       ok: true
     });
-      that.loading();
+     // that.loading();
+     
     if (newsId == undefined) {
       newsId = 0
     } else {

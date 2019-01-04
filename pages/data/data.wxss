@@ -1,1 +1,186 @@
-/**index.wxss**/
+@import "weui.wxss";
+
+.data-main {
+  
+}
+
+
+.data-distribution {
+  overflow: hidden;
+  clear: both;
+  border-top: 12rpx solid #ececec;
+}
+
+.data-distribution text {
+  display: block;
+  text-align: center;
+  margin: 20rpx 30rpx;
+  height: 25rpx;
+  font-size: 28rpx;
+}
+
+.diqu {
+  font-weight: bold;
+}
+
+.percent {
+  color: red;
+}
+
+.fenbu {
+  font-size: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #ececec;
+}
+
+.diqu-distribution {
+  float: left;
+  left: 0;
+  width: 50%;
+}
+
+.hangye-distribution {
+  float: right;
+  right: 0;
+  width: 50%;
+}
+
+.guapai-mains {
+  border-top: 12rpx solid #ececec;
+}
+
+.guapai-gongsi {
+  padding: 10rpx 20rpx;
+  line-height: 65rpx;
+  border-bottom: 1rpx solid #ececec;
+  font-size: 32rpx;
+}
+
+.guapai-gongsi .gongsi {
+  border-left: 10rpx solid #4093ff;
+  padding-left: 10rpx;
+  font-weight: bold;
+   
+}
+
+.guapai-gongsi .date {
+  float: right;
+}
+.guapai-main{
+  overflow: hidden;
+  clear: both;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+.guapai-main .guapai-name{
+  float: left;
+
+}
+.guapai-main .guapai-num{
+  float: right;
+  color: red;
+}
+
+.hangye-main{
+  
+}
+.hangye{
+   overflow: hidden;
+  clear: both;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #ececec;
+  border-top: 12rpx solid #ececec;
+  
+}
+.hangye-header{
+padding-left: 10rpx;
+border-left: 10rpx solid #4093ff;
+font-size: 32rpx;
+font-weight: bold;
+} 
+.hangye-main .next{
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
+  transform: rotate(180deg);
+}
+
+.hangye-category{
+  margin: 0 20rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+.hangye-title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.hangye-num{
+  float: right;
+  font-weight: bold;
+  color: red;
+}
+
+.left-content{
+  width: 50%;
+  float: left;
+}
+.left-content1{ 
+}
+.left-content2{
+  float: right;
+  padding-right: 20rpx;
+}
+.right-content{
+  width: 50%;
+  float:right;
+}
+.right-content1{
+ padding-left: 20rpx; 
+}
+.right-content2{
+  float: right;
+}
+
+.zhuban-main{
+}
+.right-content1{
+ padding-left: 20rpx; 
+}
+.right-content2{
+  float: right;
+}
+
+.zhuban-main{
+  clear: both;
+  overflow: hidden;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #ececec;
+  font-size: 28rpx;
+}
+.zhuban-main .data-name{
+
+}
+.zhuban-main .data-num{
+  float: right
+}
+.zhuban-content{
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #ececec;
+  font-size: 28rpx;
+}
+.zhuban-content .name{
+
+}
+.zhuban-content .num{
+  float: right
+}

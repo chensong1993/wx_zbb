@@ -15,10 +15,11 @@ Page({
     var index = 0;
     var originalId = options.originalId
     that.data.originalId = options.originalId
-    wx.showLoading({
-      title: '加载中',
+    // wx.showLoading({
+    //   title: '加载中',
 
-    })
+    // })
+    wx.showNavigationBarLoading();
     this.setData({
         content: -1,
       }),
@@ -32,9 +33,10 @@ Page({
           'content-type': 'application/json' // 默认值 
         },
         complete() {
-          wx.hideLoading();
+         // wx.hideLoading();
         },
         success(res) {
+          wx.hideNavigationBarLoading();
           that.setData({ //很重要 
             newsDetails: res.data.results[index],
             newsDate: res.data.results[index].publishing_date,
@@ -85,10 +87,11 @@ Page({
     var that = this;
     var originalId = that.data.originalId
     var index = 0;
-    wx.showLoading({
-      title: '加载中',
+    // wx.showLoading({
+    //   title: '加载中',
 
-    })
+    // })
+    wx.showNavigationBarLoading();
     this.setData({
         content: -1,
       }),
@@ -102,7 +105,8 @@ Page({
           'content-type': 'application/json' // 默认值 
         },
         complete() {
-          wx.hideLoading();
+        //  wx.hideLoading();
+          wx.hideNavigationBarLoading();
           wx.stopPullDownRefresh();
         },
         success(res) {

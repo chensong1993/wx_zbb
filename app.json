@@ -1,8 +1,9 @@
 {
   "pages": [
-      "pages/news/news",
+    "pages/data/data",
+    "pages/news/news",
+    
     "pages/news/newsSearch/newsSearch",
-  
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",
     "pages/webview/webview",
@@ -10,21 +11,17 @@
     "pages/news/commonStyle/commonStyle",
     "pages/news/topicDetails/topicDetails",
     "pages/news/columnsDetails/columnsDetails"
-   
-    
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "资本邦",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
-   
+    "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color":"#666666",
+    "color": "#666666",
     "selectedColor": "#000000",
-
     "list": [
       {
         "pagePath": "pages/news/news",
@@ -32,7 +29,12 @@
         "iconPath": "img/tabbar_icon_news_normal.png",
         "selectedIconPath": "img/tabbar_icon_news_highlight.png"
       },
-     
+      {
+        "pagePath": "pages/data/data",
+        "text": "数据",
+        "iconPath": "img/ic_data.png",
+        "selectedIconPath": "img/ic_data_select.png"
+      },
       {
         "pagePath": "pages/profile/profile",
         "text": "个人中心",
@@ -49,5 +51,4 @@
   "navigateToMiniProgramAppIdList": [
     "wxe5f52902cf4de896"
   ]
- 
 }

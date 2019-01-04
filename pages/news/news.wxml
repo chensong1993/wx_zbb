@@ -1,5 +1,4 @@
 
-<navigation-bar  enable="true" show-loading="true" title="123" ></navigation-bar> 
 <view class='Brefresh'>
   <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
 </view>
@@ -21,7 +20,7 @@
 <swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
   <swiper-item wx:for="{{category}}" wx:key=''>
     <!-- bindscrolltolower='bindDownLoad' -->
-    <scroll-view  scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
+    <scroll-view  scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3" lower-threshold="50">
       <view wx:if="{{index==0}}">
         <swiper class='bannerH' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" autoplay='{{autoplay}}' circular='{{circular}}'  bindchange='BannerIndex'>
           <block wx:for="{{bannerList}}" wx:key=''>
@@ -71,10 +70,10 @@
 </swiper>
 <swiper wx:if="{{scroll!=1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
   <swiper-item wx:for="{{category}}" wx:key=''>
-    <!-- bindscrolltolower='bindDownLoad' -->
+ 
     <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
     <view class='mainLoading'>
-    <!-- <image  animation="{{animation}}" class='loadiiii' src='../../img/loading.png'></image> -->
+    
     <image class='loadText' src='../../img/ic_load_text.png'></image> 
     </view>
     
