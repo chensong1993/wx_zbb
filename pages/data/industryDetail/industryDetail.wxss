@@ -1,0 +1,46 @@
+
+
+.data-main {
+  
+}
+
+
+.hangye-category{
+   clear: both;
+  overflow: hidden;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  border-bottom: 12rpx solid #ececec;
+ 
+}
+.hangye-title{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.hangye-num{
+  float: right;
+  font-weight: bold;
+  color: #d71820;
+}
+.left-content{
+  width: 50%;
+  float: left;
+}
+.left-content1{ 
+}
+.left-content2{
+  float: right;
+  padding-right: 20rpx;
+}
+.right-content{
+  width: 50%;
+  float:right;
+}
+.right-content1{
+ padding-left: 20rpx; 
+}
+.right-content2{
+  float: right;
+}

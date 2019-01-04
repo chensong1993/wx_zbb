@@ -2,7 +2,6 @@
   "pages": [
     "pages/data/data",
     "pages/news/news",
-    
     "pages/news/newsSearch/newsSearch",
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",
@@ -10,7 +9,8 @@
     "pages/news/detailTag/detailTag",
     "pages/news/commonStyle/commonStyle",
     "pages/news/topicDetails/topicDetails",
-    "pages/news/columnsDetails/columnsDetails"
+    "pages/news/columnsDetails/columnsDetails",
+    "pages/data/industryDetail/industryDetail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

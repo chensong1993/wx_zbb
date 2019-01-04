@@ -1,0 +1,50 @@
+var resultValue = "";
+var absValue;
+var conversionValue;
+var percentV;
+var stockValue = function (value) {
+  if (value == null) {
+    return "--";
+  }
+  absValue = Math.abs(value);
+  //万亿
+  conversionValue = absValue / Math.pow(10, 12);
+  if (value < 0) {
+    resultValue = "-";
+  }
+  if (conversionValue > 1) {
+    resultValue = (absValue / 1000000000000).toFixed(2) + "万亿";
+    return resultValue;
+  }
+  
+ 
+  if (absValue / 100000000 > 1) {
+    resultValue = (absValue / 100000000).toFixed(2) + "亿";
+    return resultValue;
+  }
+
+  if (absValue / 10000 > 1) {
+    resultValue = (absValue / 10000).toFixed(2) + "万";
+    return resultValue;
+  }
+
+  resultValue = absValue.toFixed(2);
+  //console.log(resultValue);
+  return resultValue;
+
+}
+
+var percentValue=function(value){
+  percentV = value.toFixed(2);
+  return percentV+"%";
+  console.log(value);
+}
+module.exports = {
+  stockValue: stockValue,
+  resultValue: resultValue,
+  absValue: absValue,
+  conversionValue: conversionValue,
+  percentValue: percentValue,
+  percentV: percentV
+
+};

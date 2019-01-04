@@ -32,7 +32,7 @@
 .weui-grid {  
   position: relative;  
   float: left;  
-  padding: 20rpx 10rpx;  
+  padding: 30rpx 10rpx;  
   width: 25%;  
   box-sizing: border-box;  
 }  
@@ -78,7 +78,7 @@
   height: 100%;  
 }  
 .weui-grid__icon + .weui-grid__label {  
-  margin-top: 10rpx;  
+  margin-top: 20rpx;  
 }  
 .weui-grid__label {  
   display: block;  

@@ -9,6 +9,7 @@
   overflow: hidden;
   clear: both;
   border-top: 12rpx solid #ececec;
+  margin-bottom: 20rpx;
 }
 
 .data-distribution text {
@@ -16,7 +17,7 @@
   text-align: center;
   margin: 20rpx 30rpx;
   height: 25rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
 }
 
 .diqu {
@@ -24,12 +25,12 @@
 }
 
 .percent {
-  color: red;
+  color: #d71820;
 }
 
 .fenbu {
   font-size: 30rpx;
-  padding-bottom: 20rpx;
+  padding-bottom: 30rpx;
   border-bottom: 2rpx solid #ececec;
 }
 
@@ -44,7 +45,9 @@
   right: 0;
   width: 50%;
 }
-
+.data-distribution .num{
+  color: #959595;
+}
 .guapai-mains {
   border-top: 12rpx solid #ececec;
 }
@@ -71,7 +74,7 @@
   clear: both;
   line-height: 70rpx;
   padding: 0 20rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   border-bottom: 1rpx solid #ececec;
 }
 .guapai-main .guapai-name{
@@ -80,7 +83,7 @@
 }
 .guapai-main .guapai-num{
   float: right;
-  color: red;
+  color: #d71820;
 }
 
 .hangye-main{
@@ -112,7 +115,7 @@ font-weight: bold;
 
 .hangye-category{
   margin: 0 20rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   line-height: 60rpx;
 }
 .hangye-title{
@@ -123,7 +126,7 @@ font-weight: bold;
 .hangye-num{
   float: right;
   font-weight: bold;
-  color: red;
+  color: #d71820;
 }
 
 .left-content{
@@ -163,7 +166,9 @@ font-weight: bold;
   line-height: 70rpx;
   padding: 0 20rpx;
   border-bottom: 1rpx solid #ececec;
-  font-size: 28rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #959595;
 }
 .zhuban-main .data-name{
 
@@ -176,7 +181,7 @@ font-weight: bold;
   line-height: 70rpx;
   padding: 0 20rpx;
   border-bottom: 1rpx solid #ececec;
-  font-size: 28rpx;
+  font-size: 26rpx;
 }
 .zhuban-content .name{
 
