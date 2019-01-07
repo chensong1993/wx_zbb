@@ -1,0 +1,54 @@
+.distribution_mian {
+  font-size: 26rpx;
+}
+
+.diqu {
+  margin:20rpx 20rpx 20rpx 20rpx;
+  width: 50%;
+  clear: both;
+  overflow: hidden;
+}
+
+.diqu_area {
+  width: 250rpx;
+  float: left;
+ 
+}
+
+.diqu_num {
+  float: right;
+}
+
+.diqu_graph {
+  width: 50%;
+
+}
+
+ .area_detail{
+  width: 100%;
+  height:70rpx;
+  line-height: 70rpx;
+  border-top: 12rpx solid #ececec;
+  border-bottom: 1rpx solid #ececec;
+ }
+ .area_leibie{
+     border-bottom: 1rpx solid #ececec;
+ }
+.area_leibie .name{
+  width: 33.3%;
+ display: inline-block;
+  text-align: center;
+  
+}
+.area_leibie .name1{
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+  
+}
+.area_leibie .name2{
+    width: 33.3%;
+   display: inline-block;
+  text-align: center;
+  
+}

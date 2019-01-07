@@ -212,15 +212,102 @@ Page({
       }
     })
   },
+  //挂牌公司分布
+  distribution:function(e){
+    var type = e.target.dataset.type;
+    console.log(type)
+      wx.navigateTo({
+        url: 'companyDistribution/companyDistribution?type='+type,
+      })
+     
+    
+  },
+  //排行
+  rankingDetail:function(e){
+    var weuiId = e.target.dataset.type;
+    console.log(weuiId)
+    switch (weuiId) {
+      case "0":
+        // wx.navigateTo({
+        //   url: 'rangingLiat/rangingLiat',
+        // })
+        break
+      case "1":
+        // wx.navigateTo({
+        //   url: 'rangingLiat/rangingLiat',
+        // })
+        break
+      case "2":
+        break
+      case "3":
+        wx.navigateTo({
+          url: 'industryDetail/industryDetail',
+        })
+        break
+      case "4":
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+      case "5":
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+      case "6":
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+      case "7":
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+    }
+  },
+  //顶部类型跳转
   onDataCategory:function(e){
     var weuiId = e.target.dataset.index;
     console.log(weuiId)
     switch(weuiId){
+      case 0:
+        // wx.navigateTo({
+        //   url: 'rangingLiat/rangingLiat',
+        // })
+      break
+      case 1:
+        // wx.navigateTo({
+        //   url: 'rangingLiat/rangingLiat',
+        // })
+        break
+      case 2:
+        break
       case 3:
       wx.navigateTo({
         url: 'industryDetail/industryDetail',
       })
       break
+      case 4:
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index='+weuiId,
+        })
+        break
+      case 5:
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+      case 6:
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
+      case 7:
+        wx.navigateTo({
+          url: 'rankingList/rankingList?index=' + weuiId,
+        })
+        break
     }
   },
   onPullDownRefresh:function(){

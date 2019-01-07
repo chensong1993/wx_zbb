@@ -10,7 +10,9 @@
     "pages/news/commonStyle/commonStyle",
     "pages/news/topicDetails/topicDetails",
     "pages/news/columnsDetails/columnsDetails",
-    "pages/data/industryDetail/industryDetail"
+    "pages/data/industryDetail/industryDetail",
+    "pages/data/rankingList/rankingList",
+    "pages/data/companyDistribution/companyDistribution"
   ],
   "window": {
     "backgroundTextStyle": "dark",

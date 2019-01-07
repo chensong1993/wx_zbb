@@ -150,8 +150,7 @@ font-weight: bold;
   float: right;
 }
 
-.zhuban-main{
-}
+
 .right-content1{
  padding-left: 20rpx; 
 }

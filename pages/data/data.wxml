@@ -12,19 +12,19 @@
     </view>
   </view>
 
-  <view class='data-distribution'>
-    <view class='diqu-distribution'>
-      <text class='fenbu'>挂牌公司地区分布</text>
-      <text class='diqu'>{{area[0].area_name}}</text>
-      <text class='percent'>{{unit_conversion.percentValue(area[0].percentage)}}</text>
-      <text class='num'>{{area[0].total_company}}</text>
+  <view class='data-distribution' bindtap='distribution' data-type="1">
+    <view class='diqu-distribution' bindtap='distribution' data-type="1">
+      <text class='fenbu' bindtap='distribution' data-type="1">挂牌公司地区分布</text>
+      <text class='diqu' bindtap='distribution' data-type="1">{{area[0].area_name}}</text>
+      <text class='percent' bindtap='distribution' data-type="1">{{unit_conversion.percentValue(area[0].percentage)}}</text>
+      <text class='num' bindtap='distribution' data-type="1">{{area[0].total_company}}</text>
     </view>
 
-    <view class='hangye-distribution'>
-      <text class='fenbu'>挂牌公司行业分布</text>
-      <text class='diqu'>{{industry[0].indu_name_2}}</text>
-      <text class='percent'>{{unit_conversion.percentValue(industry[0].percentage)}}</text>
-      <text class='num'>{{industry[0].total_company}}</text>
+    <view class='hangye-distribution' bindtap='distribution' data-type="2">
+      <text class='fenbu' bindtap='distribution' data-type="2">挂牌公司行业分布</text>
+      <text class='diqu' bindtap='distribution' data-type="2">{{industry[0].indu_name_2}}</text>
+      <text class='percent' bindtap='distribution' data-type="2">{{unit_conversion.percentValue(industry[0].percentage)}}</text>
+      <text class='num' bindtap='distribution' data-type="2">{{industry[0].total_company}}</text>
     </view>
   </view>
 
@@ -44,7 +44,7 @@
  
   
   <view class='hangye-main' >
-    <view class='hangye' bindtap='hangye'>
+    <view class='hangye' data-type="3" bindtap='rankingDetail'>
       <text class='hangye-header'>行业统计</text>
       <image class='next' src='../../img/ic_back.png'></image>
     </view>
@@ -92,7 +92,7 @@
   </view>
 
    <view class='hangye-main' >
-    <view class='hangye'>
+    <view class='hangye' data-type="4" bindtap='rankingDetail'>
       <text class='hangye-header' >主办券商排行</text>
       <image class='next' src='../../img/ic_back.png'></image>
     </view>
@@ -110,7 +110,7 @@
     </view>
 
     <view class='hangye-main' >
-    <view class='hangye' >
+    <view class='hangye' data-type="5" bindtap='rankingDetail'>
       <text class='hangye-header' >做市商排行</text>
       <image class='next' src='../../img/ic_back.png'></image>
     </view>
@@ -129,7 +129,7 @@
     </view>
 
     <view class='hangye-main' >
-    <view class='hangye' >
+    <view class='hangye' data-type="6" bindtap='rankingDetail'>
       <text class='hangye-header' >律师事务所排行</text>
       <image class='next' src='../../img/ic_back.png'></image>
     </view>
@@ -148,7 +148,7 @@
     </view>
 
     <view class='hangye-main' >
-    <view class='hangye' >
+    <view class='hangye' bindtap='rankingDetail' data-type="7">
       <text class='hangye-header' >会计事务所排行</text>
       <image class='next' src='../../img/ic_back.png'></image>
     </view>

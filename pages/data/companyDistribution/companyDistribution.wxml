@@ -1,0 +1,26 @@
+<wxs src="../data.wxs" module="unit_conversion"/>
+<view class='distribution_mian'>
+<view class='diqu' wx:for="{{areaIndex}}" wx:key>
+<view class='diqu_area' wx:if="{{type==1}}">{{area[index].area_name}}</view>
+<view class='diqu_area' wx:else>{{area[index].indu_name_2}}</view>
+<view class='diqu_num' wx:if="{{index<5}}">{{unit_conversion.percentValue(area[index].percentage)}}</view>
+<view class='diqu_num' wx:else>{{unit_conversion.areaMethod(area)}}</view>
+</view>
+
+<view class='diqu_graph'>
+  
+</view>
+<view class='area_detail'>
+  <view class='area_leibie'>
+  <view class='name'>地区名称</view>
+  <view class='name1'>挂牌数量</view>
+  <view class='name2'>挂牌占比</view>
+  </view>
+  <view class='area_leibie' wx:for="{{area}}" wx:key>
+  <view class='name'wx:if="{{type==1}}">{{item.area_name}}</view>
+   <view class='name' wx:else>{{item.indu_name_2}}</view>
+  <view class='name1'>{{item.total_company}}</view>
+  <view class='name2'>{{unit_conversion.percentValue(area[index].percentage)}}</view>
+  </view>
+</view>
+</view>
