@@ -12,15 +12,15 @@
     </view>
   </view>
 
-  <view class='data-distribution' bindtap='distribution' data-type="1">
-    <view class='diqu-distribution' bindtap='distribution' data-type="1">
+  <view class='data-distribution' >
+    <view class='diqu-distribution' >
       <text class='fenbu' bindtap='distribution' data-type="1">挂牌公司地区分布</text>
       <text class='diqu' bindtap='distribution' data-type="1">{{area[0].area_name}}</text>
       <text class='percent' bindtap='distribution' data-type="1">{{unit_conversion.percentValue(area[0].percentage)}}</text>
       <text class='num' bindtap='distribution' data-type="1">{{area[0].total_company}}</text>
     </view>
 
-    <view class='hangye-distribution' bindtap='distribution' data-type="2">
+    <view class='hangye-distribution' >
       <text class='fenbu' bindtap='distribution' data-type="2">挂牌公司行业分布</text>
       <text class='diqu' bindtap='distribution' data-type="2">{{industry[0].indu_name_2}}</text>
       <text class='percent' bindtap='distribution' data-type="2">{{unit_conversion.percentValue(industry[0].percentage)}}</text>

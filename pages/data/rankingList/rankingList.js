@@ -91,8 +91,10 @@ Page({
         })
         console.log(rankingData1);
         wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
       },
       fail() {
+        wx.stopPullDownRefresh();
         wx.hideNavigationBarLoading();
 
       }
@@ -151,14 +153,13 @@ Page({
           that.setData({
             typeData: rankingData1
           })
-          console.log(rankingData1);
-          wx.hideNavigationBarLoading();
+         
         }
-      
+        console.log(rankingData1);
+        wx.hideNavigationBarLoading();
       },
       fail() {
         wx.hideNavigationBarLoading();
-       
       }
     })
   },

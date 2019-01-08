@@ -227,16 +227,16 @@ Page({
     var weuiId = e.target.dataset.type;
     console.log(weuiId)
     switch (weuiId) {
-      case "0":
-        // wx.navigateTo({
-        //   url: 'rangingLiat/rangingLiat',
-        // })
-        break
-      case "1":
-        // wx.navigateTo({
-        //   url: 'rangingLiat/rangingLiat',
-        // })
-        break
+      // case "0":
+      //   wx.navigateTo({
+      //     url: 'scrollStock/scrollStock',
+      //   })
+      //   break
+      // case "1":
+      //   wx.navigateTo({
+      //     url: 'scrollStock/scrollStock',
+      //   })
+      //   break
       case "2":
         break
       case "3":
@@ -272,42 +272,42 @@ Page({
     console.log(weuiId)
     switch(weuiId){
       case 0:
-        // wx.navigateTo({
-        //   url: 'rangingLiat/rangingLiat',
-        // })
-      break
+        wx.navigateTo({
+          url: 'scrollStock/scrollStock',
+        })
+        break;
       case 1:
-        // wx.navigateTo({
-        //   url: 'rangingLiat/rangingLiat',
-        // })
-        break
+        wx.navigateTo({
+          url: 'scrollStock/scrollStock',
+        })
+        break;
       case 2:
-        break
+        break;
       case 3:
       wx.navigateTo({
         url: 'industryDetail/industryDetail',
       })
-      break
+      break;
       case 4:
         wx.navigateTo({
           url: 'rankingList/rankingList?index='+weuiId,
         })
-        break
+        break;
       case 5:
         wx.navigateTo({
           url: 'rankingList/rankingList?index=' + weuiId,
         })
-        break
+        break;
       case 6:
         wx.navigateTo({
           url: 'rankingList/rankingList?index=' + weuiId,
         })
-        break
+        break;
       case 7:
         wx.navigateTo({
           url: 'rankingList/rankingList?index=' + weuiId,
         })
-        break
+        break;
     }
   },
   onPullDownRefresh:function(){

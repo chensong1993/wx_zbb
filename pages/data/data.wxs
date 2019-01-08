@@ -5,6 +5,7 @@ var percentV;
 var rankTitle;
 var rankRight;
 var areaValue=0;
+var color;
 var rankingListTitle = function(index) {
   switch (index) {
     case "4":
@@ -50,8 +51,10 @@ var rankingListRight = function (index) {
 
   }
 }
+
+//单位转换
 var stockValue = function(value) {
-  if (value == null) {
+  if (value == null||value=="0.00") {
     return "--";
   }
   absValue = Math.abs(value);
@@ -82,20 +85,53 @@ var stockValue = function(value) {
 
 }
 
+//转换成百分比
 var percentValue = function(value) {
   percentV = value.toFixed(2);
   return percentV + "%";
   console.log(value);
 }
 
-
+//百分比计算
 var areaMethod=function(e){
   areaValue = 100 - (e[0].percentage + e[1].percentage + e[2].percentage + e[3].percentage + e[4].percentage)
   console.log(areaValue);
   return areaValue.toFixed(2)+"%";
   
 }
+
+//圆角颜色
+var roundedColor=function(index){
+  switch(index){
+    case 0:
+      color = "#d71820";
+      return color
+    break;
+    case 1:
+      color = "#32CD32";
+      return color
+    break;
+    case 2:
+      color = "#00BFFF";
+      return color
+      break;
+    case 3:
+      color = "#ffff00";
+      return color
+      break;
+    case 4:
+      color = "#9C27B0";
+      return color
+      break;
+    case 5:
+      color = "#666666";
+      return color
+      break;
+  }
+}
 module.exports = {
+  roundedColor: roundedColor,
+  color: color,
   stockValue: stockValue,
   resultValue: resultValue,
   absValue: absValue,

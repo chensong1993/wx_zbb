@@ -3,6 +3,7 @@
   <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
 </view>
 <!-- 搜索按钮 -->
+<view class='heard_bor'>
 <view class='v_search' bindtap='newsSearch'>
   <image src='../../img/ic_search.png' class='search'></image>
 </view>
@@ -15,7 +16,7 @@
 
   </block>
 </scroll-view>
-
+</view>
 <!-- 导航栏下内容 -->
 <swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
   <swiper-item wx:for="{{category}}" wx:key=''>

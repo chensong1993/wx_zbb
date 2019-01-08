@@ -488,7 +488,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR - 80;
+        var calc = clientHeight * rpxR-80 ;
         console.log(calc)
         this.setData({
           pixelRatio: res.pixelRatio,

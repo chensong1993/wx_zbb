@@ -17,7 +17,7 @@ Page({
       type = e.type;
       that.data.type = e.type;
     }
-    
+    var title="挂牌公司";
     switch (type){
       case "1":
         //公司分布
@@ -74,6 +74,7 @@ Page({
 
           }
         })
+        title="地区分布";
       break;
       case "2":
 
@@ -131,9 +132,12 @@ Page({
 
           }
         })
-      break;
+        title = "行业分布";
+      break; 
     }
-    
+    wx.setNavigationBarTitle({
+      title: title,
+    })
   },
   onPullDownRefresh(){
     this.onLoad(this);
@@ -141,6 +145,7 @@ Page({
   onReachBottom:function(){
     var that=this;
     ++that.data.page
+    wx.showNavigationBarLoading();
     console.log(that.data.page)
     console.log(that.data.type)
     var url = "http://api.chinaipo.com/markets/v1/";

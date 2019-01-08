@@ -1,0 +1,67 @@
+.main {
+  font-size: 24rpx;
+}
+
+.swiper-main {
+  height: 100%;
+  width: 150rpx;
+  float: left;
+}
+
+.swiper-main1 {
+  height: 100%;
+  width: 80%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: white;
+  white-space: nowrap;
+}
+
+.stockLeftTitle {
+  line-height: 40rpx;
+  height: 40rpx;
+  border-bottom: 1rpx solid #ececec;
+  width: 150rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.name {
+  padding-top: 10rpx;
+  height: 25rpx;
+}
+
+.stock {
+  padding-top: 5rpx;
+  height: 25rpx;
+}
+
+.stockLeft {
+  width: 150rpx;
+  height: 85rpx;
+  text-align: center;
+  display: inline-block;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.stockTitle {
+  line-height: 40rpx;
+  height: 40rpx;
+  width: 120rpx;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.stockRightContent {
+  width: 120rpx;
+  height: 85rpx;
+  display: inline-block;
+  line-height: 85rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.stockRightContent .name {
+}

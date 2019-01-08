@@ -12,7 +12,8 @@
     "pages/news/columnsDetails/columnsDetails",
     "pages/data/industryDetail/industryDetail",
     "pages/data/rankingList/rankingList",
-    "pages/data/companyDistribution/companyDistribution"
+    "pages/data/companyDistribution/companyDistribution",
+    "pages/data/scrollStock/scrollStock"
   ],
   "window": {
     "backgroundTextStyle": "dark",

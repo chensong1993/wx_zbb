@@ -1,0 +1,34 @@
+<wxs src="../data.wxs" module="unit_conversion" />
+<view class='main'>
+  <scroll-view class='swiper-main' scroll-y="true">
+    <view class='stockLeftTitle'>股票代码</view>
+    <view class='stockLeft' wx:for="{{innovate}}" wx:key>
+     <view class='name'>{{item.stock_name}}</view>
+      <view class='stock'>{{item.stock_code}}</view>
+    </view>
+  </scroll-view>
+  <scroll-view class='swiper-main1' scroll-x="true" scroll-y="true">
+  
+    <view class='stockTitle'  wx:for="{{stockTitle}}"> {{item.name}}</view>
+   
+    <view class='viewContent1' wx:for="{{innovate}}" wx:key>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.latest_price)}}</view>
+      <view class='stockRightContent'>{{item.chng_pct}}%</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.latest_turnover)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.latest_volume)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.chng)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.total_income)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.net_profit)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.total_volume)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.shares_flow)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.values_flow)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.total_value)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.pe_ratio)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.profit_each_share)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.highest_price)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.lowest_price)}}</view>
+      <view class='stockRightContent'>{{unit_conversion.stockValue(item.avg_price)}}</view>
+       <view class='stockRightContent'>{{unit_conversion.stockValue(item.swg)}}</view>
+    </view>
+  </scroll-view>
+</view>
