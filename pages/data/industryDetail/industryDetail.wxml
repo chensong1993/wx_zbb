@@ -3,41 +3,42 @@
 
 <view class='data-main'>
   <block wx:for="{{industry}}" wx:key>
-    <view class='hangye-category'>
-      <view>
-        <text class='hangye-title'>{{item.indu_name_2}}</text>
-        <text class='hangye-num'>{{item.total_company}}</text>
-      </view>
-
-      <view class='left-content'>
-        <text class='left-content1'>股本：</text>
-        <text class='left-content2'>{{unit_conversion.stockValue(item.total_shares)}}</text>
-      </view>
-      <view class='right-content'>
-        <text class='right-content1'>总资产：</text>
-        <text class='right-content2'>{{unit_conversion.stockValue(item.total_value)}}</text>
+    <view class='hangye-category' wx:if="{{item.indu_name_2!=null}}">
+      <view bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='hangye-title' bindtap='onHangyeIndex' data-index="{{index}}">{{item.indu_name_2}}</text>
+        <text class='hangye-num' bindtap='onHangyeIndex' data-index="{{index}}">{{item.total_company}}</text>
       </view>
 
 
-      <view class='left-content'>
-        <text class='left-content1'>营收：</text>
-        <text class='left-content2'>{{unit_conversion.stockValue(item.total_incomes)}}</text>
+      <view class='left-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='left-content1' bindtap='onHangyeIndex' data-index="{{index}}">股本：</text>
+        <text class='left-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.stockValue(item.total_shares)}}</text>
       </view>
-      <view class='right-content'>
-        <text class='right-content1'>营收同比增长：</text>
-        <text class='right-content2'>{{unit_conversion.percentValue(item.income_change)}}</text>
-      </view>
-
-
-
-      <view class='left-content'>
-        <text class='left-content1'>净利润：</text>
-        <text class='left-content2'>{{unit_conversion.stockValue(item.total_profit)}}</text>
+      <view class='right-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='right-content1' bindtap='onHangyeIndex' data-index="{{index}}">总资产：</text>
+        <text class='right-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.stockValue(item.total_value)}}</text>
       </view>
 
-      <view class='right-content'>
-        <text class='right-content1'>净利润同比增长：</text>
-        <text class='right-content2'>{{unit_conversion.percentValue(item.profit_change)}}</text>
+
+      <view class='left-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='left-content1' bindtap='onHangyeIndex' data-index="{{index}}">营收：</text>
+        <text class='left-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.stockValue(item.total_incomes)}}</text>
+      </view>
+      <view class='right-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='right-content1' bindtap='onHangyeIndex' data-index="{{index}}">营收同比增长：</text>
+        <text class='right-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.percentValue(item.income_change)}}</text>
+      </view>
+
+
+
+      <view class='left-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='left-content1' bindtap='onHangyeIndex' data-index="{{index}}">净利润：</text>
+        <text class='left-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.stockValue(item.total_profit)}}</text>
+      </view>
+
+      <view class='right-content' bindtap='onHangyeIndex' data-index="{{index}}">
+        <text class='right-content1' bindtap='onHangyeIndex' data-index="{{index}}">净利润同比增长：</text>
+        <text class='right-content2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.percentValue(item.profit_change)}}</text>
       </view>
 
     </view>

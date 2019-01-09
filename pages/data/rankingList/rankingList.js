@@ -100,7 +100,16 @@ Page({
       }
     })
   },
-
+  onRankingIndex:function(e){
+    var that=this;
+    var index = that.data.index;
+    //列表的下标
+    var item = e.target.dataset.index;
+    var code = that.data.typeData[item].org_code;
+    wx.navigateTo({
+      url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index,
+    })
+  },
   onPullDownRefresh:function(){
     this.onLoad(this);
    
@@ -133,6 +142,9 @@ Page({
     that.setData({
       index: that.data.index
     })
+    wx.showLoading({
+      title: '正在加载 . . .',
+    })
     //排行榜
     wx.request({
       url: url,
@@ -144,7 +156,7 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-
+        wx.hideLoading();
       },
       success(res) { 
         if (res.data.results != undefined){
@@ -154,6 +166,11 @@ Page({
             typeData: rankingData1
           })
          
+        } else {
+          wx.showToast({
+            title: '已加载全部',
+            icon:"none"
+          })
         }
         console.log(rankingData1);
         wx.hideNavigationBarLoading();

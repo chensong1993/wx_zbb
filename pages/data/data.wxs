@@ -99,6 +99,15 @@ var areaMethod=function(e){
   return areaValue.toFixed(2)+"%";
   
 }
+var stockColor=function(e){
+  if(e>=0){
+    color ='#d71820';
+    return color;
+  }else{
+    color = '#5AB963';
+    return color;
+  }
+}
 
 //圆角颜色
 var roundedColor=function(index){
@@ -130,6 +139,7 @@ var roundedColor=function(index){
   }
 }
 module.exports = {
+  stockColor: stockColor,
   roundedColor: roundedColor,
   color: color,
   stockValue: stockValue,

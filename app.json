@@ -13,7 +13,9 @@
     "pages/data/industryDetail/industryDetail",
     "pages/data/rankingList/rankingList",
     "pages/data/companyDistribution/companyDistribution",
-    "pages/data/scrollStock/scrollStock"
+    "pages/data/scrollStock/scrollStock",
+    "pages/data/stockDetails/stockDetails"
+   
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -47,7 +49,7 @@
     ]
   },
   "networkTimeout": {
-    "request": 2000,
+    "request": 6000,
     "downloadFile": 6000
   },
   "debug": true,

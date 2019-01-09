@@ -53,7 +53,12 @@
   display: inline-block;
   border-bottom: 1rpx solid #ececec;
 }
-
+.stockTitle.active{
+  color: red;
+}
+.stockTitle.activeG{
+  color: #5AB963;
+}
 .stockRightContent {
   width: 120rpx;
   height: 85rpx;

@@ -6,8 +6,8 @@
     <text class='data-num'>{{unit_conversion.rankingListRight(index)}}数量</text>
     </view>
     <block wx:for="{{typeData}}" wx:key>
-    <view class='zhuban-content'>
-    <text class='name'>{{item.org_name}}</text>
-    <text class='num'>{{item.total_company}}</text>
+    <view class='zhuban-content' bindtap='onRankingIndex' data-index="{{index}}">
+    <text class='name' bindtap='onRankingIndex' data-index="{{index}}">{{item.org_name}}</text>
+    <text class='num' bindtap='onRankingIndex' data-index="{{index}}">{{item.total_company}}</text>
     </view>
     </block>

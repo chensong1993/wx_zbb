@@ -1,0 +1,67 @@
+.stock_detail_main {
+  margin: 20rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.name_code {
+  margin: 20rpx 0;
+}
+
+.name {
+  font-size: 30rpx;
+}
+
+.code {
+  font-size: 30rpx;
+}
+
+.price {
+  margin-bottom: 10rpx;
+}
+
+.zhangdie {
+  border-bottom: 1rpx solid gainsboro;
+}
+
+.zhangdie .num {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.left-content {
+  width: 33.3%;
+  float: left;
+}
+
+.left-content1 {
+}
+
+.left-content2 {
+  float: right;
+  padding-right: 20rpx;
+}
+
+.center-content {
+  width: 33.3%;
+  float: right;
+}
+
+.center-content1 {
+}
+
+.center-content2 {
+  float: right;
+  padding-right: 20rpx;
+}
+
+.right-content {
+  width: 33.3%;
+  float: right;
+}
+
+.right-content1 {
+}
+
+.right-content2 {
+  float: right;
+}

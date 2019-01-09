@@ -1,0 +1,84 @@
+<wxs src="../data.wxs" module="unit_conversion" />
+
+<view class='stock_detail_main'>
+  <view class='name_code'>
+    <text class='name'>{{stockDetail[0].stock_name}}</text>
+    <text class='code'>({{stockDetail[0].stock_code}})</text>
+  </view>
+  <view class='price'  style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{stockDetail[0].today_open}}</view>
+  
+  <view class='zhangdie'>
+    <text class='num' style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">+{{stockDetail[0].chng}}</text>
+    <text class='percetnt' style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{stockDetail[0].chng_pct}}%</text>
+  </view>
+  <view class='data-main'>
+
+    <view class='left-content'>
+      <text class='left-content1'>今开</text>
+      <text class='left-content2'>{{stockDetail[0].today_open}}</text>
+    </view>
+    <view class='right-content'>
+      <text class='right-content1'>成交额</text>
+      <text class='right-content2'>{{stockDetail[0].stock_name}}</text>
+    </view>
+    <view class='center-content'>
+      <text class='center-content1'>最高价</text>
+      <text class='center-content2'>{{stockDetail[0].highest_price}}</text>
+    </view>
+
+    <view class='left-content'>
+      <text class='left-content1'>昨收</text>
+      <text class='left-content2'>{{stockDetail[0].lclose}}</text>
+    </view>
+    <view class='right-content'>
+      <text class='right-content1'>成交量</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].latest_volume)}}</text>
+    </view>
+    <view class='center-content'>
+      <text class='center-content1'>最低价</text>
+      <text class='center-content2'>{{stockDetail[0].lowest_price}}</text>
+    </view>
+
+    <view class='left-content'>
+      <text class='left-content1'>营收</text>
+      <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].total_income)}}</text>
+    </view>
+    <view class='right-content'>
+      <text class='right-content1'>总股本</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_volume)}}</text>
+    </view>
+     <view class='center-content'>
+      <text class='center-content1'>流通股</text>
+      <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].shares_flow)}}</text>
+    </view>
+
+    <view class='left-content'>
+      <text class='left-content1'>净利润</text>
+      <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].net_profit)}}</text>
+    </view>
+    <view class='right-content'>
+      <text class='right-content1'>总市值</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_value)}}</text>
+    </view>
+     <view class='center-content'>
+      <text class='center-content1'>流值</text>
+      <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].values_flow)}}</text>
+    </view>
+
+    <view class='left-content'>
+      <text class='left-content1'>市盈(静)</text>
+      <text class='left-content2'>{{stockDetail[0].static_pe}}</text>
+    </view>
+    <view class='right-content'>
+      <text class='right-content1'>振幅</text>
+      <text class='right-content2'>{{stockDetail[0].swg}}%</text>
+    </view>
+      <view class='center-content'>
+      <text class='center-content1'>市盈(动)</text>
+      <text class='center-content2' wx:if="{{stockDetail[0].dynamic_pe==null}}">--</text>
+      <text class='center-content2' wx:else>{{stockDetail[0].dynamic_pe}}</text>
+    </view>
+
+  </view>
+
+</view>

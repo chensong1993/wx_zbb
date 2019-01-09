@@ -139,6 +139,27 @@ Page({
       title: title,
     })
   },
+  onHangyeIndex: function (e) {
+    var that = this;
+    var item = e.target.dataset.index;
+    var code ;
+    var name;
+    var type=that.data.type;
+    var index;
+    if (type==1){
+      index = "8";
+      code = that.data.area[item].area_code;
+      name = that.data.area[item].area_name;
+    }else{
+      index = "3";
+      code = that.data.area[item].indu_code_2;
+      name = that.data.area[item].indu_name_2;
+    }
+    console.log(name+"===============");
+    wx.navigateTo({
+      url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index + "&name=" + name,
+    })
+  },
   onPullDownRefresh(){
     this.onLoad(this);
   },
