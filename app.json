@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/data/data",
     "pages/news/news",
+    "pages/market/market",
+    "pages/data/data",
     "pages/news/newsSearch/newsSearch",
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",
@@ -15,7 +16,6 @@
     "pages/data/companyDistribution/companyDistribution",
     "pages/data/scrollStock/scrollStock",
     "pages/data/stockDetails/stockDetails"
-   
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -39,6 +39,12 @@
         "text": "数据",
         "iconPath": "img/ic_data.png",
         "selectedIconPath": "img/ic_data_select.png"
+      },
+      {
+        "pagePath": "pages/market/market",
+        "text": "行情",
+        "iconPath": "img/tabbar_icon_market_normal.png",
+        "selectedIconPath": "img/tabbar_icon_market_highlight.png"
       },
       {
         "pagePath": "pages/profile/profile",

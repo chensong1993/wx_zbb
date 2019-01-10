@@ -1,1 +1,173 @@
-/**index.wxss**/
+.market_main {
+  font-size: 28rpx;
+}
+
+.market_top {
+  background: #ececec;
+  clear: both;
+  overflow: hidden;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+
+.market_top .zuoshi {
+  float: left;
+  width: 48%;
+  text-align: center;
+  background: white;
+  padding: 20rpx 0;
+}
+
+.market_top .chengzhi {
+  padding: 20rpx 0;
+  float: right;
+  width: 48%;
+  text-align: center;
+  background: white;
+}
+
+.title {
+  border-bottom: 10rpx;
+  font-weight: bold;
+}
+
+.num {
+  border-bottom: 10rpx;
+}
+
+.zhishu {
+  font-size: 24rpx;
+}
+
+.price {
+  margin-right: 10rpx;
+}
+
+.proportion {
+}
+
+.rankingList {
+}
+
+.rankingList .text.active {
+  border-bottom: 5rpx solid #4093ff;
+}
+
+.ranking_title {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+/* .ranking_title.fixed .text.active {
+  height: 80rpx;
+ left: 0;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: white;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  border-bottom: 5rpx solid #4093ff;
+} */
+
+.ranking_title.fixed {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: white;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.ranking_title text {
+  width: 16.6%;
+  display: inline-block;
+  text-align: center;
+}
+
+.ranking_content {
+}
+
+.ranking_heard {
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ececec;
+  padding: 0 20rpx;
+}
+
+.ranking_heard text {
+  float: left;
+  font-weight: bold;
+}
+
+.ranking_heard image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  transform: rotate(180deg);
+  float: right;
+}
+
+.list_title {
+  padding: 0 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.list_title .text1 {
+  width: 32%;
+  display: inline-block;
+  text-align: left;
+}
+
+.list_title text {
+  width: 22%;
+  display: inline-block;
+  text-align: right;
+}
+
+.stock {
+  clear: both;
+  overflow: hidden;
+  font-size: 22rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.stock_name {
+  margin: 0 20rpx;
+  height: 80rpx;
+  width: 32%;
+  float: left;
+}
+
+.stock_name .name {
+  line-height: 50rpx;
+}
+
+.stock_name .stock_num {
+  line-height: 20rpx;
+}
+
+.stock_content {
+  float: right;
+  width: 60%;
+  height: 80rpx;
+}
+
+.stock_content text {
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+}

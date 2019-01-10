@@ -1,5 +1,5 @@
-//index.js
-//获取应用实例
+var util = require("../../utils/util.js");
+
 Page({
   data: {
     dataCategory: [{
@@ -26,7 +26,8 @@ Page({
     }, {
       name: "会计事务所",
       icon: "../../img/ic_kuaiji.png"
-    }]
+    }],
+    buttonClicked: true,
   },
 
   onLoad: function(e) {
@@ -215,6 +216,7 @@ Page({
   //行业统计详情
   onHangyeIndex: function (e) {
     var that = this;
+    if (that.data.buttonClicked){
     var item = e.target.dataset.index;
     var code = that.data.industry[item].indu_code_2;
     var index;
@@ -222,10 +224,13 @@ Page({
     wx.navigateTo({
       url: 'scrollStock/scrollStock?stockCode=' + code + "&index=" + "3",
     })
+    }
+    util.buttonClicked(this);
   },
   //排行榜
   onRankingIndex: function (e) {
     var that = this;
+    if(that.data.buttonClicked){
     var dataList;
     var index = e.target.dataset.type;
     //列表的下标
@@ -249,19 +254,24 @@ Page({
     wx.navigateTo({
       url: 'scrollStock/scrollStock?stockCode=' + code + "&index=" + index,
     })
+    }
+    util.buttonClicked(this);
   },
   //挂牌公司分布
   distribution:function(e){
+    if(this.data.buttonClicked){
     var type = e.target.dataset.type;
     console.log(type)
       wx.navigateTo({
         url: 'companyDistribution/companyDistribution?type='+type,
       })
-     
+    }
+    util.buttonClicked(this);
     
   },
   //排行
   rankingDetail:function(e){
+    if(this.data.buttonClicked){
     var weuiId = e.target.dataset.type;
     console.log(weuiId)
     switch (weuiId) {
@@ -306,9 +316,12 @@ Page({
         })
         break
     }
+    }
+    util.buttonClicked(this);
   },
   //顶部类型跳转
   onDataCategory:function(e){
+    if(this.data.buttonClicked){
     var weuiId = e.target.dataset.index;
     console.log(weuiId)
     switch(weuiId){
@@ -354,6 +367,8 @@ Page({
         })
         break;
     }
+    }
+    util.buttonClicked(this);
   },
   onPullDownRefresh:function(){
     this.onLoad();

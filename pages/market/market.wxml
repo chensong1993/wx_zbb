@@ -1,1 +1,105 @@
-<!--index.wxml-->
+<wxs src="market.wxs" module="utils" />
+<view class="market_main">
+  <view class="market_top">
+    <view class='zuoshi'>
+      <view class='title'>{{marketZS[0].indx_sname}}</view>
+      <view class='num' style="color:{{utils.stockColor(marketZS[0].topen)}}">{{marketZS[0].topen}}</view>
+      <view class='zhishu'>
+        <text class='price' style="color:{{utils.stockColor(marketZS[0].chng)}}">{{marketZS[0].chng}}</text>
+        <text class='proportion' style="color:{{utils.stockColor(marketZS[0].chng_pct)}}" wx:if="{{marketCZ[0].chng_pct!=null}}">{{marketZS[0].chng_pct}}%</text>
+      </view>
+    </view>
+    <view class='chengzhi'>
+      <view class='title'>{{marketCZ[0].indx_sname}}</view>
+      <view class='num' style="color:{{utils.stockColor(marketCZ[0].topen)}}">{{marketCZ[0].topen}}</view>
+      <view class='zhishu'>
+        <text class='price' style="color:{{utils.stockColor(marketCZ[0].chng)}}">{{marketCZ[0].chng}}</text>
+        <text class='proportion' style="color:{{utils.stockColor(marketCZ[0].chng_pct)}}" wx:if="{{marketCZ[0].chng_pct!=null}}">{{marketCZ[0].chng_pct}}%</text>
+      </view>
+    </view>
+  </view>
+  <view id='affix'></view>
+  <view class='rankingList'>
+    <view class="ranking_title {{menuFixed<0? 'fixed': ''}}" >
+      <text class="text {{currentTab==0?'active':''}}" bindtap='onRankingT' data-index='0'>全部</text>
+      <text class="text {{currentTab==1?'active':''}}" bindtap='onRankingT' data-index='1'>创新</text>
+      <text class="text {{currentTab==2?'active':''}}" bindtap='onRankingT' data-index='2'>基础</text>
+      <text class="text {{currentTab==3?'active':''}}" bindtap='onRankingT' data-index='3'>做市</text>
+      <text class="text {{currentTab==4?'active':''}}" bindtap='onRankingT' data-index='4'>协议</text>
+      <text class="text {{currentTab==5?'active':''}}" bindtap='onRankingT' data-index='5'>转板</text>
+    </view>
+    <view class='ranking_content'>
+      <view class='ranking_heard' bindtap='onStockList' data-index='0'>
+        <text bindtap='onStockList' data-index='0'>涨幅榜排行</text>
+        <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='0'></image>
+      </view>
+      <view class='list_title'>
+        <text class='text1'>股票名称</text>
+        <text>当前价</text>
+        <text>涨跌幅</text>
+        <text>成交额</text>
+      </view>
+    </view>
+    <view class='stock' wx:for="{{page}}">
+      <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>
+        <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_name}}</view>
+        <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_code}}</view>
+      </view>
+      <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='0' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByChange[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='0' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByChange[index].chng_pct!=null}}">{{priceByChange[index].chng_pct}}%</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{utils.stockValue(priceByChange[index].latest_turnover)}}</text>
+      </view>
+    </view>
+
+    <view class='ranking_content'>
+      <view class='ranking_heard' bindtap='onStockList' data-index='1'>
+        <text bindtap='onStockList' data-index='0'>成交额排行</text>
+        <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='0'></image>
+      </view>
+      <view class='list_title'>
+        <text class='text1'>股票名称</text>
+        <text>当前价</text>
+        <text>涨跌幅</text>
+        <text>成交额</text>
+      </view>
+    </view>
+    <view class='stock' wx:for="{{page}}">
+      <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>
+        <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>{{priceByVolume[index].stock_name}}</view>
+        <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByVolume[index].stock_code}}</view>
+      </view>
+      <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByVolume[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByVolume[index].chng_pct!=null}}">{{priceByVolume[index].chng_pct}}%</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1'>{{utils.stockValue(priceByVolume[index].latest_turnover)}}</text>
+      </view>
+    </view>
+
+    <view class='ranking_content'>
+      <view class='ranking_heard' bindtap='onStockList' data-index='0'>
+        <text bindtap='onStockList' data-index='0'>成交量排行</text>
+        <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='2'></image>
+      </view>
+      <view class='list_title'>
+        <text class='text1'>股票名称</text>
+        <text>当前价</text>
+        <text>涨跌幅</text>
+        <text>成交额</text>
+      </view>
+    </view>
+    <view class='stock' wx:for="{{page}}">
+      <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>
+        <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{priceByAmount[index].stock_name}}</view>
+        <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{priceByAmount[index].stock_code}}</view>
+      </view>
+      <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByAmount[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByAmount[index].chng_pct!=null}}">{{priceByAmount[index].chng_pct}}%</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{utils.stockValue(priceByAmount[index].latest_turnover)}}</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>

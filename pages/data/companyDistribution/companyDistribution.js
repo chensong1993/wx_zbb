@@ -1,9 +1,9 @@
-//index.js
-//获取应用实例
+var util = require("../../../utils/util.js");
 Page({
   data: {
     areaIndex:[0,1,2,3,4,5],
-    page:2
+    page:2,
+    buttonClicked: true,
   },
 
   onLoad: function(e) {
@@ -141,6 +141,7 @@ Page({
   },
   onHangyeIndex: function (e) {
     var that = this;
+    if(that.data.buttonClicked){
     var item = e.target.dataset.index;
     var code ;
     var name;
@@ -159,6 +160,8 @@ Page({
     wx.navigateTo({
       url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index + "&name=" + name,
     })
+    }
+    util.buttonClicked(this);
   },
   onPullDownRefresh(){
     this.onLoad(this);

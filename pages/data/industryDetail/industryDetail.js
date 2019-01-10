@@ -1,8 +1,8 @@
-//index.js
-//获取应用实例
+var util = require("../../../utils/util.js");
 Page({
   data: {
-   page:"1"
+    page: "1",
+    buttonClicked: true,
   },
 
   onLoad: function(e) {
@@ -17,7 +17,7 @@ Page({
       url: url + 'statistics' + '/industry/',
       method: 'GET',
       data: {
-        
+
       },
       header: {
         'content-type': 'application/json' // 默认值 
@@ -41,17 +41,20 @@ Page({
       title: "行业统计",
     })
   },
-  onHangyeIndex:function(e){
-    var that=this;
+  onHangyeIndex: function(e) {
+    var that = this;
+    if(that.data.buttonClicked){
     var item = e.target.dataset.index;
     var code = that.data.industry[item].indu_code_2;
     var name = that.data.industry[item].indu_name_2;
     console.log(code);
     wx.navigateTo({
-      url: '../scrollStock/scrollStock?stockCode=' + code+"&index="+"3"+"&name="+name,
+      url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + "3" + "&name=" + name,
     })
+    }
+    util.buttonClicked(this);
   },
-  onReachBottom:function(){
+  onReachBottom: function() {
     var that = this;
     var url = "http://api.chinaipo.com/markets/v1/";
     wx.showNavigationBarLoading();
@@ -73,13 +76,13 @@ Page({
         wx.hideLoading();
       },
       success(res) {
-        if(res.data.results!=undefined){
-        var data = that.data.industry;
-        var data1 = data.concat(res.data.results);
-        if (that.data.industry)
-        that.setData({
-          industry: data1
-        })
+        if (res.data.results != undefined) {
+          var data = that.data.industry;
+          var data1 = data.concat(res.data.results);
+          if (that.data.industry)
+            that.setData({
+              industry: data1
+            })
         } else {
           wx.showToast({
             title: '已加载全部',
@@ -95,7 +98,7 @@ Page({
       }
     })
   },
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function() {
     this.onLoad();
   }
 

@@ -2,9 +2,10 @@
   margin: 20rpx 20rpx;
   font-size: 26rpx;
 }
-
+.name_code_main{}
 .name_code {
   margin: 20rpx 0;
+  font-weight: bold;
 }
 
 .name {
@@ -17,12 +18,18 @@
 
 .price {
   margin-bottom: 10rpx;
+  font-weight: bold;
+  font-size: 28rpx;
 }
-
 .zhangdie {
   border-bottom: 1rpx solid gainsboro;
+   font-weight: bold;
+   height: 60rpx;
+   line-height: 60rpx;
 }
-
+.data-main{
+  margin-top: 20rpx;
+}
 .zhangdie .num {
   margin-right: 20rpx;
   margin-bottom: 20rpx;
@@ -31,22 +38,27 @@
 .left-content {
   width: 33.3%;
   float: left;
+  border-bottom: 10rpx;
 }
 
 .left-content1 {
+ 
 }
 
 .left-content2 {
+ 
   float: right;
   padding-right: 20rpx;
 }
 
 .center-content {
+  border-bottom: 10rpx;
   width: 33.3%;
   float: right;
 }
 
 .center-content1 {
+
 }
 
 .center-content2 {
@@ -55,6 +67,7 @@
 }
 
 .right-content {
+  border-bottom: 10rpx;
   width: 33.3%;
   float: right;
 }

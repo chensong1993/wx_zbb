@@ -1,40 +1,40 @@
-//index.js
-//获取应用实例
+var util = require("../../../utils/util.js");
 Page({
   data: {
-   page:"2",
-    data:""
+    page: "2",
+    data: "",
+    buttonClicked: true,
   },
 
   onLoad: function(e) {
     var that = this;
     var index;
     var url = "http://api.chinaipo.com/markets/v1/statistics/";
-    if (e.index==undefined){
+    if (e.index == undefined) {
       index = that.data.index;
-    }else{
+    } else {
       index = e.index;
       that.data.index = e.index;
     }
-    
+
     var nacigationTitle;
     wx.showNavigationBarLoading();
     switch (that.data.index) {
       case "4":
         url = url + "investor/";
-        nacigationTitle="主办券商";
+        nacigationTitle = "主办券商";
         break;
       case "5":
         url = url + "dealer/";
-        nacigationTitle="做市商";
+        nacigationTitle = "做市商";
         break;
       case "6":
         url = url + "lawyer/";
-        nacigationTitle="律师事务所";
+        nacigationTitle = "律师事务所";
         break;
       case "7":
         url = url + "accountant/";
-        nacigationTitle="会计事务所";
+        nacigationTitle = "会计事务所";
         break;
     }
     wx.setNavigationBarTitle({
@@ -84,8 +84,8 @@ Page({
 
       },
       success(res) {
-        var  rankingData = that.data.typeData;
-        var rankingData1=rankingData.concat(res.data.results);
+        var rankingData = that.data.typeData;
+        var rankingData1 = rankingData.concat(res.data.results);
         that.setData({
           typeData: rankingData1
         })
@@ -100,29 +100,32 @@ Page({
       }
     })
   },
-  onRankingIndex:function(e){
-    var that=this;
-    var index = that.data.index;
+  onRankingIndex: function(e) {
+    var that = this;
+    if (that.data.buttonClicked){
+      var index = that.data.index;
     //列表的下标
     var item = e.target.dataset.index;
     var code = that.data.typeData[item].org_code;
     wx.navigateTo({
       url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index,
     })
+    }
+    util.buttonClicked(this);
   },
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function() {
     this.onLoad(this);
-   
+
   },
-  onReachBottom:function(){
+  onReachBottom: function() {
     this.onRankingListData(++this.data.page);
   },
-  onRankingListData:function(page){
+  onRankingListData: function(page) {
     var that = this;
     var url = "http://api.chinaipo.com/markets/v1/statistics/";
     var addMore;
     //var index = e.index;
-   // console.log(index + "===============");
+    // console.log(index + "===============");
     wx.showNavigationBarLoading();
     switch (that.data.index) {
       case "4":
@@ -158,18 +161,18 @@ Page({
       complete() {
         wx.hideLoading();
       },
-      success(res) { 
-        if (res.data.results != undefined){
+      success(res) {
+        if (res.data.results != undefined) {
           var rankingData = that.data.typeData;
           var rankingData1 = rankingData.concat(res.data.results);
           that.setData({
             typeData: rankingData1
           })
-         
+
         } else {
           wx.showToast({
             title: '已加载全部',
-            icon:"none"
+            icon: "none"
           })
         }
         console.log(rankingData1);

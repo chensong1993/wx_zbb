@@ -18,12 +18,13 @@
 }
 
 .stockLeftTitle {
-  line-height: 40rpx;
-  height: 40rpx;
+  line-height: 80rpx;
+  height: 80rpx;
   border-bottom: 1rpx solid #ececec;
   width: 150rpx;
   text-align: center;
   font-weight: bold;
+  font-size: 28rpx;
 }
 
 .name {
@@ -45,9 +46,10 @@
 }
 
 .stockTitle {
-  line-height: 40rpx;
-  height: 40rpx;
-  width: 120rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 130rpx;
   text-align: center;
   font-weight: bold;
   display: inline-block;
@@ -60,7 +62,7 @@
   color: #5AB963;
 }
 .stockRightContent {
-  width: 120rpx;
+  width: 130rpx;
   height: 85rpx;
   display: inline-block;
   line-height: 85rpx;
