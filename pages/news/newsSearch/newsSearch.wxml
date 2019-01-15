@@ -1,15 +1,16 @@
-
-
+<wxs src="../news.wxs" module="news_load"></wxs>
 <view class='vNews'>
-<view class="clearAll {{clearNone>0?'show':''}}" bindtap='clearAll'>
-<image class='clear' bindtap='clearAll' mode="aspectFit" src='../../../img/ic_clearAll.png'></image>
-</view>
-<input class="newsSearch" bindinput='inputEmpty' bindconfirm='searchContent' value="{{searchinput}}" confirm-type='done'  type="text" placeholder="请输入关键字" maxlength='12' ></input>
-<text class='cancle' bindtap='cancle'>取消</text>
+ 
+    <view class="clearAll {{clearNone>0?'show':''}}" bindtap='clearAll'>
+      <image class='clear' bindtap='clearAll' mode="aspectFit" src='../../../img/ic_clearAll.png'></image>
+    </view>
+    <input class="newsSearch" bindinput='inputEmpty' bindconfirm='searchContent' value="{{searchinput}}" confirm-type='done' type="text" placeholder="请输入关键字" maxlength='12'></input>
+
+  <text class='cancle' bindtap='cancle'>取消</text>
 </view>
 <view class="errs {{err<0?'show':''}}">暂无数据</view>
 <view class='newsList'>
-<include  src="../commonStyle/commonStyle.wxml" />
-<block wx:for="{{tagList}}" wx:key=''></block>
+  <include src="../commonStyle/commonStyle.wxml" />
+  <block wx:for="{{tagList}}" wx:key=''></block>
 </view>
-<view class="loadMores {{more==1?'active':''}}">正在加载...</view>
+<view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

@@ -4,6 +4,7 @@ Page({
     areaIndex:[0,1,2,3,4,5],
     page:2,
     buttonClicked: true,
+    LoadMores: -1
   },
 
   onLoad: function(e) {
@@ -36,12 +37,16 @@ Page({
           success(res) {
             that.setData({
               area: res.data.results,
-              type:1
+              type:1,
+              LoadMores: -1
             })
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
           },
           fail() {
+            that.setData({
+              LoadMores: -1
+            })
             wx.hideNavigationBarLoading();
 
           }
@@ -64,20 +69,22 @@ Page({
             var area1 = area.concat(res.data.results);
             that.setData({
               area: area1,
-              type: 1
+              type: 1,
+              LoadMores: -1
             })
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
           },
           fail() {
             wx.hideNavigationBarLoading();
-
+            that.setData({
+              LoadMores: -1
+            })
           }
         })
         title="地区分布";
       break;
       case "2":
-
         //行业统计
         wx.request({
           url: url + 'statistics' + '/industry/',
@@ -94,12 +101,16 @@ Page({
           success(res) {
             that.setData({
               area: res.data.results,
-              type:2
+              type:2,
+              LoadMores: -1
             })
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
           },
           fail() {
+            that.setData({
+              LoadMores: -1
+            })
             wx.hideNavigationBarLoading();
 
           }
@@ -173,6 +184,9 @@ Page({
     console.log(that.data.page)
     console.log(that.data.type)
     var url = "http://api.chinaipo.com/markets/v1/";
+    that.setData({
+      LoadMores: 1
+    })
     switch (that.data.type) {
       case 1:
         //公司分布
@@ -194,13 +208,21 @@ Page({
             var area1 = area.concat(res.data.results);
             that.setData({
               area: area1,
-              type: 1
+              type: 1,
+              LoadMores: -1
             })
+            }else{
+              that.setData({
+                LoadMores: 2
+              })
             }
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
           },
           fail() {
+            that.setData({
+              LoadMores: 2
+            })
             wx.hideNavigationBarLoading();
 
           }
@@ -227,15 +249,23 @@ Page({
             var area1 = area.concat(res.data.results);
             that.setData({
               area: area1,
-              type: 2
+              type: 2,
+              LoadMores:-1
             })
+            }else{
+              that.setData({
+                LoadMores: 2
+              })
+              
             }
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
           },
           fail() {
             wx.hideNavigationBarLoading();
-
+            that.setData({
+              LoadMores: 2
+            })
           }
         })
         console.log(2)

@@ -6,9 +6,7 @@ Page({
     
   },
   onLoad:function(e){
-    this.setData({
-      bannerDetail:e.bannerDetail
-    })
+    
   }
 })
 

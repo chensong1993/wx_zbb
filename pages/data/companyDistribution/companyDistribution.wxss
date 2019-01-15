@@ -3,31 +3,36 @@
 }
 
 .diqu {
-  margin: 20rpx 20rpx 20rpx 20rpx;
-  width: 50%;
+  margin: 20rpx 0;
   clear: both;
   overflow: hidden;
+  display: flex;
 }
-.yuan{
+
+.yuan {
+  margin-left: 20rpx;
   border-radius: 20rpx;
   width: 20rpx;
-  height: 20rpx; 
-   float: left;
-   margin-right: 5rpx;
-   margin-top: 9rpx;
-  
-}
-.diqu_area {
-  width: 250rpx;
+  height: 20rpx;
   float: left;
+  margin-right: 20rpx;
+  align-self: center;
+}
+
+.diqu_area {
+  width: 350rpx;
+  float: left;
+   align-self: center;
 }
 
 .diqu_num {
+  margin-left: 50rpx;
+   align-self: center;
   float: right;
 }
 
 .diqu_graph {
-  width: 50%;
+  
 }
 
 .area_detail {
@@ -48,7 +53,7 @@
 
 .area_leibie .name1 {
   width: 33.3%;
-    line-height: 75rpx;
+  line-height: 75rpx;
   display: inline-block;
   text-align: center;
 }
@@ -58,4 +63,34 @@
   line-height: 75rpx;
   display: inline-block;
   text-align: center;
+}
+
+.area_hy {
+  display: flex;
+}
+
+.area_hy .name {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  align-self: center;
+  text-align: center;
+}
+
+.area_hy .name1 {
+  align-self: center;
+  text-align: center;
+}
+
+.area_hy .name2 {
+  align-self: center;
+  text-align: center;
+}
+
+.loadMores {
+  font-size: 30rpx;
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  display: block;
 }

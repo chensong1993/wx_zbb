@@ -32,4 +32,8 @@
       <view class='stockRightContent' bindtap='onStockDetail' data-index="{{idnex}}">{{unit_conversion.stockValue(item.swg)}}</view>
     </view>
   </scroll-view>
+ 
 </view>
+ <wxs src="../data.wxs" module="news_load"></wxs>
+  
+  <view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

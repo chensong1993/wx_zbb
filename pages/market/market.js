@@ -8,8 +8,8 @@ Page({
   data: {
     currentTab: 0,
     page: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    type:"all",
-    nameIndex:"0",
+    type: "all",
+    nameIndex: "0",
     buttonClicked: true,
   },
 
@@ -21,7 +21,7 @@ Page({
     var stockCode = e.stockCode;
     var types = "all";
     var url = "http://api.chinaipo.com/markets/v1/";
-   
+
     wx.setNavigationBarTitle({
       title: '行情中心',
     })
@@ -62,7 +62,7 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-       
+
       },
       success(res) {
 
@@ -182,39 +182,48 @@ Page({
 
       }
     })
+    wx.getSystemInfo({
+      success(res) {
+        that.setData({
+          brand: res.brand
+        })
+
+        console.log(res.brand + "================")
+      }
+    })
   },
   onRankingT: function(e) {
     var that = this;
     if (that.data.buttonClicked) {
-    var index = e.target.dataset.index;
-    that.data.nameIndex = index;
-    that.setData({
-      currentTab: index
-    })
-    var type = "all";
-    switch (index) {
-      case "0":
-        type = "all";
-        break;
-      case "1":
-        type = "innovate";
-        break;
-      case "2":
-        type = "base";
-        break;
-      case "3":
-        type = "project";
-        break;
-      case "4":
-        type = "contract";
-        break;
-      case "5":
-        type = "transfer";
-        break;
-    }
-    that.data.type=type;
-    that.onLoad(that, type);
-    console.log(type);
+      var index = e.target.dataset.index;
+      that.data.nameIndex = index;
+      that.setData({
+        currentTab: index
+      })
+      var type = "all";
+      switch (index) {
+        case "0":
+          type = "all";
+          break;
+        case "1":
+          type = "innovate";
+          break;
+        case "2":
+          type = "base";
+          break;
+        case "3":
+          type = "project";
+          break;
+        case "4":
+          type = "contract";
+          break;
+        case "5":
+          type = "transfer";
+          break;
+      }
+      that.data.type = type;
+      that.onLoad(that, type);
+      console.log(type);
     }
     //防止重复点击
     util.buttonClicked(this);
@@ -222,47 +231,47 @@ Page({
   onStockList: function(e) {
     var that = this;
     if (that.data.buttonClicked) {
-    var index = e.target.dataset.index;
-    var stockDetail;
-    var type = that.data.type;
-    var sortBy;
-    var name;
-    var nameIndex = that.data.nameIndex;
-    switch(nameIndex){
-      case "0":
-      name="全部-排行"
-      break;
-      case "1":
-        name = "创新-排行"
-        break;
-      case "2":
-        name = "基础-排行"
-        break;
-      case "3":
-        name = "做市-排行"
-        break;
-      case "4":
-        name = "协议-排行"
-        break;
-      case "5":
-        name = "转板-排行"
-        break;
-    }
-    switch (index) {
-      case "0":
-        sortBy ="chng_pct";
-        break;
-      case "1":
-        sortBy = "latest_volume";
-        break;
-      case "2":
-        sortBy = "latest_turnover";
-        break;
-    }
-    
-    wx.navigateTo({
-      url: '../data/scrollStock/scrollStock?baseIndex=' + type + "&sortBy=" + sortBy+"&index="+"9"+"&name="+name
-    })
+      var index = e.target.dataset.index;
+      var stockDetail;
+      var type = that.data.type;
+      var sortBy;
+      var name;
+      var nameIndex = that.data.nameIndex;
+      switch (nameIndex) {
+        case "0":
+          name = "全部-排行"
+          break;
+        case "1":
+          name = "创新-排行"
+          break;
+        case "2":
+          name = "基础-排行"
+          break;
+        case "3":
+          name = "做市-排行"
+          break;
+        case "4":
+          name = "协议-排行"
+          break;
+        case "5":
+          name = "转板-排行"
+          break;
+      }
+      switch (index) {
+        case "0":
+          sortBy = "chng_pct";
+          break;
+        case "1":
+          sortBy = "latest_volume";
+          break;
+        case "2":
+          sortBy = "latest_turnover";
+          break;
+      }
+
+      wx.navigateTo({
+        url: '../data/scrollStock/scrollStock?baseIndex=' + type + "&sortBy=" + sortBy + "&index=" + "9" + "&name=" + name
+      })
     }
     //防止重复点击
     util.buttonClicked(this);
@@ -270,56 +279,54 @@ Page({
   //公司详情
   onStockDetail: function(e) {
     var that = this;
-    if(that.data.buttonClicked){
-    var index = e.target.dataset.index;
-    var type = e.target.dataset.type;
-    var stockCode;
-    switch (type) {
-      case "0":
-        stockCode = that.data.priceByChange[index].stock_code;
-        break;
-      case "1":
-        stockCode = that.data.priceByVolume[index].stock_code;
-        break;
-      case "2":
-        stockCode = that.data.priceByAmount[index].stock_code;
-        break;
-    }
-    console.log(stockCode)
-    wx.navigateTo({
-      url: '../data/stockDetails/stockDetails?stockCode=' + stockCode,
-    })
+    if (that.data.buttonClicked) {
+      var index = e.target.dataset.index;
+      var type = e.target.dataset.type;
+      var stockCode;
+      var stockName;
+      switch (type) {
+        case "0":
+          stockCode = that.data.priceByChange[index].stock_code;
+          stockName = that.data.priceByChange[index].stock_name;
+          break;
+        case "1":
+          stockCode = that.data.priceByVolume[index].stock_code;
+          stockName = that.data.priceByChange[index].stock_name;
+          break;
+        case "2":
+          stockCode = that.data.priceByAmount[index].stock_code;
+          stockName = that.data.priceByChange[index].stock_name;
+          break;
+      }
+      console.log(stockCode)
+      wx.navigateTo({
+        url: '../data/stockDetails/stockDetails?stockCode=' + stockCode + "&stockName=" + stockName,
+      })
     }
     //防止重复点击
     util.buttonClicked(this);
   },
-  onShow: function () {
+  onShow: function() {
 
 
   },
 
-  onPageScroll: function (e) {
+  onPageScroll: function(e) {
 
     var that = this;
-
-    var query = wx.createSelectorQuery()//创建节点查询器 query
-   
-    query.select('#affix').boundingClientRect()//这段代码的意思是选择Id= the - id的节点，获取节点位置信息的查询请求
-
-    query.exec(function (res) {
-     
-      if ( res[0].top<=0 ) {
+    if (that.data.brand == "iPhone") {
+      const query = wx.createSelectorQuery()
+      query.select('#affix').boundingClientRect()
+      query.selectViewport().scrollOffset()
+      query.exec(function(res) {
         that.setData({
-          menuFixed: -1
+          menuFixed: res[0].top
         })
-      } else {
-        that.setData({
-          menuFixed: 1
-        })
-      }
-      console.log(e.scrollTop);
-    });
-   
+
+        console.log(res[0].top);
+      })
+      console.log(e);
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

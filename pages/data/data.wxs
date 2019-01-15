@@ -6,6 +6,22 @@ var rankTitle;
 var rankRight;
 var areaValue=0;
 var color;
+var load = '正在加载 . . .';
+var loadEnd = '已加载全部内容';
+var loading = function (s) {
+  switch (s) {
+    case 1:
+      return load;
+      break
+    case 2:
+      return loadEnd;
+      break
+    default:
+      return load;
+      break
+  }
+}
+
 var rankingListTitle = function(index) {
   switch (index) {
     case "4":
@@ -138,7 +154,22 @@ var roundedColor=function(index){
       break;
   }
 }
+// var dealType=function(e){
+//   if(e=="竞价"){
+//     color=""
+//   }
+//   if(e=="协议"){
+
+//   }
+//   if(e=="做市"){
+
+//   }
+ 
+// }
 module.exports = {
+  loading: loading,
+  load: load,
+  loadEnd: loadEnd,
   stockColor: stockColor,
   roundedColor: roundedColor,
   color: color,

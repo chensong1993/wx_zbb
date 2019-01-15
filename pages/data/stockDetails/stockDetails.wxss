@@ -1,8 +1,13 @@
+@import "../../news/commonStyle/commonStyle.wxss";
+
 .stock_detail_main {
   margin: 20rpx 20rpx;
   font-size: 26rpx;
 }
-.name_code_main{}
+
+.name_code_main {
+}
+
 .name_code {
   margin: 20rpx 0;
   font-weight: bold;
@@ -21,44 +26,60 @@
   font-weight: bold;
   font-size: 28rpx;
 }
+
 .zhangdie {
   border-bottom: 1rpx solid gainsboro;
-   font-weight: bold;
-   height: 60rpx;
-   line-height: 60rpx;
+  font-weight: bold;
+  height: 60rpx;
+  line-height: 60rpx;
 }
-.data-main{
-  margin-top: 20rpx;
-}
+
 .zhangdie .num {
   margin-right: 20rpx;
   margin-bottom: 20rpx;
+}
+.deal_type{
+  float: right;
+  border: 2rpx solid #4093ff;
+  color: #4093ff;
+  border-radius: 15rpx;
+  padding:5rpx 10rpx;
+}
+.is_innovate{
+   float: right;
+   margin-left: 20rpx;
+  border: 2rpx solid darkviolet;
+  color: darkviolet;
+  border-radius: 15rpx;
+  padding:5rpx 10rpx;
+}
+.data-main {
+  margin-top: 10rpx;
+  clear: both;
+  overflow: hidden;
+  line-height: 40rpx;
+  font-size: 22rpx;
 }
 
 .left-content {
   width: 33.3%;
   float: left;
-  border-bottom: 10rpx;
 }
 
 .left-content1 {
- 
 }
 
 .left-content2 {
- 
   float: right;
   padding-right: 20rpx;
 }
 
 .center-content {
-  border-bottom: 10rpx;
   width: 33.3%;
   float: right;
 }
 
 .center-content1 {
-
 }
 
 .center-content2 {
@@ -67,7 +88,6 @@
 }
 
 .right-content {
-  border-bottom: 10rpx;
   width: 33.3%;
   float: right;
 }
@@ -77,4 +97,172 @@
 
 .right-content2 {
   float: right;
+}
+
+.no_data {
+  width: 100%;
+  text-align: center;
+  line-height: 500rpx;
+}
+
+.openApp_V {
+  width: 100%;
+  text-align: center;
+  margin-top: 50rpx;
+}
+
+.openApp {
+  height: 80rpx;
+  width: 200rpx;
+  color: white;
+  background: #4093ff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+}
+
+.ranking_title .text.active {
+  border-bottom: 5rpx solid #4093ff;
+}
+
+.ranking_title {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  font-size: 30rpx;
+  border-top: 1rpx solid #ececec;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.ranking_title text {
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+}
+
+/* .ranking_title.fixed .bottom{
+  display: inline-block;
+  text-align: center;
+   width: 16.6%;
+  position: fixed;
+  margin-top: 79rpx;
+  top: 0rpx;
+  z-index: 99;
+  border-bottom: 5rpx solid #4093ff;
+}
+
+.ranking_title.fixed {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: white;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+} */
+
+.gk_main {
+  margin: 0 20rpx;
+  font-size: 26rpx;
+}
+
+.gk_h {
+  width: 100%;
+  height: 80rpx;
+  font-size: 30rpx;
+  background: #ececec;
+  margin-bottom: 20rpx;
+}
+
+.gk_h text {
+  padding-left: 20rpx;
+  color: #4093ff;
+  font-weight: bold;
+  line-height: 80rpx;
+}
+
+.name_content {
+  margin-bottom: 20rpx;
+  width: 100%;
+  display: flex;
+}
+
+.gk_name {
+  width: 30%;
+  text-align: left;
+  align-self: center;
+}
+
+.gk_content {
+  width: 70%;
+  align-self: center;
+  text-align: left;
+}
+
+.gl_name {
+  align-self: center;
+  width: 290rpx;
+  text-align: left;
+}
+
+.gl {
+  width: 100%;
+}
+
+.gl_zhiwei {
+  width: 70%;
+  display: inline-block;
+  text-align: left;
+  align-self: center;
+}
+
+.gl_zijin {
+  align-self: center;
+  width: 30%;
+  display: inline-block;
+  text-align: right;
+}
+
+.gd_main {
+  font-size: 26rpx;
+  width: 100%;
+}
+
+.gd {
+  width: 100%;
+  display: flex;
+  margin-top: 20rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.gd_name {
+  margin-left: 20rpx;
+  align-self: center;
+  width: 38%;
+  margin-bottom: 20rpx;
+  text-align: left;
+}
+
+.gd_zhiwei {
+  margin-bottom: 20rpx;
+  width: 20%;
+  align-self: center;
+  text-align: center;
+}
+
+.gd_zb {
+  align-self: center;
+  width: 20%;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.gd_bg {
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+  align-self: center;
+  width: 18%;
+  text-align: right;
 }

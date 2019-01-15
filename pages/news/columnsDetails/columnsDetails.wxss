@@ -1,5 +1,4 @@
-/* pages/news/topicDetails/topicDetails.wxss */
-@import '../commonStyle/commonStyle.wxss';
+@import "../commonStyle/commonStyle.wxss";
 .colimnsMain{
   margin: 5rpx 20rpx;
 }

@@ -1,13 +1,15 @@
-<wxs src="../data.wxs" module="unit_conversion"/>
+<wxs src="../data.wxs" module="unit_conversion" />
 
- 
-    <view class='zhuban-main'>
-    <text class='data-name'>{{unit_conversion.rankingListTitle(index)}}名称</text>
-    <text class='data-num'>{{unit_conversion.rankingListRight(index)}}数量</text>
-    </view>
-    <block wx:for="{{typeData}}" wx:key>
-    <view class='zhuban-content' bindtap='onRankingIndex' data-index="{{index}}">
+
+<view class='zhuban-main'>
+  <text class='data-name'>{{unit_conversion.rankingListTitle(index)}}名称</text>
+  <text class='data-num'>{{unit_conversion.rankingListRight(index)}}数量</text>
+</view>
+<block wx:for="{{typeData}}" wx:key>
+  <view class='zhuban-content' bindtap='onRankingIndex' data-index="{{index}}">
     <text class='name' bindtap='onRankingIndex' data-index="{{index}}">{{item.org_name}}</text>
     <text class='num' bindtap='onRankingIndex' data-index="{{index}}">{{item.total_company}}</text>
-    </view>
-    </block>
+  </view>
+</block>
+<wxs src="../data.wxs" module="news_load"></wxs>
+<view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

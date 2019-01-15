@@ -1,4 +1,4 @@
-var Wxparse = require("../../../wxParse/wxParse.js");
+var wxParse = require("../../../wxParse/wxParse.js");
 var util = require("../../../utils/util.js");
 Page({
 
@@ -13,6 +13,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     var index = 0;
+    var content;
     var originalId = options.originalId
     that.data.originalId = options.originalId
     // wx.showLoading({
@@ -20,7 +21,7 @@ Page({
 
     // })
     wx.showNavigationBarLoading();
-    this.setData({
+    that.setData({
         content: -1,
       }),
       wx.request({
@@ -33,7 +34,7 @@ Page({
           'content-type': 'application/json' // 默认值 
         },
         complete() {
-         // wx.hideLoading();
+          // wx.hideLoading();
         },
         success(res) {
           wx.hideNavigationBarLoading();
@@ -44,11 +45,10 @@ Page({
 
           })
 
-          console.log();
-          var content = "<div style=\"margin:0rpx; line-height:50rpx;  font-size:30rpx; color:black; word-break:normal\">" + res.data.results[0].content.content + "</div>";
+          content = "<div style=\"margin:0rpx; line-height:50rpx;  font-size:30rpx; color:black; word-break:normal\">" + res.data.results[0].content.content + "</div>";
 
-          Wxparse.wxParse('article', 'html', content, that);
-          console.log(content)
+          wxParse.wxParse('article', 'html', content, that);
+          //console.log(content)
 
         }
       })
@@ -92,7 +92,7 @@ Page({
 
     // })
     wx.showNavigationBarLoading();
-    this.setData({
+    that.setData({
         content: -1,
       }),
       wx.request({
@@ -105,7 +105,7 @@ Page({
           'content-type': 'application/json' // 默认值 
         },
         complete() {
-        //  wx.hideLoading();
+          //  wx.hideLoading();
           wx.hideNavigationBarLoading();
           wx.stopPullDownRefresh();
         },
@@ -117,10 +117,10 @@ Page({
 
           })
 
-          console.log();
+
           var content = "<div style=\"margin:0rpx; line-height:50rpx;  font-size:30rpx; color:black; word-break:normal\">" + res.data.results[0].content.content + "</div>";
 
-          Wxparse.wxParse('article', 'html', content, that);
+          wxParse.wxParse('article', 'html', content, that);
           console.log(content)
 
         }
@@ -136,32 +136,38 @@ Page({
     var tag = e.target.dataset.tag;
     console.log(tag)
     if (that.data.buttonClicked) {
-    wx.navigateTo({
-      url: '../detailTag/detailTag?detailTag=' + tag,
-    })
+      wx.navigateTo({
+        url: '../detailTag/detailTag?detailTag=' + tag,
+      })
     }
     util.buttonClicked(this);
   },
   wxParseTagATap: function(e) {
     if (this.data.buttonClicked) {
-    var href = e.currentTarget.dataset.src;
-    console.log(href);
-    var originalId = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html'));
+      var href = e.currentTarget.dataset.src;
+      console.log(href);
+      var originalId = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html'));
+      var stockCode = href.substring(href.lastIndexOf('/') + 1);
+      
+      console.log(originalId);
+      if (href.indexOf("html") > -1) {
+        wx.navigateTo({
+          url: '../newsDetails/newsDetails?originalId=' + originalId,
+        })
+      }
 
-    console.log(originalId);
-    if (href.indexOf("html") > -1) {
-      wx.navigateTo({
-        url: '../newsDetails/newsDetails?originalId=' + originalId,
-      })
-    }
-
+      if (href.indexOf("stock") > -1) {
+        wx.navigateTo({
+          url: '../../data/stockDetails/stockDetails?stockCode=' + stockCode,
+        })
+      }
     }
     util.buttonClicked(this);
   },
   /** 
-  * 用户点击右上角分享 
-  */
-  onShareAppMessage: function () {
+   * 用户点击右上角分享 
+   */
+  onShareAppMessage: function() {
 
   },
 })

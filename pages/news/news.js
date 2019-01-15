@@ -25,6 +25,7 @@ Page({
     buttonClicked: true,
     setInter: '123',
     LoadMores: -1,
+    
     /**
      * 
      */
@@ -328,12 +329,28 @@ Page({
           url: 'newsDetails/newsDetails?originalId=' + originalId,
         })
       }
+      
+      // const db = wx.cloud.database();
+      // db.collection('newsRead').add({
+      //   // data 字段表示需新增的 JSON 数据
+      //   data: {
+      //     // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+      //     description: '已读新闻',
+      //     originalId: originalId,
+
+      //   },
+      //   success(res) {
+      //     // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+      //     console.log(res)
+      //   },
+      //   fail: console.error
+      // })
     }
     //防止重复点击
     util.buttonClicked(this);
 
   },
-
+ 
   /** 
    * 生命周期函数--监听页面加载 
    */
@@ -355,6 +372,13 @@ Page({
     // wx.showLoading({
     //   title: '加载中',
     // })
+
+    // //数据库初始化
+    // wx.cloud.init()
+    // const testDB = wx.cloud.database({
+    //   env: 'zibenbang'
+    // })
+  
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',
       method: 'GET',
@@ -558,7 +582,7 @@ Page({
         //  resArr: res.data.results,
         })
 
-        if (res.data.results!= null) {
+        if (res.data.results!= undefined) {
           var cont = news.concat(res.data.results);
           console.log(cont);
           that.setData({

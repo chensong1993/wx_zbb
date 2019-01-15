@@ -1,86 +1,245 @@
 <wxs src="../data.wxs" module="unit_conversion" />
 
 <view class='stock_detail_main'>
-<view class='name_code_main'>
-  <view class='name_code'>
-    <text class='name'>{{stockDetail[0].stock_name}}</text>
-    <text class='code' wx:if="{{stockDetail[0].stock_code!=null}}">({{stockDetail[0].stock_code}})</text>
-  </view>
-  <view class='price'wx:if="{{stockDetail[0].today_open!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{stockDetail[0].today_open}}</view>
+  <text class='is_innovate' wx:if="{{stockDetail[0].is_innovate==true}}" style='color:darkviolet;  border: 2rpx solid darkviolet;'>创新层</text>
+  <text class='is_innovate' wx:else style='color:rgb(174, 177, 10);  border: 2rpx solid rgb(174, 177, 10);'>基础层</text>
+  <text class='deal_type' wx:if="{{stockDetail[0].deal_type!=undefined}}">{{stockDetail[0].deal_type}}</text>
 
-  <view class='zhangdie'>
-    <text class='num'wx:if="{{stockDetail[0].chng!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">+{{stockDetail[0].chng}}</text>
-    <text class='percetnt' wx:if="{{stockDetail[0].chng_pct!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{stockDetail[0].chng_pct}}%</text>
-  </view>
+  <view class='name_code_main'>
+    <view class='name_code'>
+      <text class='name'>{{stockDetail[0].stock_name}}</text>
+      <text class='code' wx:if="{{stockDetail[0].stock_code!=null}}">({{stockDetail[0].stock_code}})</text>
+    </view>
+
+    <view class='price' wx:if="{{stockDetail[0].today_open!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{stockDetail[0].today_open}}</view>
+    <view class='zhangdie'>
+      <text class='num' wx:if="{{stockDetail[0].chng!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">{{stockDetail[0].chng}}</text>
+      <text class='percetnt' wx:if="{{stockDetail[0].chng_pct!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{stockDetail[0].chng_pct}}%</text>
+    </view>
+
   </view>
   <view class='data-main'>
 
     <view class='left-content'>
-      <text class='left-content1'>今开</text>
+      <text class='left-content1'>今开:</text>
       <text class='left-content2'>{{stockDetail[0].today_open}}</text>
     </view>
     <view class='right-content'>
-      <text class='right-content1'>成交额</text>
+      <text class='right-content1'>成交额:</text>
       <text class='right-content2'>{{stockDetail[0].stock_name}}</text>
     </view>
     <view class='center-content'>
-      <text class='center-content1'>最高价</text>
+      <text class='center-content1'>最高价:</text>
       <text class='center-content2'>{{stockDetail[0].highest_price}}</text>
     </view>
 
     <view class='left-content'>
-      <text class='left-content1'>昨收</text>
+      <text class='left-content1'>昨收:</text>
       <text class='left-content2'>{{stockDetail[0].lclose}}</text>
     </view>
     <view class='right-content'>
-      <text class='right-content1'>成交量</text>
+      <text class='right-content1'>成交量:</text>
       <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].latest_volume)}}</text>
     </view>
     <view class='center-content'>
-      <text class='center-content1'>最低价</text>
+      <text class='center-content1'>最低价:</text>
       <text class='center-content2'>{{stockDetail[0].lowest_price}}</text>
     </view>
 
     <view class='left-content'>
-      <text class='left-content1'>营收</text>
+      <text class='left-content1'>营收:</text>
       <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].total_income)}}</text>
     </view>
     <view class='right-content'>
-      <text class='right-content1'>总股本</text>
+      <text class='right-content1'>总股本:</text>
       <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_volume)}}</text>
     </view>
     <view class='center-content'>
-      <text class='center-content1'>流通股</text>
+      <text class='center-content1'>流通股:</text>
       <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].shares_flow)}}</text>
     </view>
 
     <view class='left-content'>
-      <text class='left-content1'>净利润</text>
+      <text class='left-content1'>净利润:</text>
       <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].net_profit)}}</text>
     </view>
     <view class='right-content'>
-      <text class='right-content1'>总市值</text>
+      <text class='right-content1'>总市值:</text>
       <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_value)}}</text>
     </view>
     <view class='center-content'>
-      <text class='center-content1'>流值</text>
+      <text class='center-content1'>流值:</text>
       <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].values_flow)}}</text>
     </view>
 
     <view class='left-content'>
-      <text class='left-content1'>市盈(静)</text>
+      <text class='left-content1'>市盈(静):</text>
       <text class='left-content2'>{{stockDetail[0].static_pe}}</text>
     </view>
     <view class='right-content'>
-      <text class='right-content1'>振幅</text>
+      <text class='right-content1'>振幅:</text>
       <text class='right-content2'>{{stockDetail[0].swg}}%</text>
     </view>
     <view class='center-content'>
-      <text class='center-content1'>市盈(动)</text>
+      <text class='center-content1'>市盈(动):</text>
       <text class='center-content2' wx:if="{{stockDetail[0].dynamic_pe==null}}">--</text>
       <text class='center-content2' wx:else>{{stockDetail[0].dynamic_pe}}</text>
     </view>
+  </view>
+  <!-- <view class='openApp_V'>
+    <text class="openApp" bindtap='onOpenApp'>打开App浏览更多数据</text>
+  </view> -->
+</view>
 
+<view>
+  <view class="ranking_title">
+    <text bindtap='onRankingT' data-index='0'><text class="text {{currentTab==0?'active':''}}" >资讯</text></text>
+    <text bindtap='onRankingT' data-index='1'><text class="text {{currentTab==1?'active':''}}">资料</text></text>
+    <text bindtap='onRankingT' data-index='2'><text class="text {{currentTab==2?'active':''}}">股东</text></text>
+  </view>
+  <view wx:if="{{currentTab==0}}">
+    <!-- //资讯样式布局 -->
+    <include src="../../news/commonStyle/commonStyle.wxml" />
+    <block wx:for="{{stockNewsList}}" wx:key></block>
+    <view class="no_data" wx:if="{{stockNewsList.length==0}}">暂无数据</view>
+  </view>
+
+  <!-- //资料样式布局 -->
+  <view wx:if="{{currentTab==1}}">
+    <view class='gk_h'>
+      <text>公司概括</text>
+    </view>
+    <view class='gk_main'>
+      <block wx:for="{{gaikuo}}" wx:key>
+        <view class='name_content'>
+          <text class='gk_name'>公司名称</text>
+          <text class='gk_content'>{{item.cname}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>成立日期</text>
+          <text class='gk_content'>{{item.build_date}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>挂牌日期</text>
+          <text class='gk_content'>{{item.declaredate}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>注册资本</text>
+          <text class='gk_content'>{{item.regi_cap}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>所属行业</text>
+          <text class='gk_content'>{{item.industry}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>主营业务</text>
+          <text class='gk_content'>{{item.scope_buss}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>主办券商</text>
+          <text class='gk_content'>{{item.dealer}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>转让方式</text>
+          <text class='gk_content'>{{item.exchange_type}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>做市商</text>
+          <text class='gk_content'>{{item.dealer}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>做事起始日</text>
+          <text class='gk_content' wx:if="{{item.dealing_date!=null}}">{{item.dealing_date}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>律师事务所</text>
+          <text class='gk_content'>{{item.lawyer}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>会计事务所</text>
+          <text class='gk_content'>{{item.accountant}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>法人代表</text>
+          <text class='gk_content'>{{item.leg_person}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>董事长</text>
+          <text class='gk_content'>{{item.chairman}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>董秘</text>
+          <text class='gk_content'>{{item.board_sectry}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>地址</text>
+          <text class='gk_content'>{{item.regi_addr}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>电话</text>
+          <text class='gk_content'>{{item.tel}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>传真</text>
+          <text class='gk_content'>{{item.fax}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>邮件</text>
+          <text class='gk_content'>{{item.email}}</text>
+        </view>
+        <view class='name_content'>
+          <text class='gk_name'>网址</text>
+          <text class='gk_content'>{{item.web_site}}</text>
+        </view>
+      </block>
+    </view>
+    <view class='gk_h'>
+      <text>管理层</text>
+    </view>
+    <view class='gk_main'>
+      <view class='name_content' wx:for="{{zixun}}" wx:key>
+        <text class='gl_name'>{{item.mng_name}}</text>
+        <view class='gl'>
+          <text class='gl_zhiwei'>{{item.post}}</text>
+          <text class='gl_zijin'>{{unit_conversion.stockValue(item.holding)}}</text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{currentTab==2}}">
+    <view class='gk_h'>
+      <text>股本股东</text>
+    </view>
+    <view class='gk_main'>
+      <view class='name_content'>
+        <text class='gk_name'>总股本</text>
+        <text class='gk_content'>{{unit_conversion.stockValue(stockDetail[0].total_volume)}}</text>
+      </view>
+      <view class='name_content'>
+        <text class='gk_name'>流通股本</text>
+        <text class='gk_content'>{{unit_conversion.stockValue(stockDetail[0].shares_flow)}}</text>
+      </view>
+      <view class='name_content'>
+        <text class='gk_name'>股东户数</text>
+        <text class='gk_content'>{{holder[0].total_holders}}</text>
+      </view>
+    </view>
+    <view class='gk_h'>
+      <text>十大股东</text>
+    </view>
+    <block wx:for="{{gudong}}" wx:key>
+      <view class='gd_main'>
+        <view class='gd'>
+          <text class='gd_name'>{{item.hold_name}}</text>
+          <text class='gd_zhiwei'>{{unit_conversion.stockValue(item.ltd_shr_num)}}</text>
+          <text class='gd_zb'>{{item.hold_pct}}%</text>
+          <text class='gd_bg' wx:if="{{item.change!=null}}">{{unit_conversion.percentValue(item.change)}}</text>
+          <text class='gd_bg' wx:else>不变</text>
+        </view>
+      </view>
+    </block>
   </view>
 
 </view>

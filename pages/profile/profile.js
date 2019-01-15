@@ -12,7 +12,8 @@ Page({
     wx.getUserInfo({
       success(res) {
          userInfos = res.userInfo
-        console.log(userInfos)
+        console.log(res.userInfo.openId)
+        console.log(res.userInfo.encryptedData)
         that.setData({
           userInfo: res.userInfo
         })

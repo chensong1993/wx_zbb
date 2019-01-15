@@ -18,13 +18,13 @@
       <view class='name2'>挂牌占比</view>
     </view>
     <view class='area_leibie' wx:for="{{area}}" wx:key>
-      <view wx:if="{{item.area_name!=null&&type==1}}">
+      <view class='area_leibie' wx:if="{{item.area_name!=null&&type==1}}">
       <view class='name'  bindtap='onHangyeIndex' data-index="{{index}}">{{item.area_name}}</view>
       <view class='name1' bindtap='onHangyeIndex' data-index="{{index}}">{{item.total_company}}</view>
       <view class='name2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.percentValue(area[index].percentage)}}</view>
       </view>
       <view wx:else>
-      <view wx:if="{{item.indu_name_2!=null}}">
+      <view class='area_hy' wx:if="{{item.indu_name_2!=null}}">
       <view class='name'bindtap='onHangyeIndex' data-index="{{index}}">{{item.indu_name_2}}</view>
       <view class='name1' bindtap='onHangyeIndex' data-index="{{index}}">{{item.total_company}}</view>
       <view class='name2' bindtap='onHangyeIndex' data-index="{{index}}">{{unit_conversion.percentValue(area[index].percentage)}}</view>
@@ -33,3 +33,5 @@
     </view>
   </view>
 </view>
+<wxs src="../data.wxs" module="news_load"></wxs>
+<view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

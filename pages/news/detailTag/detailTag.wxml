@@ -1,8 +1,8 @@
 <!-- <import src="../commonStyle/commonStyle.wxml"/>  -->
 <!-- <template is="news" data="{{...newsList}}"/> -->
-
+<wxs src="../news.wxs" module="news_load"></wxs>
 <include src="../commonStyle/commonStyle.wxml" />
 
- <block wx:for="{{tagList}}" wx:key=''></block>
+<block wx:for="{{tagList}}" wx:key=''></block>
 
- <view class="loadMores {{more==1?'active':''}}">正在加载...</view>
+<view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

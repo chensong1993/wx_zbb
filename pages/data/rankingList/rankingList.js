@@ -4,6 +4,7 @@ Page({
     page: "2",
     data: "",
     buttonClicked: true,
+    LoadMores: -1
   },
 
   onLoad: function(e) {
@@ -16,7 +17,9 @@ Page({
       index = e.index;
       that.data.index = e.index;
     }
-
+  that.setData({
+    page:1
+  })
     var nacigationTitle;
     wx.showNavigationBarLoading();
     switch (that.data.index) {
@@ -58,16 +61,18 @@ Page({
       },
       success(res) {
         // rankingData += rankingData;
-
         that.setData({
-          typeData: res.data.results
+          typeData: res.data.results,
+          LoadMores: -1
         })
         // console.log(res.data.results);
         wx.hideNavigationBarLoading();
       },
       fail() {
         wx.hideNavigationBarLoading();
-
+        that.setData({
+          LoadMores: -1
+        })
       }
     })
     //排行榜
@@ -87,13 +92,17 @@ Page({
         var rankingData = that.data.typeData;
         var rankingData1 = rankingData.concat(res.data.results);
         that.setData({
-          typeData: rankingData1
+          typeData: rankingData1,
+          LoadMores: -1
         })
         console.log(rankingData1);
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
       },
       fail() {
+        that.setData({
+          LoadMores: -1
+        })
         wx.stopPullDownRefresh();
         wx.hideNavigationBarLoading();
 
@@ -102,14 +111,14 @@ Page({
   },
   onRankingIndex: function(e) {
     var that = this;
-    if (that.data.buttonClicked){
+    if (that.data.buttonClicked) {
       var index = that.data.index;
-    //列表的下标
-    var item = e.target.dataset.index;
-    var code = that.data.typeData[item].org_code;
-    wx.navigateTo({
-      url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index,
-    })
+      //列表的下标
+      var item = e.target.dataset.index;
+      var code = that.data.typeData[item].org_code;
+      wx.navigateTo({
+        url: '../scrollStock/scrollStock?stockCode=' + code + "&index=" + index,
+      })
     }
     util.buttonClicked(this);
   },
@@ -118,14 +127,13 @@ Page({
 
   },
   onReachBottom: function() {
-    this.onRankingListData(++this.data.page);
-  },
-  onRankingListData: function(page) {
+    ++this.data.page
     var that = this;
     var url = "http://api.chinaipo.com/markets/v1/statistics/";
     var addMore;
-    //var index = e.index;
-    // console.log(index + "===============");
+    this.setData({
+      LoadMores: 1
+    })
     wx.showNavigationBarLoading();
     switch (that.data.index) {
       case "4":
@@ -143,44 +151,110 @@ Page({
     }
 
     that.setData({
-      index: that.data.index
+      index: that.data.index,
+      LoadMores: 1
     })
-    wx.showLoading({
-      title: '正在加载 . . .',
-    })
+
     //排行榜
     wx.request({
       url: url,
       method: 'GET',
       data: {
-        page: page
+        page: this.data.page
       },
       header: {
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-        wx.hideLoading();
       },
       success(res) {
         if (res.data.results != undefined) {
           var rankingData = that.data.typeData;
           var rankingData1 = rankingData.concat(res.data.results);
           that.setData({
-            typeData: rankingData1
+            typeData: rankingData1,
+            LoadMores: -1
+          })
+        } else {
+          that.setData({
+            LoadMores: 2
           })
 
-        } else {
-          wx.showToast({
-            title: '已加载全部',
-            icon: "none"
-          })
         }
         console.log(rankingData1);
         wx.hideNavigationBarLoading();
       },
       fail() {
+        that.setData({
+          LoadMores: 2
+        })
         wx.hideNavigationBarLoading();
       }
     })
   },
+  // onRankingListData: function(page) {
+  //   var that = this;
+  //   var url = "http://api.chinaipo.com/markets/v1/statistics/";
+  //   var addMore;
+  //   //var index = e.index;
+  //   // console.log(index + "===============");
+  //   wx.showNavigationBarLoading();
+  //   switch (that.data.index) {
+  //     case "4":
+  //       url = url + "investor/";
+  //       break;
+  //     case "5":
+  //       url = url + "dealer/";
+  //       break;
+  //     case "6":
+  //       url = url + "lawyer/";
+  //       break;
+  //     case "7":
+  //       url = url + "accountant/";
+  //       break;
+  //   }
+
+  //   that.setData({
+  //     index: that.data.index,
+  //     LoadMores: 1
+  //   })
+  
+  //   //排行榜
+  //   wx.request({
+  //     url: url,
+  //     method: 'GET',
+  //     data: {
+  //       page: page
+  //     },
+  //     header: {
+  //       'content-type': 'application/json' // 默认值 
+  //     },
+  //     complete() {
+  //     },
+  //     success(res) {
+  //       if (res.data.results != undefined) {
+  //         var rankingData = that.data.typeData;
+  //         var rankingData1 = rankingData.concat(res.data.results);
+  //         that.setData({
+  //           typeData: rankingData1,
+  //           LoadMores: -1
+  //         })
+
+  //       } else {
+  //         that.setData({
+  //           LoadMores: 2
+  //         })
+         
+  //       }
+  //       console.log(rankingData1);
+  //       wx.hideNavigationBarLoading();
+  //     },
+  //     fail() {
+  //       that.setData({
+  //         LoadMores: 2
+  //       })
+  //       wx.hideNavigationBarLoading();
+  //     }
+  //   })
+  // },
 })

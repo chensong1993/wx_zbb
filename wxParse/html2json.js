@@ -109,14 +109,14 @@ function html2json(html, bindName) {
                     var name = attr.name;
                     var value = attr.value;
                     if (name == 'class') {
-                        console.dir(value);
+                        console.log(value);
                         //  value = value.join("")
                         node.classStr = value;
                     }
                     // has multi attibutes
                     // make it array of attribute
                     if (name == 'style') {
-                        console.dir(value);
+                        console.log(value);
                         //  value = value.join("")
                         node.styleStr = value;
                     }
@@ -200,7 +200,7 @@ function html2json(html, bindName) {
             //debug(tag);
             // merge into parent tag
             var node = bufArray.shift();
-            if (node.tag !== tag) console.error('invalid state: mismatch end tag');
+            if (node.tag !== tag) console.log('invalid state: mismatch end tag');
 
             //当有缓存source资源时于于video补上src资源
             if(node.tag === 'video' && results.source){

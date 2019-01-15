@@ -72,3 +72,12 @@
 
 .stockRightContent .name {
 }
+
+.loadMores{
+  font-size: 30rpx;
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  display: block;
+}

@@ -5,6 +5,7 @@ Page({
     data: {},
     i: "1",
     order: "des",
+    LoadMores:-1,
     stockTitle: [{
       id: 0,
       name: "当前价",
@@ -236,6 +237,7 @@ Page({
       },
       success(res) {
         that.setData({
+          LoadMores: -1,
           innovate: res.data.results
         })
         console.log(res.data.results);
@@ -243,7 +245,9 @@ Page({
 
       },
       fail() {
-
+        that.setData({
+          LoadMores: -1,
+        })
         wx.hideNavigationBarLoading();
 
       }
@@ -258,8 +262,9 @@ Page({
       var item = e.target.dataset.index;
       console.log(item + "'''''''''''''''''''");
       var stockCode = that.data.innovate[item].stock_code;
+      var stockName = that.data.innovate[item].stock_name;
       wx.navigateTo({
-        url: '../stockDetails/stockDetails?stockCode=' + stockCode,
+        url: '../stockDetails/stockDetails?stockCode=' + stockCode + "&stockName=" + stockName,
       })
     }
     util.buttonClicked(this);
@@ -285,11 +290,13 @@ Page({
         that.data.order = "des";
       }
       that.setData({
-        order: order
-      })
-      that.setData({
+        LoadMores: -1,
+        order: order,
         page: "1",
         currentTab: item
+      })
+      that.setData({
+       
       })
 
       wx.showNavigationBarLoading();
@@ -410,7 +417,8 @@ Page({
         success(res) {
           if (res.data.results != undefined) {
             that.setData({
-              innovate: res.data.results
+              innovate: res.data.results,
+              LoadMores: -1,
             })
           } else {
             wx.showToast({
@@ -422,7 +430,10 @@ Page({
           wx.hideNavigationBarLoading();
         },
         fail() {
-
+          that.setData({
+            LoadMores: -1,
+          })
+          
           wx.hideNavigationBarLoading();
 
         }
@@ -455,6 +466,9 @@ Page({
     } else {
       order = that.data.order;
     }
+    that.setData({
+      LoadMores: 1,
+    })
     wx.showNavigationBarLoading();
     switch (index) {
       case "0":
@@ -557,9 +571,7 @@ Page({
         })
         break;
     }
-    wx.showLoading({
-      title: '正在加载 . . .',
-    })
+   
     wx.request({
       url: url + 'tchart/',
       method: 'GET',
@@ -568,26 +580,29 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-        wx.hideLoading();
+        
       },
       success(res) {
         if (res.data.results != undefined) {
           var data = that.data.innovate;
           var data1 = data.concat(res.data.results);
           that.setData({
+            LoadMores: -1,
             innovate: data1
           })
         } else {
-          wx.showToast({
-            title: '已加载全部',
-            icon: "none"
+          that.setData({
+            LoadMores: 2,
           })
+         
         }
         console.log(data1);
         wx.hideNavigationBarLoading();
       },
       fail() {
-
+        that.setData({
+          LoadMores: 2,
+        })
         wx.hideNavigationBarLoading();
 
       }

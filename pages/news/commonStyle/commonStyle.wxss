@@ -11,7 +11,7 @@ color: transparent;
 }
 
 .views {
-  font-size: 24rpx;
+  font-size: 28rpx;
   clear: both;
   overflow: hidden;
   position: relative;
@@ -28,6 +28,8 @@ color: transparent;
 
 .mainImg {
   float: right;
+   width: 300rpx;
+  height: 200rpx;
 }
 
 .title {

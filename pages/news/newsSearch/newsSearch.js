@@ -8,6 +8,7 @@ Page({
     page: 1,
     clearNone:-1,
     buttonClicked: true,
+    LoadMores: -1
   },
   //判断输入框是否为空
   inputEmpty:function(e){
@@ -15,11 +16,13 @@ Page({
     if (e.detail.value.length==0){
       that.setData({
         tagList: '',
-        clearNone:-1
+        clearNone:-1,
+        LoadMores: -1,
       })
     }else{
       that.setData({
-        clearNone: 1
+        clearNone: 1,
+        LoadMores: -1,
       })
     }
     
@@ -28,7 +31,8 @@ Page({
     this.setData({
       searchinput:'',
       tagList: '',
-      clearNone: -1
+      clearNone: -1,
+      focus:false
     })
     console.log('123');
   },
@@ -59,10 +63,11 @@ Page({
       },
       success(res) {
         if (that.data.search.length!=0){
-        if (res.data.results.length != 0) {
+        if (res.data.results!= undefined) {
           that.setData({
             err: 1,
             tagList: res.data.results,
+            LoadMores: -1
           })
           that.data.newsList = res.data.results;
         } else {
@@ -71,13 +76,12 @@ Page({
             title: '暂无结果',
           })
           that.setData({
-            err: -1,
             tagList: '',
           })
         }
         }else{
           that.setData({
-            err: -1,
+            LoadMores: -1,
             tagList: '',
           })
         }
@@ -88,10 +92,7 @@ Page({
           icon: 'none',
           title: '暂无结果',
         })
-        that.setData({
-          err: -1,
-          tagList: '',
-        })
+       
       }
     })
    
@@ -124,7 +125,8 @@ Page({
     var news = that.data.newsList;
     var searchContent = that.data.search;
     that.setData({
-      more: 1
+      more: 1,
+      LoadMores: 1,
     })
  
     wx.request({
@@ -142,36 +144,29 @@ Page({
       success(res) {
         var newsMore = res.data.results;
         console.log(newsMore);
-        if (newsMore!= null) {
+        if (newsMore!= undefined) {
           for (var i = 0; i < newsMore.length; i++) {
             news.push(newsMore[i])
           }
           that.setData({
-            err: 1,
+            LoadMores: -1,
             tagList: news,
-            more: -1
           })
           that.data.newsList = news;
           console.log(news);
-         
         } else {
-          that.setData({ //很重要 
+          that.setData({ 
+            LoadMores: 2,
             more: -1
-          })
-          wx.showToast({
-            icon: 'none',
-            title: '已加载全部',
           })
         }
       },
       fail() {
-        that.setData({ //很重要 
+        that.setData({ 
+          LoadMores: 2,
           more: -1
         })
-        wx.showToast({
-          icon: 'none',
-          title: '已加载全部',
-        })
+       
         
       }
     })

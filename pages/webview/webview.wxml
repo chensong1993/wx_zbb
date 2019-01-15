@@ -1,2 +1,2 @@
 <!--index.wxml-->
-<web-view src='{{bannerDetail}}'></web-view>
+<web-view src='https://android.myapp.com/myapp/detail.htm?apkName=com.zhiyi.chinaipo'></web-view>

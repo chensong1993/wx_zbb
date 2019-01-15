@@ -2,7 +2,7 @@ var resultValue = "";
 var conversionValue;
 var percentV;
 var color;
-
+var left;
 //单位转换
 var stockValue = function(value) {
   if (value == null || value == "0.00") {
@@ -57,8 +57,31 @@ var stockColor = function(e) {
   }
 }
 
+var fixed = function (currentTab) {
+  if (currentTab == 0) {
+    left = "0";
+    return left;
+  } else if (currentTab == 1) {
+    left = "16.6%";
+    return left;
+  } else if (currentTab == 2) {
+    left = "33.2%";
+    return left;
+  } else if (currentTab == 3) {
+    left = "49.8%";
+    return left;
+  } else if (currentTab == 4) {
+    left = "66.4%";
+    return left;
+  } else {
+    left = "83%";
+    return left;
+  }
 
+}
 module.exports = {
+  fixed:fixed,
+  left:left,
   stockColor: stockColor,
   color: color,
   stockValue: stockValue,

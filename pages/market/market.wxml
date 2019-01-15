@@ -18,18 +18,23 @@
       </view>
     </view>
   </view>
-  <view id='affix'></view>
   <view class='rankingList'>
-    <view class="ranking_title {{menuFixed<0? 'fixed': ''}}" >
+    <view class="ranking_title {{menuFixed<0? 'fixed': ''}}">
+
+      <text class="bottom" wx:if="{{menuFixed<0}}" style='left:{{utils.fixed(currentTab)}}'></text>
+
       <text class="text {{currentTab==0?'active':''}}" bindtap='onRankingT' data-index='0'>全部</text>
       <text class="text {{currentTab==1?'active':''}}" bindtap='onRankingT' data-index='1'>创新</text>
       <text class="text {{currentTab==2?'active':''}}" bindtap='onRankingT' data-index='2'>基础</text>
       <text class="text {{currentTab==3?'active':''}}" bindtap='onRankingT' data-index='3'>做市</text>
       <text class="text {{currentTab==4?'active':''}}" bindtap='onRankingT' data-index='4'>协议</text>
       <text class="text {{currentTab==5?'active':''}}" bindtap='onRankingT' data-index='5'>转板</text>
+
     </view>
+    <view id='affix' ></view>
+     <view wx:if="{{menuFixed<0}}"  style='height:80rpx'></view>
     <view class='ranking_content'>
-      <view class='ranking_heard' bindtap='onStockList' data-index='0'>
+      <view class='ranking_heard' bindtap='onStockList' data-index='0' >
         <text bindtap='onStockList' data-index='0'>涨幅榜排行</text>
         <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='0'></image>
       </view>
@@ -40,7 +45,7 @@
         <text>成交额</text>
       </view>
     </view>
-    <view class='stock' wx:for="{{page}}">
+    <view class='stock' wx:for="{{page}}" wx:key>
       <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>
         <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_name}}</view>
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_code}}</view>
@@ -64,7 +69,7 @@
         <text>成交额</text>
       </view>
     </view>
-    <view class='stock' wx:for="{{page}}">
+    <view class='stock' wx:for="{{page}}" wx:key>
       <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>
         <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>{{priceByVolume[index].stock_name}}</view>
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByVolume[index].stock_code}}</view>
@@ -88,7 +93,7 @@
         <text>成交额</text>
       </view>
     </view>
-    <view class='stock' wx:for="{{page}}">
+    <view class='stock' wx:for="{{page}}" wx:key>
       <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>
         <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{priceByAmount[index].stock_name}}</view>
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{priceByAmount[index].stock_code}}</view>

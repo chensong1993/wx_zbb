@@ -1,0 +1,8 @@
+<!--pages/commonStyle/commonStyle.wxml-->
+<view class='heard'>
+  <view class='back_home'>
+  <image class='back' src="../../img/ic_back.png"></image>
+  <image class='home' src="../../img/ic_home.png"></image>
+  <text class='statusTitle'>132</text> 
+  </view>
+</view>

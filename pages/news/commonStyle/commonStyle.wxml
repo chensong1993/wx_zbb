@@ -1,47 +1,59 @@
+<block wx:for="{{tagList}}" wx:key=''>
 
- <block wx:for="{{tagList}}" wx:key=''>
-        
-          <view class='views'    bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index" data-index='{{index}}'>
-          <view class='mainContent' >
-              <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
-              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
+  <view class='views' bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index" data-index='{{index}}'>
+    <view class='mainContent'>
+      <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
+      <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
 
-              <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
-            </view>
-            <view class='mainImg'>
-              <image class='newsImg' src="{{item.titlepic}} "  wx:for-index="index " data-index='{{index}}'></image>
-            </view>
-          </view>
-       
- </block>
+      <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
+    </view>
+    <view class='mainImg' data-index='{{index}}'>
+      <image class='newsImg' wx:if="{{item.titlepic!=null}}" src="{{item.titlepic}} " wx:for-index="index " data-index='{{index}}'></image>
+    </view>
+  </view>
+
+</block>
 
 
-  <block wx:for="{{newsList}}" wx:key=''>
-        <!-- 判断是否是专题 -->
-          <view class='views'    wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
-          <view class='mainContent'>
-              <text class='title' bindtap="newsDetails}}" wx:for-index="index " data-index='{{index}}'>{{item.name}}</text>
-              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
+<block wx:for="{{newsList}}" wx:key=''>
+  <!-- 判断是否是专题 -->
+  <view class='views' wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" data-index='{{index}}'>
+    <view class='mainContent'>
+      <text class='title' bindtap="newsDetails}}" data-index='{{index}}'>{{item.name}}</text>
+      <text class='newsType' bindtap="newsDetails" data-index='{{index}}'>{{item.newsType}}</text>
 
-              <text class='publish' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
-            </view>
-            <view class='mainImg'>
-              <image class='newsImg' src="{{item.photo}} "  wx:for-index="index " data-index='{{index}}'></image>
-            </view>
-          </view>
-          
-          <view class='views'  wx:else bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>
-             <view class='mainContent'>
-              <text class='title' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.title}}</text>
-              <text class='newsType' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.newsType}}</text>
-              <text class='publish' wx:if='{{item.newsType!=null}}' bindtap="newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
-              <text class='publish' wx:else style='left:{{20}}rpx;' bindtap="'newsDetails" wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
-            </view>
-            <view class='mainImg'>
-              <image class='newsImg' src="{{item.titlepic}} "  wx:for-index="index " data-index='{{index}}'></image>
-            </view>
+      <text class='publish' bindtap="newsDetails" data-index='{{index}}'>{{item.source}}</text>
+    </view>
+    <view class='mainImg' data-index='{{index}}'>
+      <image class='newsImg' wx:if="{{item.photo!=null}}" src="{{item.photo}} " data-index='{{index}}'></image>
+    </view>
+  </view>
 
-          </view>
-        </block>
+  <view class='views' wx:else bindtap="newsDetails" data-index='{{index}}'>
+    <view class='mainContent'>
+      <text class='title' bindtap="newsDetails"  data-index='{{index}}'>{{item.title}}</text>
+      <text class='newsType' bindtap="newsDetails" data-index='{{index}}'>{{item.newsType}}</text>
+      <text class='publish' wx:if='{{item.newsType!=null}}' bindtap="newsDetails" data-index='{{index}}'>{{item.source}}</text>
+      <text class='publish' wx:else style='left:{{20}}rpx;' bindtap="'newsDetails" data-index='{{index}}'>{{item.source}}</text>
+    </view>
+    <view class='mainImg' data-index='{{index}}'>
+      <image class='newsImg' wx:if="{{item.titlepic!=null}}" src="{{item.titlepic}} " data-index='{{index}}'></image>
+    </view>
 
- 
+  </view>
+</block>
+
+<block wx:for="{{stockNewsList}}" wx:key=''>
+  <view class='views' bindtap="newsDetails" data-index='{{item.originalId}}'>
+    <view class='mainContent' data-index='{{item.originalId}}'>
+      <text class='title' bindtap="newsDetails" data-index='{{item.originalId}}'>{{item.title}}</text>
+      <text class='newsType' bindtap="newsDetails" data-index='{{item.originalId}}'>{{item.newsType}}</text>
+      <text class='publish' wx:if='{{item.newsType!=null}}' bindtap="newsDetails" data-index='{{item.originalId}}'>{{item.source}}</text>
+      <text class='publish' wx:else style='left:{{20}}rpx;' bindtap="'newsDetails" data-index='{{item.originalId}}'>{{item.source}}</text>
+    </view>
+    <view class='mainImg' data-index='{{item.originalId}}'>
+      <image class='newsImg' wx:if="{{item.titlepic!=null}}" src="{{item.titlepic}} " data-index='{{item.originalId}}'></image>
+    </view>
+
+  </view>
+</block>

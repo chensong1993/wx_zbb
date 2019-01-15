@@ -1,6 +1,6 @@
 @import "../commonStyle/commonStyle.wxss";
 
-.loadMores.active{
+.loadMores{
   height: 80rpx;
   width: 100%;
   text-align: center;
@@ -8,6 +8,3 @@
   display: block;
 }
 
-.loadMores{
-  display: none;
-}

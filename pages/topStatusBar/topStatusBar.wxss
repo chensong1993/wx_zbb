@@ -1,0 +1,33 @@
+/* pages/commonStyle/commonStyle.wxss */
+
+.heard {
+  position: fixed;
+  z-index: 999;
+  top:45rpx;
+  background: white;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+  height: 80rpx;
+}
+.back_home{
+  line-height: 80rpx;
+ 
+}
+.back {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+
+.home {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.statusTitle{
+  font-size: 30rpx;
+  color: black;
+  float: left;
+  text-align: center;
+}

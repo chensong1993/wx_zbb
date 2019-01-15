@@ -15,7 +15,8 @@
     "pages/data/rankingList/rankingList",
     "pages/data/companyDistribution/companyDistribution",
     "pages/data/scrollStock/scrollStock",
-    "pages/data/stockDetails/stockDetails"
+    "pages/data/stockDetails/stockDetails",
+    "pages/topStatusBar/topStatusBar"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -58,6 +59,7 @@
     "request": 6000,
     "downloadFile": 6000
   },
+  "cloud": true,
   "debug": true,
   "navigateToMiniProgramAppIdList": [
     "wxe5f52902cf4de896"
