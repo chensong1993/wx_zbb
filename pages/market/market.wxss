@@ -135,7 +135,7 @@
 .stock {
   clear: both;
   overflow: hidden;
-  font-size: 22rpx;
+  font-size: 24rpx;
   border-bottom: 1rpx solid #ececec;
 }
 

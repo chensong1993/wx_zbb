@@ -1,5 +1,8 @@
 var load='正在加载 . . .';
 var loadEnd='已加载全部内容';
+var absValue;
+var conversionValue;
+var resultValue;
 var loading = function (s) {
   switch (s) {
     case 1:
@@ -13,8 +16,44 @@ var loading = function (s) {
       break
   }
 }
+//单位转换
+var stockValue = function (value) {
+  if (value == null || value == "0.00") {
+    return "--";
+  }
+  absValue = Math.abs(value);
+  //万亿
+  conversionValue = absValue / Math.pow(10, 12);
+  if (value < 0) {
+    resultValue = "-";
+  }
+  if (conversionValue > 1) {
+    resultValue = (absValue / 1000000000000).toFixed(2) + "万亿";
+    return resultValue;
+  }
+
+
+  if (absValue / 100000000 > 1) {
+    resultValue = (absValue / 100000000).toFixed(2) + "亿";
+    return resultValue;
+  }
+
+  if (absValue / 10000 > 1) {
+    resultValue = (absValue / 10000).toFixed(2) + "万";
+    return resultValue;
+  }
+
+  resultValue = absValue.toFixed(2);
+  //console.log(resultValue);
+  return resultValue;
+
+}
 module.exports = {
+  stockValue: stockValue,
   loading: loading,
   load: load,
-  loadEnd: loadEnd
+  loadEnd: loadEnd,
+  absValue: absValue,
+  conversionValue: conversionValue,
+  resultValue: resultValue
 };

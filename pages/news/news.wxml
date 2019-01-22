@@ -24,7 +24,7 @@
     <!-- bindscrolltolower='bindDownLoad' -->
     <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3" lower-threshold="50">
       <view wx:if="{{index==0}}">
-        <swiper class='bannerH' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" autoplay='{{autoplay}}' circular='{{circular}}' bindchange='BannerIndex'>
+        <swiper class='bannerH' indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#4093ff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  circular='{{circular}}' bindchange='BannerIndex'>
           <block wx:for="{{bannerList}}" wx:key=''>
             <swiper-item>
               <image src="{{item.featured_image}}" bindtap='bannerDetail' class="slide-image" mode="widthFix" />

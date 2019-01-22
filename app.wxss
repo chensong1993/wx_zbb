@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 .container {
   height: 100%;
   display: flex;
@@ -7,8 +8,9 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
- /* "pages/data/data",
+}
+
+/* "pages/data/data",
   "pages/market/market",
   "pages/brand/brand",
   {
@@ -28,4 +30,11 @@
     "text": "品牌",
     "iconPath": "img/tabbar_icon_brand_normal.png",
     "selectedIconPath": "img/tabbar_icon_brand_highlight.png"
-  }, */
+  },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "img/tabbar_icon_profile_normal.png",
+        "selectedIconPath": "img/tabbar_icon_profile_highlight.png"
+      }
+  */

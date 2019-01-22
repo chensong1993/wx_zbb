@@ -11,10 +11,10 @@
       <text class='code' wx:if="{{stockDetail[0].stock_code!=null}}">({{stockDetail[0].stock_code}})</text>
     </view>
 
-    <view class='price' wx:if="{{stockDetail[0].today_open!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{stockDetail[0].today_open}}</view>
+    <view class='price' style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{unit_conversion.stockValue(stockDetail[0].today_open)}}</view>
     <view class='zhangdie'>
-      <text class='num' wx:if="{{stockDetail[0].chng!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">{{stockDetail[0].chng}}</text>
-      <text class='percetnt' wx:if="{{stockDetail[0].chng_pct!=null}}" style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{stockDetail[0].chng_pct}}%</text>
+      <text class='num' style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">{{unit_conversion.stockValue(stockDetail[0].chng)}}</text>
+      <text class='percetnt' style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{unit_conversion.percentValues(stockDetail[0].chng_pct)}}</text>
     </view>
 
   </view>
@@ -22,20 +22,20 @@
 
     <view class='left-content'>
       <text class='left-content1'>今开:</text>
-      <text class='left-content2'>{{stockDetail[0].today_open}}</text>
+      <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].today_open)}}</text>
     </view>
     <view class='right-content'>
       <text class='right-content1'>成交额:</text>
-      <text class='right-content2'>{{stockDetail[0].stock_name}}</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].chng_pct)}}</text>
     </view>
     <view class='center-content'>
       <text class='center-content1'>最高价:</text>
-      <text class='center-content2'>{{stockDetail[0].highest_price}}</text>
+      <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].highest_price)}}</text>
     </view>
 
     <view class='left-content'>
       <text class='left-content1'>昨收:</text>
-      <text class='left-content2'>{{stockDetail[0].lclose}}</text>
+      <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].lclose)}}</text>
     </view>
     <view class='right-content'>
       <text class='right-content1'>成交量:</text>
@@ -43,7 +43,7 @@
     </view>
     <view class='center-content'>
       <text class='center-content1'>最低价:</text>
-      <text class='center-content2'>{{stockDetail[0].lowest_price}}</text>
+      <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].lowest_price)}}</text>
     </view>
 
     <view class='left-content'>
@@ -74,16 +74,15 @@
 
     <view class='left-content'>
       <text class='left-content1'>市盈(静):</text>
-      <text class='left-content2'>{{stockDetail[0].static_pe}}</text>
+      <text class='left-content2'>{{unit_conversion.stockValue(stockDetail[0].static_pe)}}</text>
     </view>
     <view class='right-content'>
       <text class='right-content1'>振幅:</text>
-      <text class='right-content2'>{{stockDetail[0].swg}}%</text>
+      <text class='right-content2' >{{unit_conversion.percentValues(stockDetail[0].swg)}}</text>
     </view>
     <view class='center-content'>
       <text class='center-content1'>市盈(动):</text>
-      <text class='center-content2' wx:if="{{stockDetail[0].dynamic_pe==null}}">--</text>
-      <text class='center-content2' wx:else>{{stockDetail[0].dynamic_pe}}</text>
+      <text class='center-content2'>{{unit_conversion.stockValue(stockDetail[0].dynamic_pe)}}</text>
     </view>
   </view>
   <!-- <view class='openApp_V'>

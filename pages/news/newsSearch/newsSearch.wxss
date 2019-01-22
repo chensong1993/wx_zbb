@@ -11,57 +11,56 @@
   background: white;
 }
 
-.newsList{ 
+.newsList {
   padding-top: 100rpx;
 }
+.Search{
+  width: 68%;
+  margin: 0rpx 30rpx 30rpx 20rpx;
+}
 .newsSearch {
-  width: 470rpx;
+  width: 100%;
   height: 60rpx;
   line-height: 60rpx;
   background: rgb(243, 239, 239);
   border-radius: 25rpx;
-  margin: 0rpx 20rpx 20rpx 0rpx;
   font-size: 30rpx;
-  padding-left: 30rpx;
+  padding-left: 80rpx;
   padding-right: 80rpx;
+  text-align: center;
   float: left;
   flex: 1;
-
 }
 
-.clearAll.show{
+.clearAll.show {
   width: 80rpx;
   height: 60rpx;
   padding-top: 10rpx;
-  left: 510rpx;
+  left: 630rpx;
   text-align: center;
   z-index: 999;
   position: fixed;
   display: block;
-  
 }
-.clearAll{
-  
+
+.clearAll {
   display: none;
 }
-.clear{
+
+.clear {
   width: 40rpx;
   height: 40rpx;
 }
+
 .cancle {
   line-height: 60rpx;
   text-align: center;
   font-size: 30rpx;
   color: #4093ff;
-  margin-left: 20rpx;
-  
+  margin-left: 50rpx;
 }
 
 .errs {
-  display: none;
-}
-
-.errs.show {
   display: block;
   height: 500rpx;
   width: 100%;
@@ -69,10 +68,47 @@
   line-height: 500rpx;
   font-size: 30rpx;
 }
-.loadMores{
+
+
+
+.loadMores {
   height: 100rpx;
   width: 100%;
   text-align: center;
   line-height: 100rpx;
   display: block;
+}
+
+.hq {
+  font-size: 26rpx;
+  border-bottom: 12rpx solid gainsboro;
+}
+
+.hq_name {
+  margin: 10rpx 20rpx;
+}
+
+.hq_code {
+  margin: 10rpx 20rpx;
+  color: rgb(109, 106, 106);
+}
+
+.result {
+  font-size: 26rpx;
+  padding: 20rpx;
+  font-weight: bold;
+}
+
+.dj {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.sz_main {
+  margin: 20rpx 0;
+}
+
+.sz_main text {
+  margin-left: 20rpx;
 }

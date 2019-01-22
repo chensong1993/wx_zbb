@@ -16,7 +16,7 @@ Page({
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
-    duration: 1000,
+    duration: 500,
     circular: true,
     autoplay: true,
     Hei: "", //这是swiper要动态设置的高度属性
@@ -106,7 +106,7 @@ Page({
    // that.loading();
     var cur = e.detail.current;
     console.log(this.data.windowWidth+"-----------------------------");
-    if (this.data.windowWidth > 300 && this.data.windowWidth<375){
+    if (this.data.windowWidth > 300 && this.data.windowWidth<376){
       var singleNavWidth = this.data.windowWidth / 5;
     } else if (this.data.windowWidth > 375 && this.data.windowWidth < 600){
       var singleNavWidth = this.data.windowWidth / 6;
@@ -512,7 +512,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR-80 ;
+        var calc = clientHeight * rpxR-79 ;
         console.log(calc)
         this.setData({
           pixelRatio: res.pixelRatio,

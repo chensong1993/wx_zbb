@@ -25,7 +25,11 @@ Page({
     // })
     
   },
-
+  onGotUserInfo(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.userInfo)
+    console.log(e.detail.rawData)
+  },
   onPullDownRefresh:function(){
     wx.stopPullDownRefresh();
   },

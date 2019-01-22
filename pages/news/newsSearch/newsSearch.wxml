@@ -1,16 +1,43 @@
 <wxs src="../news.wxs" module="news_load"></wxs>
 <view class='vNews'>
  
-    <view class="clearAll {{clearNone>0?'show':''}}" bindtap='clearAll'>
-      <image class='clear' bindtap='clearAll' mode="aspectFit" src='../../../img/ic_clearAll.png'></image>
-    </view>
-    <input class="newsSearch" bindinput='inputEmpty' bindconfirm='searchContent' value="{{searchinput}}" confirm-type='done' type="text" placeholder="请输入关键字" maxlength='12'></input>
+  <view class="clearAll {{clearNone>0?'show':''}}" bindtap='clearAll'>
+    <image class='clear' bindtap='clearAll' mode="aspectFit" src='../../../img/ic_clearAll.png'></image>
+  </view>
+  <view class='Search'>
+    <input class="newsSearch" bindinput='inputEmpty' bindconfirm='searchContent' value="{{searchinput}}" confirm-type='done' type="text" placeholder="搜索新闻/股票代码" maxlength='12'></input>
+  </view>
+  <!-- <text class='cancle' bindtap='cancle'>取消</text> -->
+</view>
+<view class="errs" wx:if="{{err<0&&err1<0}}">暂无数据</view>
 
-  <text class='cancle' bindtap='cancle'>取消</text>
-</view>
-<view class="errs {{err<0?'show':''}}">暂无数据</view>
 <view class='newsList'>
-  <include src="../commonStyle/commonStyle.wxml" />
-  <block wx:for="{{tagList}}" wx:key=''></block>
+  <view>
+    <view class='hq' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}' wx:if="{{stockSingle.length>0}}" wx:for="{{stockSingle}}" wx:key>
+      <view class='hq_name' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_name}}</view>
+      <view class='hq_code' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_code}}</view>
+      <view class='dj' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.last_close}}</view>
+      <view class='sz_main' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>
+        <text>涨跌额：{{news_load.stockValue(item.chng)}}</text>
+        <text>涨跌幅：{{news_load.stockValue(item.chng_pct)}}</text>
+        <text>市值：{{news_load.stockValue(item.total_value)}}</text>
+      </view>
+    </view>
+    <block wx:for="{{marketList}}" wx:key wx:if="{{marketList.length>0}}">
+      <view class='hq' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>
+        <view class='hq_name' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_name}}</view>
+        <view class='hq_code' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_code}}</view>
+      </view>
+    </block>
+    <block wx:for="{{stockLists}}" wx:key wx:if="{{stockLists.length>0}}">
+      <view class='hq' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>
+        <view class='hq_name' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_name}}</view>
+        <view class='hq_code' bindtap='stockSingle' data-name="{{item.stock_name}}" data-code='{{item.stock_code}}'>{{item.stock_code}}</view>
+      </view>
+    </block>
+    <include src="../commonStyle/commonStyle.wxml" />
+    <block wx:for="{{tagList}}" wx:key='' wx:if="{{tagList.length>0}}"></block>
+  </view>
+  <view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>
+
 </view>
-<view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>

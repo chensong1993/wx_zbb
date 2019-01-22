@@ -101,13 +101,27 @@ var stockValue = function(value) {
 
 }
 
-//转换成百分比
-var percentValue = function(value) {
-  percentV = value.toFixed(2);
-  return percentV + "%";
-  console.log(value);
+//转换成百分比不用保留两位小数
+var percentValues = function(e) {
+  if(e==null||e==0.00){
+    percentV = "--";
+  }else{
+    percentV = e+"%";
+  }
+  return percentV ;
+  console.log(e);
 }
 
+//转换成百分比
+var percentValue = function (e) {
+  if (e == null) {
+    percentV = "--";
+  } else {
+    percentV = e.toFixed(2) + "%";
+  }
+  return percentV;
+  console.log(e);
+}
 //百分比计算
 var areaMethod=function(e){
   areaValue = 100 - (e[0].percentage + e[1].percentage + e[2].percentage + e[3].percentage + e[4].percentage)
@@ -167,6 +181,7 @@ var roundedColor=function(index){
  
 // }
 module.exports = {
+  percentValues: percentValues,
   loading: loading,
   load: load,
   loadEnd: loadEnd,
