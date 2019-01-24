@@ -1,0 +1,3 @@
+<view class='studty_ft'>
+      <view class='weui-loading' wx:if="{{isShow}}"></view>
+</view>

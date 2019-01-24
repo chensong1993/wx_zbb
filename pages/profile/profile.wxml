@@ -1,14 +1,38 @@
-<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">点击登录</button>
+<wxs src="profile.wxs" module="utils" />
+<view class='loading_main' wx:if="{{loading>0}}" >
+<view class='loading' wx:if="{{loading>0}}"  bindtap="onGotUserInfo">微信登录</view>
+</view>
+<view class='userMain' wx:if="{{loading<0}}">
+  <view class='userAll' bindtap=''>
+    <image class='userAvatarUrl' src='{{userInfo.avatarUrl}}'></image>
+    <view class='profile'>
+      <view class="userNickName">{{userInfo.nickName}}</view>
+      <wxs src="profile.wxs" module="some_comms"></wxs>
+      <view class='gender'>{{some_comms.gender(userInfo.gender)}}</view>
+    </view>
+    <view class='logOut' bindtap='logOut'>退出</view>
+  </view>
+</view>
 
-<view class='userMain'>
-<view class='userAll' bindtap=''>
-<image class='userAvatarUrl' src='{{userInfo.avatarUrl}}'></image>
-<view class='profile'>
-<view class="userNickName">{{userInfo.nickName}}</view>
-<!-- <view class='gender' wx:if="{{userInfo.gender==1}}">男</view>
-<view class='gender' wx:else if="{{userInfo.gender==2}}">女</view> -->
-<wxs src="profile.wxs" module="some_comms"></wxs>
-<view class='gender' >{{some_comms.gender(userInfo.gender)}}</view>
-</view>
-</view>
+<view class='ranking_content' wx:if="{{loading<0}}">
+  <view class='zixuan'>自选股</view>
+  <view class='list_title'>
+    <text class='text1'>股票名称</text>
+    <text>当前价</text>
+    <text>涨跌幅</text>
+    <text>成交额</text>
+  </view>
+
+  <view class='stock' wx:for="{{staockStarList}}" wx:key>
+    <view class='stock_name' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>
+      <view class='name' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].stock_name}}</view>
+      <view class='stock_num' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].stock_code}}</view>
+    </view>
+    <view class='stock_content' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>
+      <text bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{utils.stockValue(item.stockDetail[0].today_open)}}</text>
+      <text bindtap='onStockDetail' wx:if="{{item.stockDetail[0].chng_pct!=null}}" data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].chng_pct}}%</text>
+       <text bindtap='onStockDetail' wx:else data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>--</text>
+      <text bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{utils.stockValue(item.stockDetail[0].latest_turnover)}}</text>
+    </view>
+  </view>
 </view>

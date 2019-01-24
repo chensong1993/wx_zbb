@@ -1,5 +1,4 @@
 <!-- //顶部状态栏 -->
-
 <view class='Brefresh'>
   <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
 </view>
@@ -24,7 +23,7 @@
     <!-- bindscrolltolower='bindDownLoad' -->
     <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3" lower-threshold="50">
       <view wx:if="{{index==0}}">
-        <swiper class='bannerH' indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#4093ff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"  circular='{{circular}}' bindchange='BannerIndex'>
+        <swiper class='bannerH' indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#4093ff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}' bindchange='BannerIndex'>
           <block wx:for="{{bannerList}}" wx:key=''>
             <swiper-item>
               <image src="{{item.featured_image}}" bindtap='bannerDetail' class="slide-image" mode="widthFix" />
@@ -37,6 +36,7 @@
       <!-- //公共的样式布局 -->
       <include src="commonStyle/commonStyle.wxml" />
       <block wx:for="{{newsList}}" wx:key=''> </block>
+
       <!-- <block wx:for="{{newsList}}" wx:key=''> -->
       <!-- 判断是否是专题 -->
       <!-- <view class='views'    wx:if="{{category[currentTab].id==15}}" bindtap="newsDetails" disabled="buttonClicked" wx:for-index="index " data-index='{{index}}'>
@@ -64,8 +64,14 @@
 
           </view>
         </block> -->
+      
       <wxs src="news.wxs" module="news_load"></wxs>
-      <view class="loadMore" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>
+      <view class='load_more' wx:if="{{LoadMores>0}}">
+        <view class='weui-loading' wx:if="{{LoadMores>0&&LoadMores!=2}}"></view>
+        {{news_load.loading(LoadMores)}}
+      </view>
+
+      <!-- <view class="loadMore" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view> -->
 
     </scroll-view>
   </swiper-item>
@@ -74,8 +80,10 @@
   <swiper-item wx:for="{{category}}" wx:key=''>
 
     <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
-      <view class='mainLoading'>
 
+      <include src="../loading/loading.wxml" />
+      <view wx:if="{{isShow}}"></view>
+      <view class='mainLoading'>
         <image class='loadText' src='../../img/ic_load_text.png'></image>
       </view>
 

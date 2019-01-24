@@ -3,14 +3,15 @@
 .userMain{
   width: 100%;
   position: relative;
-  margin: 20rpx;
+ 
 }
 .userAll{
-  border-bottom: 1rpx solid gainsboro
+  margin: 20rpx;
+  
 }
 .profile{
   position: absolute;
-  left: 170rpx;
+  left: 190rpx;
   top: 0;
   line-height: 150rpx;
 }
@@ -25,4 +26,97 @@
 }
 .gender{
   line-height: 75rpx;
+}
+.logOut{
+  position: absolute;
+  top: 30rpx;
+  right: 20rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #ececec;
+  background: #ececec;
+  border-radius: 25rpx;
+  padding: 5rpx 30rpx;
+  font-size: 28rpx;
+}
+.loading_main{
+  width: 80%;
+  position: absolute;
+  top: 45%;
+  margin-top: -50rpx;
+  left: 50%;
+  margin-left: -280rpx;
+  text-align: center;
+}
+.loading{
+  font-size: 28rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 500rpx;
+  margin: 0 30rpx;
+  border-radius: 50rpx;
+  background: -webkit-linear-gradient(left, rgb(255, 174, 0) , #40e2ff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, red, #40d2ff); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, red, #40b3ff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, rgb(255, 0, 170) , #4093ff); /* 标准的语法 */
+}
+.list_title {
+  padding: 0 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.list_title .text1 {
+  width: 32%;
+  display: inline-block;
+  text-align: left;
+}
+
+.list_title text {
+  width: 22%;
+  display: inline-block;
+  text-align: right;
+}
+.stock {
+  clear: both;
+  overflow: hidden;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #ececec;
+}
+
+.stock_name {
+  margin: 0 20rpx;
+  height: 80rpx;
+  width: 32%;
+  float: left;
+}
+
+.stock_name .name {
+  line-height: 50rpx;
+}
+
+.stock_name .stock_num {
+  line-height: 20rpx;
+}
+
+.stock_content {
+  float: right;
+  width: 60%;
+  height: 80rpx;
+}
+
+.stock_content text {
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.zixuan{
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+  border-bottom:1rpx #ececec solid; 
+  border-left: 8rpx #4093ff solid;
 }

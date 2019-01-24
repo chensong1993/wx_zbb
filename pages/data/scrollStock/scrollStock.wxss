@@ -1,3 +1,4 @@
+@import "../../loading_more/loading_more.wxss";
 .main {
   font-size: 24rpx;
 }

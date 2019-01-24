@@ -1,4 +1,4 @@
-var load='正在加载 . . .';
+var load='加载中 . . .';
 var loadEnd='已加载全部内容';
 var absValue;
 var conversionValue;

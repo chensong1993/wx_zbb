@@ -46,6 +46,12 @@
         "text": "行情",
         "iconPath": "img/tabbar_icon_market_normal.png",
         "selectedIconPath": "img/tabbar_icon_market_highlight.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "个人中心",
+        "iconPath": "img/tabbar_icon_profile_normal.png",
+        "selectedIconPath": "img/tabbar_icon_profile_highlight.png"
       }
     ]
   },

@@ -290,12 +290,12 @@ Page({
           stockName = that.data.priceByChange[index].stock_name;
           break;
         case "1":
-          stockCode = that.data.priceByVolume[index].stock_code;
-          stockName = that.data.priceByChange[index].stock_name;
+          stockCode = that.data.priceByAmount[index].stock_code;
+          stockName = that.data.priceByAmount[index].stock_name;
           break;
         case "2":
-          stockCode = that.data.priceByAmount[index].stock_code;
-          stockName = that.data.priceByChange[index].stock_name;
+          stockCode = that.data.priceByVolume[index].stock_code;
+          stockName = that.data.priceByVolume[index].stock_name;
           break;
       }
       console.log(stockCode)

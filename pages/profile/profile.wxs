@@ -1,5 +1,7 @@
-
-
+var resultValue = "";
+var conversionValue;
+var percentV;
+var color;
 var man="男";
 var woman="女";
 
@@ -13,8 +15,67 @@ var gender=function(s){
     break
   }
 }
+//单位转换
+var stockValue = function (value) {
+  if (value == null || value == "0.00") {
+    return "--";
+  }
+  absValue = Math.abs(value);
+  //万亿
+  conversionValue = absValue / Math.pow(10, 12);
+  if (value < 0) {
+    resultValue = "-";
+  }
+  if (conversionValue > 1) {
+    resultValue = (absValue / 1000000000000).toFixed(2) + "万亿";
+    return resultValue;
+  }
+
+
+  if (absValue / 100000000 > 1) {
+    resultValue = (absValue / 100000000).toFixed(2) + "亿";
+    return resultValue;
+  }
+
+  if (absValue / 10000 > 1) {
+    resultValue = (absValue / 10000).toFixed(2) + "万";
+    return resultValue;
+  }
+
+  resultValue = absValue.toFixed(2);
+  //console.log(resultValue);
+  return resultValue;
+
+}
+
+//转换成百分比
+var percentValue = function (value) {
+  if (value == null) {
+    percentV = "--";
+  } else {
+    percentV = value.toFixed(2) + "%";
+  }
+  return percentV;
+  console.log(percentV);
+}
+
+var stockColor = function (e) {
+  if (e >= 0) {
+    color = '#d71820';
+    return color;
+  } else {
+    color = '#5AB963';
+    return color;
+  }
+}
 module.exports = {
   gender: gender,
   man: man,
-  woman:woman
+  woman:woman,
+  stockColor: stockColor,
+  color: color,
+  stockValue: stockValue,
+  conversionValue: conversionValue,
+  percentValue: percentValue,
+  percentV: percentV,
 };

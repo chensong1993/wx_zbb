@@ -30,8 +30,8 @@
   </view>
 
   <view class='views' wx:else bindtap="newsDetails" data-index='{{index}}'>
-    <view class='mainContent' bindtap="newsDetails"  data-index='{{index}}'>
-      <text class='title' bindtap="newsDetails"  data-index='{{index}}'>{{item.title}}</text>
+    <view class='mainContent' bindtap="newsDetails" data-index='{{index}}'>
+      <text class='title' bindtap="newsDetails" data-index='{{index}}'>{{item.title}}</text>
       <text class='newsType' bindtap="newsDetails" data-index='{{index}}'>{{item.newsType}}</text>
       <text class='publish' wx:if='{{item.newsType!=null}}' bindtap="newsDetails" data-index='{{index}}'>{{item.source}}</text>
       <text class='publish' wx:else style='left:{{20}}rpx;' bindtap="'newsDetails" data-index='{{index}}'>{{item.source}}</text>

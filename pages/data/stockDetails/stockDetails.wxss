@@ -38,21 +38,42 @@
   margin-right: 20rpx;
   margin-bottom: 20rpx;
 }
-.deal_type{
+
+.deal_type {
   float: right;
   border: 2rpx solid #4093ff;
   color: #4093ff;
   border-radius: 15rpx;
-  padding:5rpx 10rpx;
+  padding: 5rpx 10rpx;
 }
-.is_innovate{
-   float: right;
-   margin-left: 20rpx;
+
+.is_innovate {
+  float: right;
+  margin-left: 20rpx;
   border: 2rpx solid darkviolet;
   color: darkviolet;
   border-radius: 15rpx;
-  padding:5rpx 10rpx;
+  padding: 5rpx 10rpx;
 }
+
+.star {
+  float: right;
+  border: 2rpx solid #4093ff;
+  color: #4093ff;
+  border-radius: 15rpx;
+  padding: 5rpx 10rpx;
+  margin-left: 20rpx;
+}
+
+.unfollow {
+  float: right;
+  border: 2rpx solid gainsboro;
+  color: gainsboro;
+  border-radius: 15rpx;
+  padding: 5rpx 10rpx;
+  margin-left: 20rpx;
+}
+
 .data-main {
   margin-top: 10rpx;
   clear: both;
@@ -265,4 +286,47 @@
   align-self: center;
   width: 18%;
   text-align: right;
+}
+
+.login_mian {
+  position: absolute;
+  top: 0;
+  filter: alpha(Opacity=80);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  background: black;
+  width: 100%;
+  height: 100%;
+}
+
+.login {
+  position: fixed;
+  z-index: 999;
+  top: 25%;
+  width: 380rpx;
+  height: 250rpx;
+  left: -250rpx;
+  margin-left: 50%;
+  background: white;
+  padding: 40rpx 60rpx 20rpx 60rpx;
+  border-radius: 25rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.loginBut {
+  bottom: 40rpx;
+  position: absolute;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  left: -50rpx;
+  margin-left: 50%;
+}
+
+.wechat {
+  font-size: 28rpx;
+  width: 100rpx;
+  height: 100rpx;
 }

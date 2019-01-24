@@ -1,5 +1,6 @@
 // pages/commonStyle/commonStyle.js
 var util = require("../../../utils/util.js");
+var app = getApp();
 Page({
 
   /**
@@ -10,6 +11,8 @@ Page({
     currentTab: 0,
     page: "2",
     buttonClicked: true,
+    star: -1,
+    login: -1
   },
 
   /**
@@ -18,14 +21,16 @@ Page({
   onLoad: function(e) {
     var that = this;
     var stockCode = e.stockCode;
+    //数据库初始化
+    wx.cloud.init();
     that.data.stockCode = stockCode;
     var stockName = e.stockName;
-    if (stockName!=undefined){
+    if (stockName != undefined) {
       wx.setNavigationBarTitle({
         title: stockName + "(" + stockCode + ")",
       })
     }
-   
+
     console.log(stockName);
     var url = "http://api.chinaipo.com/markets/v1/";
     wx.showLoading({
@@ -199,14 +204,15 @@ Page({
 
       }
     })
+
   },
-  newsDetails:function(e){
-    if(this.data.buttonClicked){
-    var that=this;
-    var originalId = e.target.dataset.index;
-    wx.navigateTo({
-      url: '../../news/newsDetails/newsDetails?originalId=' + originalId,
-    })
+  newsDetails: function(e) {
+    if (this.data.buttonClicked) {
+      var that = this;
+      var originalId = e.target.dataset.index;
+      wx.navigateTo({
+        url: '../../news/newsDetails/newsDetails?originalId=' + originalId,
+      })
     }
     util.buttonClicked(this);
   },
@@ -225,18 +231,200 @@ Page({
 
 
   },
+  //关注
+  onStar: function() {
+    var that = this;
+    const db = wx.cloud.database();
+    db.collection('user_info').doc(app.globalData.openid).get({
+      success(res) {
+        if (res.data != undefined) {
+          console.log("jinlai")
+          if (that.data.stockDetail != undefined) {
+            var id = that.data.stockCode + app.globalData.openid
+            console.log(id);
+            db.collection('star').add({
+              // data 字段表示需新增的 JSON 数据
+              data: {
+                _id: id,
+                stockDetail: that.data.stockDetail,
+                star: 1,
+                stockCode: that.data.stockCode
+              }
+            })
+            that.setData({
+              star: 1,
+            })
+          }
+        }else{
+          app.globalData.login = 1;
+          console.log(22333)
+          that.setData({
+            star: -1,
+            login: 1,
+          })
+        }
+      },
+      fail() {
+        app.globalData.login = 1;
+        console.log(22333)
+        that.setData({
+          star: -1,
+          login: 1,
+        })
+      }
+    })
+    console.log(app.globalData.login);
+  },
+  onUnfollow: function() {
+    var that = this;
+    if (that.data.stockDetail != undefined) {
+      var id = that.data.stockCode + app.globalData.openid
+      console.log(id);
+      const db = wx.cloud.database();
+      db.collection('star').doc(id).remove({
+        success(res) {
+          that.setData({
+            star: -1
+          })
+        }
+      })
+
+    }
+  },
+  onGotUserInfo(e) {
+    var that = this;
+    const db = wx.cloud.database();
+    wx.login({
+      success: res => {
+        if (res.code) {
+          var d = app.globalData; //这里存储了appid、secret、token串  
+          var url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + d.appid + "&secret=" + d.secret + "&js_code=" + res.code + "&grant_type=authorization_code"
+          wx.request({
+            url: url,
+            data: {},
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+            header: {}, // 设置请求的 header  
+
+            success: function(res) {
+              app.globalData.openid = res.data.openid;
+              var id = that.data.stockCode + app.globalData.openid;
+              db.collection('star').doc(id)
+                .get({
+                  success(res) {
+                    if (res.data != undefined) {
+                      that.setData({
+                        star: 1,
+                      })
+                      console.log(111111111)
+                    } else {
+                      that.setData({
+                        star: -1,
+                      })
+                      console.log(12211111)
+                    }
+                  },
+                  fail() {
+                    console.log(333333)
+                    that.setData({
+                      star: -1,
+                    })
+                  }
+                })
+              console.log(app.globalData.openid);
+            }
+          });
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+
+      }
+    })
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              app.globalData.loading = -1;
+              that.setData({
+                login: app.globalData.loading,
+              })
+              db.collection('user_info').add({
+                // data 字段表示需新增的 JSON 数据
+                data: {
+                  _id: app.globalData.openid,
+                  openid: app.globalData.openid,
+                  userInfo: res.userInfo
+                },
+                fail() {
+                  app.globalData.loading = 1;
+                  that.setData({
+                    login: app.globalData.loading,
+                  })
+                }
+              })
+              console.log(res.userInfo);
+            }
+          })
+
+        }
+      }
+    })
+
+
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
 
   },
-
+  onMain: function() {
+    this.setData({
+      login: -1,
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this;
+    //查询是否被关注
+    const db = wx.cloud.database();
+    db.collection('user_info').doc(app.globalData.openid).get({
+      success(res) {
+        if (res.data != undefined) {
+          if (app.globalData.openid != null) {
+            var id = that.data.stockCode + app.globalData.openid;
+            db.collection('star').doc(id)
+              .get({
+                success(res) {
+                  if (res.data != undefined) {
+                    that.setData({
+                      star: 1,
+                    })
+                  } else {
+                    that.setData({
+                      star: -1,
+                    })
+                  }
+                },
+                fail() {
+                  that.setData({
+                    star: -1,
+                  })
+                }
+              })
+          } else {
+            that.setData({
+              star: -1,
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -264,40 +452,40 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-   
+
     var that = this;
     //资讯
-    if (that.data.currentTab == 0) { 
-    wx.request({
-      url: 'http://api.chinaipo.com/zh-hans/api/articles/',
-      method: 'GET',
-      data: {
-        search: that.data.stockCode,
-        page: that.data.page
-      },
-      header: {
-        'content-type': 'application/json' // 默认值 
-      },
-      complete() {
-        wx.hideLoading();
-      },
-      success(res) {
-        var data = that.data.stockNewsList;
-        if (res.data.results != undefined) {
-          var data1 = data.concat(res.data.results);
-          that.setData({
-              stockNewsList: data1
-            })
-            ++that.data.page;
-        }
-        console.log(data1);
-        wx.hideNavigationBarLoading();
-      },
-      fail() {
-        wx.hideNavigationBarLoading();
+    if (that.data.currentTab == 0) {
+      wx.request({
+        url: 'http://api.chinaipo.com/zh-hans/api/articles/',
+        method: 'GET',
+        data: {
+          search: that.data.stockCode,
+          page: that.data.page
+        },
+        header: {
+          'content-type': 'application/json' // 默认值 
+        },
+        complete() {
+          wx.hideLoading();
+        },
+        success(res) {
+          var data = that.data.stockNewsList;
+          if (res.data.results != undefined) {
+            var data1 = data.concat(res.data.results);
+            that.setData({
+                stockNewsList: data1
+              })
+              ++that.data.page;
+          }
+          console.log(data1);
+          wx.hideNavigationBarLoading();
+        },
+        fail() {
+          wx.hideNavigationBarLoading();
 
-      }
-    })
+        }
+      })
     }
   },
 

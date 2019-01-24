@@ -1,11 +1,15 @@
 <wxs src="../data.wxs" module="unit_conversion" />
 
-<view class='stock_detail_main'>
+<view class='stock_detail_main' >
+  <text class='star' bindtap='onStar' wx:if="{{star<0}}">关注</text>
+  <text class='unfollow' bindtap='onUnfollow' wx:if="{{star>0}}">已关注</text>
   <text class='is_innovate' wx:if="{{stockDetail[0].is_innovate==true}}" style='color:darkviolet;  border: 2rpx solid darkviolet;'>创新层</text>
   <text class='is_innovate' wx:else style='color:rgb(174, 177, 10);  border: 2rpx solid rgb(174, 177, 10);'>基础层</text>
-  <text class='deal_type' wx:if="{{stockDetail[0].deal_type!=undefined}}">{{stockDetail[0].deal_type}}</text>
+  <text class='deal_type' wx:if="{{stockDetail[0].deal_type.length>0}}">{{stockDetail[0].deal_type}}</text>
+  
 
-  <view class='name_code_main'>
+
+  <view class='name_code_main' >
     <view class='name_code'>
       <text class='name'>{{stockDetail[0].stock_name}}</text>
       <text class='code' wx:if="{{stockDetail[0].stock_code!=null}}">({{stockDetail[0].stock_code}})</text>
@@ -15,10 +19,11 @@
     <view class='zhangdie'>
       <text class='num' style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">{{unit_conversion.stockValue(stockDetail[0].chng)}}</text>
       <text class='percetnt' style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{unit_conversion.percentValues(stockDetail[0].chng_pct)}}</text>
+
     </view>
 
   </view>
-  <view class='data-main'>
+  <view class='data-main' >
 
     <view class='left-content'>
       <text class='left-content1'>今开:</text>
@@ -26,7 +31,7 @@
     </view>
     <view class='right-content'>
       <text class='right-content1'>成交额:</text>
-      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].chng_pct)}}</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_volume)}}</text>
     </view>
     <view class='center-content'>
       <text class='center-content1'>最高价:</text>
@@ -78,7 +83,7 @@
     </view>
     <view class='right-content'>
       <text class='right-content1'>振幅:</text>
-      <text class='right-content2' >{{unit_conversion.percentValues(stockDetail[0].swg)}}</text>
+      <text class='right-content2'>{{unit_conversion.percentValues(stockDetail[0].swg)}}</text>
     </view>
     <view class='center-content'>
       <text class='center-content1'>市盈(动):</text>
@@ -90,7 +95,7 @@
   </view> -->
 </view>
 
-<view>
+<view >
   <view class="ranking_title">
     <text bindtap='onRankingT' data-index='0'><text class="text {{currentTab==0?'active':''}}" >资讯</text></text>
     <text bindtap='onRankingT' data-index='1'><text class="text {{currentTab==1?'active':''}}">资料</text></text>
@@ -242,3 +247,13 @@
   </view>
 
 </view>
+
+<view class='login_mian'  wx:if="{{login>0}}" bindtap='onMain'>
+</view>
+<view class='login'  wx:if="{{login>0}}">
+<text>登陆后，可以在个人中心查看自选股票</text>
+<view class='loginBut'>
+<image class='wechat' wx:if="{{star<0}}" bindtap="onGotUserInfo" src='../../../img/ic_wechat.png'></image>
+</view>
+</view>
+

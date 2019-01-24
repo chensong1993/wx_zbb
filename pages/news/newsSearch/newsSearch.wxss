@@ -1,4 +1,5 @@
 @import "../commonStyle/commonStyle.wxss";
+@import "../../loading_more/loading_more.wxss";
 
 .vNews {
   padding: 20rpx 20rpx;

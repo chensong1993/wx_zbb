@@ -38,6 +38,11 @@
     <include src="../commonStyle/commonStyle.wxml" />
     <block wx:for="{{tagList}}" wx:key='' wx:if="{{tagList.length>0}}"></block>
   </view>
-  <view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view>
+
+      <view class='load_more' wx:if="{{LoadMores>0}}">
+        <view class='weui-loading' wx:if="{{LoadMores>0&&LoadMores!=2}}"></view>
+        {{news_load.loading(LoadMores)}}
+      </view>
+  <!-- <view class="loadMores" wx:if="{{LoadMores>0}}">{{news_load.loading(LoadMores)}}</view> -->
 
 </view>

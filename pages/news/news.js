@@ -25,7 +25,7 @@ Page({
     buttonClicked: true,
     setInter: '123',
     LoadMores: -1,
-    
+    isShow:1
     /**
      * 
      */
