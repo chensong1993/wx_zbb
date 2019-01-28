@@ -1,10 +1,6 @@
 var util = require("../../utils/util.js");
 
 Page({
-
-  /** 
-   * 页面的初始数据 
-   */
   data: {
     page: 1,
     morePage: 1,
@@ -25,7 +21,8 @@ Page({
     buttonClicked: true,
     setInter: '123',
     LoadMores: -1,
-    isShow:1
+    isShow: 1
+    
     /**
      * 
      */
@@ -85,8 +82,8 @@ Page({
   },
   // 滚动切换标签样式 
   switchTab: function(e) {
-    
-     var that = this; 
+
+    var that = this;
     // that.loadIngMore();
     // var datas = e.target.dataset.id;
     //切换列表时让页数初始化
@@ -103,14 +100,14 @@ Page({
     // var newsId = datas[e.detail.current].id;
     // this.data.newsId = newsId;
     //加载动画
-   // that.loading();
+    // that.loading();
     var cur = e.detail.current;
-    console.log(this.data.windowWidth+"-----------------------------");
-    if (this.data.windowWidth > 300 && this.data.windowWidth<376){
+    console.log(this.data.windowWidth + "-----------------------------");
+    if (this.data.windowWidth > 300 && this.data.windowWidth < 376) {
       var singleNavWidth = this.data.windowWidth / 5;
-    } else if (this.data.windowWidth > 375 && this.data.windowWidth < 600){
+    } else if (this.data.windowWidth > 375 && this.data.windowWidth < 600) {
       var singleNavWidth = this.data.windowWidth / 6;
-    }else{
+    } else {
       var singleNavWidth = this.data.windowWidth / 7;
     }
     var source = e.detail.source;
@@ -169,20 +166,20 @@ Page({
             scroll: 1
           })
         }
-       // clearInterval(that.interval);
+        // clearInterval(that.interval);
         that.data.newsList = res.data.results;
-      //  wx.hideLoading();
+        //  wx.hideLoading();
         wx.hideNavigationBarLoading();
       },
       fail() {
-      //  wx.hideLoading();
+        //  wx.hideLoading();
         wx.showToast({
           title: '加载失败',
           icon: 'none',
           scroll: -1
         })
         wx.hideNavigationBarLoading();
-      //  clearInterval(that.interval);
+        //  clearInterval(that.interval);
       }
 
     })
@@ -198,7 +195,7 @@ Page({
     this.data.page = 1;
     //判断是第一次加载更多
     this.data.moreOne = 1;
-   
+
     if (this.data.currentTab === cur) {
       return false;
     } else {
@@ -206,7 +203,7 @@ Page({
       var newsId = e.target.dataset.id;
       this.data.newsId = newsId;
       //加载动画
-    //  that.loading();
+      //  that.loading();
       console.log(newsId);
       switch (newsId) {
         case 15:
@@ -234,11 +231,11 @@ Page({
           'content-type': 'application/json' // 默认值 
         },
         complete() {
-          
+
         },
         success(res) {
           wx.hideNavigationBarLoading();
-        //  wx.hideLoading();
+          //  wx.hideLoading();
           if (res.data.results.length < 5) {
             that.setData({
               newsList: res.data.results,
@@ -253,19 +250,19 @@ Page({
               scroll: 1
             })
           }
-        //  clearInterval(that.interval);
+          //  clearInterval(that.interval);
           console.log(res.data.results)
         },
-        fail(){
-        //  wx.hideLoading();
+        fail() {
+          //  wx.hideLoading();
           wx.showToast({
             title: '加载失败',
-            icon:'none'
+            icon: 'none'
           })
           wx.hideNavigationBarLoading();
-        //  clearInterval(that.interval);
+          //  clearInterval(that.interval);
         }
-        
+
       })
 
       this.setData({
@@ -329,7 +326,7 @@ Page({
           url: 'newsDetails/newsDetails?originalId=' + originalId,
         })
       }
-      
+
       // const db = wx.cloud.database();
       // db.collection('newsRead').add({
       //   // data 字段表示需新增的 JSON 数据
@@ -350,14 +347,14 @@ Page({
     util.buttonClicked(this);
 
   },
- 
+
   /** 
    * 生命周期函数--监听页面加载 
    */
   onLoad: function(e) {
     var cout;
     var cout2;
-   
+
     var arrays = {
       id: 0,
       name: '推荐'
@@ -367,7 +364,7 @@ Page({
     });
     var that = this //很重要 
     //加载动画
-   // that.loading();
+    // that.loading();
     wx.showNavigationBarLoading();
     // wx.showLoading({
     //   title: '加载中',
@@ -378,7 +375,7 @@ Page({
     // const testDB = wx.cloud.database({
     //   env: 'zibenbang'
     // })
-  
+
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',
       method: 'GET',
@@ -398,7 +395,7 @@ Page({
         that.setData({
           category: cout
         })
-        
+
         // console.log(cout) 
       }
     })
@@ -413,7 +410,7 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-      //  wx.hideLoading();
+        //  wx.hideLoading();
       },
       success(res) {
         if (cout != undefined) {
@@ -465,19 +462,19 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete(res) {
-      //  wx.hideLoading();
+        //  wx.hideLoading();
 
       },
       success(res) {
         clearInterval(that.interval);
         that.setData({ //很重要 
           newsList: res.data.results,
-          scroll:1
+          scroll: 1
         })
         wx.hideNavigationBarLoading()
         that.data.newsList = res.data.results;
         console.log(res.data.results)
-       // clearInterval(that.interval);
+        // clearInterval(that.interval);
       },
       fail() {
         wx.showToast({
@@ -486,7 +483,7 @@ Page({
           icon: 'none'
         })
         wx.hideNavigationBarLoading();
-       // clearInterval(that.interval);
+        // clearInterval(that.interval);
       }
 
     })
@@ -512,7 +509,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR-79 ;
+        var calc = clientHeight * rpxR - 79;
         console.log(calc)
         this.setData({
           pixelRatio: res.pixelRatio,
@@ -562,7 +559,7 @@ Page({
       LoadMores: 1
     })
 
-   // wx.hideLoading();
+    // wx.hideLoading();
     wx.request({
       url: urls,
       method: 'GET',
@@ -574,15 +571,15 @@ Page({
         'content-type': 'application/json' // 默认值 
       },
       complete() {
-        
+
       },
       success(res) {
         wx.hideNavigationBarLoading();
         that.setData({ //很重要 
-        //  resArr: res.data.results,
+          //  resArr: res.data.results,
         })
 
-        if (res.data.results!= undefined) {
+        if (res.data.results != undefined) {
           var cont = news.concat(res.data.results);
           console.log(cont);
           that.setData({
@@ -652,8 +649,8 @@ Page({
       oneTab: '0',
       ok: true
     });
-     // that.loading();
-     
+    // that.loading();
+
     if (newsId == undefined) {
       newsId = 0
     } else {
@@ -796,10 +793,10 @@ Page({
   },
 
   newsSearch: function() {
-    if(this.data.buttonClicked){
-    wx.navigateTo({
-      url: 'newsSearch/newsSearch',
-    })
+    if (this.data.buttonClicked) {
+      wx.navigateTo({
+        url: 'newsSearch/newsSearch',
+      })
     }
     util.buttonClicked(this);
   },
@@ -811,14 +808,14 @@ Page({
       timingFunction: 'linear', // "linear","ease","ease-in","ease-in-out","ease-out","step-start","step-end"
       delay: 0,
       transformOrigin: '50% 50% 0',
-      success: function (res) {
+      success: function(res) {
         console.log("res")
       }
     })
-   
+
     //连续动画需要添加定时器,所传参数每次+1就行
     clearInterval(that.interval)
-    that.interval = setInterval(function () {
+    that.interval = setInterval(function() {
       that.rotateAni(that.data.n++);
     }, 1000)
 
@@ -856,7 +853,7 @@ Page({
     this.setData({
       autoplay: true,
     })
-   
+
 
 
   },

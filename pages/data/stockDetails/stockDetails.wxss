@@ -330,3 +330,24 @@
   width: 100rpx;
   height: 100rpx;
 }
+.home{
+  position: fixed;
+  bottom: 85rpx;
+  right: 35rpx;
+  z-index: 999;
+  height: 80rpx;
+  width: 80rpx;
+  background: white;
+  border-radius: 100rpx;
+  border: 1rpx solid white;
+  box-shadow: 2rpx 2rpx 10rpx rgb(224, 224, 224);
+
+}
+.home_img{
+  position: fixed;
+  z-index: 9999;
+  bottom: 97rpx;
+  right: 46rpx;
+  width: 60rpx;
+  height: 60rpx;
+}

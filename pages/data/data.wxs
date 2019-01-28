@@ -130,13 +130,12 @@ var areaMethod=function(e){
   
 }
 var stockColor=function(e){
-  if(e>=0){
-    color ='#d71820';
-    return color;
+  if (e < 0) {
+    color ='#5AB963';
   }else{
-    color = '#5AB963';
-    return color;
+    color = '#d71820';
   }
+  return color;
 }
 
 //圆角颜色

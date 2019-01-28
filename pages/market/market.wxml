@@ -45,13 +45,13 @@
         <text>成交额</text>
       </view>
     </view>
-    <view class='stock' wx:for="{{page}}" wx:key>
-      <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>
-        <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_name}}</view>
+    <view class='stock' wx:if="{{priceByChange[index].latest_turnover!=null}}"  wx:for="{{page}}" wx:key >
+      <view class='stock_name' bindtap='onStockDetail' data-index='{{index}}' data-type='0' >
+        <view class='name' bindtap='onStockDetail' data-index='{{index}}' data-type='0' >{{priceByChange[index].stock_name}}</view>
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{priceByChange[index].stock_code}}</view>
       </view>
       <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='0'>
-        <text bindtap='onStockDetail' data-index='{{index}}' data-type='0' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByChange[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='0' style="color:{{utils.stockColor(priceByChange[index].latest_price)}}">{{priceByChange[index].latest_price}}</text>
         <text bindtap='onStockDetail' data-index='{{index}}' data-type='0' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByChange[index].chng_pct!=null}}">{{priceByChange[index].chng_pct}}%</text>
         <text bindtap='onStockDetail' data-index='{{index}}' data-type='0'>{{utils.stockValue(priceByChange[index].latest_turnover)}}</text>
       </view>
@@ -59,8 +59,8 @@
 
     <view class='ranking_content'>
       <view class='ranking_heard' bindtap='onStockList' data-index='1'>
-        <text bindtap='onStockList' data-index='0'>成交额排行</text>
-        <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='0'></image>
+        <text bindtap='onStockList' data-index='1'>成交额排行</text>
+        <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='1'></image>
       </view>
       <view class='list_title'>
         <text class='text1'>股票名称</text>
@@ -75,15 +75,15 @@
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>{{priceByAmount[index].stock_code}}</view>
       </view>
       <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='1'>
-        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByAmount[index].today_open}}</text>
-        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByVolume[index].chng_pct!=null}}">{{priceByAmount[index].chng_pct}}%</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByAmount[index].today_open)}}">{{priceByAmount[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='1' style="color:{{utils.stockColor(priceByAmount[index].chng_pct)}}" wx:if="{{priceByVolume[index].chng_pct!=null}}">{{priceByAmount[index].chng_pct}}%</text>
         <text bindtap='onStockDetail' data-index='{{index}}' data-type='1'>{{utils.stockValue(priceByAmount[index].latest_turnover)}}</text>
       </view>
     </view>
 
     <view class='ranking_content'>
-      <view class='ranking_heard' bindtap='onStockList' data-index='0'>
-        <text bindtap='onStockList' data-index='0'>成交量排行</text>
+      <view class='ranking_heard' bindtap='onStockList' data-index='2'>
+        <text bindtap='onStockList' data-index='2'>成交量排行</text>
         <image class='next' src='../../img/ic_back.png' bindtap='onStockList' data-index='2'></image>
       </view>
       <view class='list_title'>
@@ -99,8 +99,8 @@
         <view class='stock_num' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{priceByVolume[index].stock_code}}</view>
       </view>
       <view class='stock_content' bindtap='onStockDetail' data-index='{{index}}' data-type='2'>
-        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByChange[index].today_open)}}">{{priceByVolume[index].today_open}}</text>
-        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByChange[index].chng_pct)}}" wx:if="{{priceByAmount[index].chng_pct!=null}}">{{priceByVolume[index].chng_pct}}%</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByVolume[index].today_open)}}">{{priceByVolume[index].today_open}}</text>
+        <text bindtap='onStockDetail' data-index='{{index}}' data-type='2' style="color:{{utils.stockColor(priceByVolume[index].chng_pct)}}" wx:if="{{priceByAmount[index].chng_pct!=null}}">{{priceByVolume[index].chng_pct}}%</text>
         <text bindtap='onStockDetail' data-index='{{index}}' data-type='2'>{{utils.stockValue(priceByVolume[index].latest_turnover)}}</text>
       </view>
     </view>

@@ -46,3 +46,9 @@
 </block>
 </view>
 </view>
+
+<view class='home' >
+  <navigator url='../news' open-type="switchTab" >
+  <image  class='home_img' src='../../../img/home.png'></image>
+  </navigator> 
+</view>

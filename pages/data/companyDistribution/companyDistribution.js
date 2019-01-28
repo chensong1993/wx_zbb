@@ -51,6 +51,7 @@ Page({
 
           }
         })
+        var timeOut = setTimeout(function () {
         //公司分布
         wx.request({
           url: url + 'statistics' + '/area/',
@@ -74,6 +75,7 @@ Page({
             })
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
+            clearTimeout(timeOut);
           },
           fail() {
             wx.hideNavigationBarLoading();
@@ -82,6 +84,7 @@ Page({
             })
           }
         })
+        }, 500);
         title="地区分布";
       break;
       case "2":
@@ -112,10 +115,11 @@ Page({
               LoadMores: -1
             })
             wx.hideNavigationBarLoading();
-
+            clearTimeout(timeOut);
           }
         })
         //行业统计
+        var timeOut = setTimeout(function () {
         wx.request({
           url: url + 'statistics' + '/industry/',
           method: 'GET',
@@ -137,12 +141,14 @@ Page({
             })
             console.log(res.data.results);
             wx.hideNavigationBarLoading();
+            clearTimeout(timeOut);
           },
           fail() {
             wx.hideNavigationBarLoading();
-
+            clearTimeout(timeOut);
           }
         })
+        },500);
         title = "行业分布";
       break; 
     }

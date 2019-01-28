@@ -13,7 +13,6 @@
     <block wx:for="{{category}}" wx:key=''>
 
       <view bind class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
-
     </block>
   </scroll-view>
 </view>
@@ -30,6 +29,7 @@
             </swiper-item>
           </block>
         </swiper>
+  
         <view class='bannerTitle' wx:if='{{bannerIndexs==null}}'>{{bannerList[0].title}}</view>
         <view class='bannerTitle' wx:else>{{bannerTitle}}</view>
       </view>
@@ -64,7 +64,7 @@
 
           </view>
         </block> -->
-      
+
       <wxs src="news.wxs" module="news_load"></wxs>
       <view class='load_more' wx:if="{{LoadMores>0}}">
         <view class='weui-loading' wx:if="{{LoadMores>0&&LoadMores!=2}}"></view>

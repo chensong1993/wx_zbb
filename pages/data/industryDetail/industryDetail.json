@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "数据中心"
+  "navigationBarTitleText": "数据中心",
+  "enablePullDownRefresh": false
 }

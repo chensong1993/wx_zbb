@@ -17,9 +17,9 @@ Page({
       index = e.index;
       that.data.index = e.index;
     }
-  that.setData({
-    page:1
-  })
+    that.setData({
+      page: 1
+    })
     var nacigationTitle;
     wx.showNavigationBarLoading();
     switch (that.data.index) {
@@ -76,38 +76,47 @@ Page({
       }
     })
     //排行榜
-    wx.request({
-      url: url,
-      method: 'GET',
-      data: {
-        page: "2"
-      },
-      header: {
-        'content-type': 'application/json' // 默认值 
-      },
-      complete() {
+    var timeOut = setTimeout(function () {
+      console.log("延迟调用============")
+      wx.request({
+        url: url,
+        method: 'GET',
+        data: {
+          page: "2"
+        },
+        header: {
+          'content-type': 'application/json' // 默认值 
+        },
+        complete() {
 
-      },
-      success(res) {
-        var rankingData = that.data.typeData;
-        var rankingData1 = rankingData.concat(res.data.results);
-        that.setData({
-          typeData: rankingData1,
-          LoadMores: -1
-        })
-        console.log(rankingData1);
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
-      },
-      fail() {
-        that.setData({
-          LoadMores: -1
-        })
-        wx.stopPullDownRefresh();
-        wx.hideNavigationBarLoading();
-
-      }
-    })
+        },
+        success(res) {
+          var rankingData = that.data.typeData;
+          if (rankingData != undefined) {
+            var rankingData1 = rankingData.concat(res.data.results);
+            console.log(rankingData1);
+            console.log("-================");
+            that.setData({
+              typeData: rankingData1,
+              LoadMores: -1
+            })
+            console.log(rankingData1);
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+          }
+          clearTimeout(timeOut);
+        },
+        fail() {
+          that.setData({
+            LoadMores: -1
+          })
+          wx.stopPullDownRefresh();
+          wx.hideNavigationBarLoading();
+          clearTimeout(timeOut)
+        }
+      })
+    }, 500)
+    
   },
   onRankingIndex: function(e) {
     var that = this;
@@ -165,8 +174,7 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值 
       },
-      complete() {
-      },
+      complete() {},
       success(res) {
         if (res.data.results != undefined) {
           var rankingData = that.data.typeData;
@@ -218,7 +226,7 @@ Page({
   //     index: that.data.index,
   //     LoadMores: 1
   //   })
-  
+
   //   //排行榜
   //   wx.request({
   //     url: url,
@@ -244,7 +252,7 @@ Page({
   //         that.setData({
   //           LoadMores: 2
   //         })
-         
+
   //       }
   //       console.log(rankingData1);
   //       wx.hideNavigationBarLoading();

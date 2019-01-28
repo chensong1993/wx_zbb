@@ -50,11 +50,11 @@ var percentValue = function(value) {
 var stockColor = function(e) {
   if (e >= 0) {
     color = '#d71820';
-    return color;
   } else {
     color = '#5AB963';
-    return color;
   }
+  console.log(e);
+  return color;
 }
 
 var fixed = function (currentTab) {

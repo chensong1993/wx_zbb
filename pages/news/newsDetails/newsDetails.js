@@ -6,8 +6,7 @@ Page({
    * 页面的初始数据 
    */
   data: {
-    buttonClicked: true,
-
+    buttonClicked: true
   },
 
   onLoad: function(options) {
@@ -53,6 +52,7 @@ Page({
         }
       })
 
+  
   },
   //跳转详情页
   newsDetails: function(e) {
@@ -148,7 +148,7 @@ Page({
       console.log(href);
       var originalId = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.html'));
       var stockCode = href.substring(href.lastIndexOf('/') + 1);
-      
+
       console.log(originalId);
       if (href.indexOf("html") > -1) {
         wx.navigateTo({

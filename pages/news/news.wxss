@@ -14,42 +14,6 @@
   color: transparent;
 }
 
-.views {
-  font-size: 28rpx;
-  clear: both;
-  overflow: hidden;
-  position: relative;
-  border-bottom: 12rpx gainsboro solid;
-}
-
-.mainContent {
-  float: left;
-  width: 55%;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  padding-left: 20rpx;
-}
-
-.mainImg {
-  float: right;
-}
-
-.title {
-  height: auto;
-  width: auto;
-}
-
-.newsType {
-  height: auto;
-  width: auto;
-  display: block;
-  position: absolute;
-  bottom: 20rpx;
-  left: 20rpx;
-  margin-right: 50rpx;
-  color: #4093ff;
-}
-
 .publish {
   size: 18rpx;
   position: absolute;
@@ -57,12 +21,6 @@
   left: 90rpx;
 }
 
-.newsImg {
-  width: 300rpx;
-  height: 200rpx;
-  float: right;
-  position: relative;
-}
 
 .heard_bor {
   position: fixed;
@@ -143,7 +101,11 @@
 }
 
 .slide-image {
-  width: 100%;
+  width: 95%;
+  margin:0 20rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius:15rpx;
+  margin-top: 20rpx;
 }
 
 .bannerH {
@@ -151,17 +113,19 @@
 }
 
 .bannerTitle {
-  width: 100%;
+  width: 95%;
+  margin:0 20rpx;
   font-size: 28rpx;
-  text-align: center;
   background: black;
+  text-align: center;
   color: white;
   line-height: 50rpx;
   overflow: hidden; /*超出部分隐藏*/
   white-space: nowrap; /*不换行*/
   text-overflow: ellipsis; /*超出部分文字以...显示*/
-  border-bottom: white 12rpx solid;
-  border-radius: 0 0 15rpx 15rpx;
+  border-bottom: white 20rpx solid;
+  border-bottom-left-radius: 25rpx;
+  border-bottom-right-radius:25rpx;
 }
 
 /* .loadMore {
@@ -204,16 +168,16 @@
 .refresh {
   position: fixed;
   z-index: 9999;
-  bottom: 32rpx;
-  right: 30rpx;
+  bottom: 47rpx;
+  right: 45rpx;
   width: 60rpx;
   height: 60rpx;
 }
 
 .Brefresh {
   position: fixed;
-  bottom: 20rpx;
-  right: 20rpx;
+  bottom: 35rpx;
+  right: 35rpx;
   z-index: 9999;
   height: 80rpx;
   width: 80rpx;

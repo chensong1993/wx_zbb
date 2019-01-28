@@ -1,33 +1,34 @@
-
-
-.userMain{
+.userMain {
   width: 100%;
   position: relative;
- 
 }
-.userAll{
+
+.userAll {
   margin: 20rpx;
-  
 }
-.profile{
+
+.profile {
   position: absolute;
   left: 190rpx;
   top: 0;
   line-height: 150rpx;
 }
-.userNickName{
-  line-height: 75rpx;
-  
-}
-.userAvatarUrl{
- width: 150rpx;
- height: 150rpx;
- border-radius: 25rpx;
-}
-.gender{
+
+.userNickName {
   line-height: 75rpx;
 }
-.logOut{
+
+.userAvatarUrl {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 25rpx;
+}
+
+.gender {
+  line-height: 75rpx;
+}
+
+.logOut {
   position: absolute;
   top: 30rpx;
   right: 20rpx;
@@ -38,7 +39,8 @@
   padding: 5rpx 30rpx;
   font-size: 28rpx;
 }
-.loading_main{
+
+.loading_main {
   width: 80%;
   position: absolute;
   top: 45%;
@@ -47,7 +49,8 @@
   margin-left: -280rpx;
   text-align: center;
 }
-.loading{
+
+.loading {
   font-size: 28rpx;
   text-align: center;
   height: 100rpx;
@@ -55,11 +58,12 @@
   width: 500rpx;
   margin: 0 30rpx;
   border-radius: 50rpx;
-  background: -webkit-linear-gradient(left, rgb(255, 174, 0) , #40e2ff); /* Safari 5.1 - 6.0 */
+  background: -webkit-linear-gradient(left, rgb(255, 174, 0), #40e2ff); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(right, red, #40d2ff); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(right, red, #40b3ff); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, rgb(255, 0, 170) , #4093ff); /* 标准的语法 */
+  background: linear-gradient(to right, rgb(255, 0, 170), #4093ff); /* 标准的语法 */
 }
+
 .list_title {
   padding: 0 20rpx;
   height: 40rpx;
@@ -79,6 +83,7 @@
   display: inline-block;
   text-align: right;
 }
+
 .stock {
   clear: both;
   overflow: hidden;
@@ -114,9 +119,31 @@
   line-height: 80rpx;
 }
 
-.zixuan{
+.zixuan {
   font-size: 30rpx;
   padding: 10rpx 20rpx;
-  border-bottom:1rpx #ececec solid; 
+  border-bottom: 1rpx #ececec solid;
   border-left: 8rpx #4093ff solid;
+}
+
+.bigImg_main {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  filter: alpha(Opacity=80);
+  -moz-opacity: 0.9;
+  opacity: 0.9;
+  background: black;
+}
+
+.bigImg {
+  height: 300rpx;
+  width: 300rpx;
+  position: absolute;
+  border-radius: 25rpx;
+  top: 50%;
+  left: 50%;
+  margin-left: -150rpx;
+  margin-top: -150rpx;
 }

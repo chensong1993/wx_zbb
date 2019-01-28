@@ -239,33 +239,36 @@ Page({
       var nameIndex = that.data.nameIndex;
       switch (nameIndex) {
         case "0":
-          name = "全部-排行"
+          name = "全部"
           break;
         case "1":
-          name = "创新-排行"
+          name = "创新层"
           break;
         case "2":
-          name = "基础-排行"
+          name = "基础"
           break;
         case "3":
-          name = "做市-排行"
+          name = "做市商"
           break;
         case "4":
-          name = "协议-排行"
+          name = "协议"
           break;
         case "5":
-          name = "转板-排行"
+          name = "转板"
           break;
       }
       switch (index) {
         case "0":
           sortBy = "chng_pct";
+          name+="-涨幅榜";
           break;
         case "1":
           sortBy = "latest_volume";
+          name += "-成交额";
           break;
         case "2":
           sortBy = "latest_turnover";
+          name += "-成交量";
           break;
       }
 

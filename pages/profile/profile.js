@@ -34,6 +34,18 @@ Page({
 
   
   },
+  onIcon(e){
+    var that=this;
+    that.setData({
+      bigImg:1
+    })
+  },
+  onIconNone:function(){
+    var that = this;
+    that.setData({
+      bigImg: -1
+    })
+  },
   onGotUserInfo(e) {
     var that = this;
     // 获取用户信息

@@ -15,9 +15,9 @@
       <text class='code' wx:if="{{stockDetail[0].stock_code!=null}}">({{stockDetail[0].stock_code}})</text>
     </view>
 
-    <view class='price' style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{unit_conversion.stockValue(stockDetail[0].today_open)}}</view>
+    <view class='price' style="color:{{unit_conversion.stockColor(stockDetail[0].today_open)}}">￥{{unit_conversion.stockValue(stockDetail[0].latest_price)}}</view>
     <view class='zhangdie'>
-      <text class='num' style="color:{{unit_conversion.stockColor(stockDetail[0].chng)}}">{{unit_conversion.stockValue(stockDetail[0].chng)}}</text>
+      <text class='num' style="color:{{unit_conversion.stockColor(1)}}">{{unit_conversion.stockValue(stockDetail[0].chng)}}</text>
       <text class='percetnt' style="color:{{unit_conversion.stockColor(stockDetail[0].chng_pct)}}">{{unit_conversion.percentValues(stockDetail[0].chng_pct)}}</text>
 
     </view>
@@ -31,7 +31,7 @@
     </view>
     <view class='right-content'>
       <text class='right-content1'>成交额:</text>
-      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].total_volume)}}</text>
+      <text class='right-content2'>{{unit_conversion.stockValue(stockDetail[0].latest_turnover)}}</text>
     </view>
     <view class='center-content'>
       <text class='center-content1'>最高价:</text>
@@ -257,3 +257,8 @@
 </view>
 </view>
 
+<view class='home' >
+  <navigator url='../../news/news' open-type="switchTab" >
+  <image  class='home_img' src='../../../img/home.png'></image>
+  </navigator> 
+</view>
