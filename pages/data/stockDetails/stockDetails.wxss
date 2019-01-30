@@ -155,7 +155,7 @@
 }
 
 .ranking_title text {
-  width: 33.3%;
+  width: 25%;
   display: inline-block;
   text-align: center;
 }
@@ -351,3 +351,27 @@
   width: 60rpx;
   height: 60rpx;
 }
+
+.mainPdf {
+  width: 96%;
+  height: 150rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 10rpx;
+}
+
+
+.pdfType {
+  height: auto;
+  width: auto;
+  display: block;
+  position: absolute;
+  bottom: 20rpx;
+  left: 10rpx;
+  margin-right: 50rpx;
+  border-radius: 10rpx;
+  color: #d71820;
+  padding: 0 5rpx;
+  border: 2rpx solid #d71820;
+}
+

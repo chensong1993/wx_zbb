@@ -29,8 +29,8 @@
       <view class='stock_num' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].stock_code}}</view>
     </view>
     <view class='stock_content' bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>
-      <text bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{utils.stockValue(item.stockDetail[0].today_open)}}</text>
-      <text bindtap='onStockDetail' wx:if="{{item.stockDetail[0].chng_pct!=null}}" data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].chng_pct}}%</text>
+      <text bindtap='onStockDetail' style='color:{{utils.stockColor(item.stockDetail[0].today_open)}}' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{utils.stockValue(item.stockDetail[0].today_open)}}</text>
+      <text bindtap='onStockDetail' style='color:{{utils.stockColor(item.stockDetail[0].chng_pct)}}' wx:if="{{item.stockDetail[0].chng_pct!=null}}" data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{item.stockDetail[0].chng_pct}}%</text>
        <text bindtap='onStockDetail' wx:else data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>--</text>
       <text bindtap='onStockDetail' data-name='{{item.stockDetail[0].stock_name}}' data-code='{{item.stockDetail[0].stock_code}}'>{{utils.stockValue(item.stockDetail[0].latest_turnover)}}</text>
     </view>

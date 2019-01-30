@@ -10,9 +10,9 @@ Page({
     buttonClicked: true,
     currentTab: 0,
     page: "2",
-    buttonClicked: true,
     star: -1,
-    login: -1
+    login: -1,
+
   },
 
   /**
@@ -24,6 +24,7 @@ Page({
     //数据库初始化
     wx.cloud.init();
     that.data.stockCode = stockCode;
+   
     var stockName = e.stockName;
     if (stockName != undefined) {
       wx.setNavigationBarTitle({
@@ -204,6 +205,32 @@ Page({
 
       }
     })
+    //公告
+    wx.request({
+      url: url + 'announces/',
+      method: 'GET',
+      data: {
+        code: stockCode
+      },
+      header: {
+        'content-type': 'application/json' // 默认值 
+      },
+      complete() {
+        wx.hideLoading();
+      },
+      success(res) {
+        that.setData({
+          announces: res.data.results,
+        })
+
+        console.log(res.data.results);
+
+      },
+      fail() {
+
+
+      }
+    })
 
   },
   newsDetails: function(e) {
@@ -226,10 +253,50 @@ Page({
     var index = e.target.dataset.index;
     that.data.nameIndex = index;
     that.setData({
-      currentTab: index
+      currentTab: index,
+      page: "2"
     })
 
+  },
+  showPdf: function(e) {
+    wx.showLoading({
+      title: '正在加载 . . .',
+    })
+    if (this.data.buttonClicked) {
+      var id = e.target.dataset.index;
+      console.log(id)
+      wx.downloadFile({
+        // 示例 url，并非真实存在
+        url: this.data.announces[id].access_url,
+        success(res) {
+          const filePath = res.tempFilePath
+          wx.openDocument({
+            filePath,
+            success(res) {
+              wx.hideLoading();
+              clearTimeout(showLoad);
+              console.log('打开文档成功')
+            }
+          })
+        },
+        fail() {
+          wx.showToast({
+            icon: "none",
+            title: '加载错误',
+          })
+          wx.hideLoading();
+        }
+      })
+    }
 
+    var showLoad = setTimeout(function() {
+      wx.hideLoading();
+      wx.showToast({
+        icon: "none",
+        title: '加载时间过长',
+      })
+    }, 4000)
+    util.buttonClicked(this);
   },
   //关注
   onStar: function() {
@@ -255,7 +322,7 @@ Page({
               star: 1,
             })
           }
-        }else{
+        } else {
           app.globalData.login = 1;
           console.log(22333)
           that.setData({
@@ -452,7 +519,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
     var that = this;
     //资讯
     if (that.data.currentTab == 0) {
@@ -479,6 +545,40 @@ Page({
               ++that.data.page;
           }
           console.log(data1);
+          wx.hideNavigationBarLoading();
+        },
+        fail() {
+          wx.hideNavigationBarLoading();
+
+        }
+      })
+    }
+
+    if (that.data.currentTab == 3) {
+      //公告
+      wx.request({
+        url: 'http://api.chinaipo.com/markets/v1/announces/',
+        method: 'GET',
+        data: {
+          code: that.data.stockCode,
+          page: that.data.page
+        },
+        header: {
+          'content-type': 'application/json' // 默认值 
+        },
+        complete() {
+          wx.hideLoading();
+        },
+        success(res) {
+          var pdf = that.data.announces;
+          if (res.data.results != undefined) {
+            var pdf1 = pdf.concat(res.data.results);
+            that.setData({
+                announces: pdf1
+              })
+              ++that.data.page;
+          }
+          console.log(pdf1);
           wx.hideNavigationBarLoading();
         },
         fail() {

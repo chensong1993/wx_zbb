@@ -14,7 +14,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.5.2",
 	"appid": "wxfdff888d92c0f478",
 	"projectname": "%E8%B5%84%E6%9C%AC%E9%82%A6news",
 	"debugOptions": {
@@ -30,13 +30,25 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "twoCode",
+					"pathName": "pages/news/newsDetails/newsDetails",
+					"query": "scene=69290",
+					"scene": "1012"
+				}
+			]
 		}
 	}
 }

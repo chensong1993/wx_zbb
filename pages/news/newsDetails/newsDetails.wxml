@@ -3,7 +3,7 @@
 <view wx:if='{{content>0}}'>
 <view class='main'>
 <view>
-<text class='newsTitle'>{{newsDetails.title}}</text>
+<text class='newsTitle' bindtap='onShowNews'>{{newsDetails.title}}</text>
 </view>
 
 <view class='titlebar'>
@@ -26,7 +26,7 @@
 <block wx:for="{{newsDetails.tags}}" wx:key>
 <view class='newsTags' bindtap='detailTag' data-tag="{{newsDetails.tags[index].name}}">{{newsDetails.tags[index].name}}</view>
 </block>
-</view>
+
 <view class='otherNews'>
 <view class='selectNews'>— 精选新闻 —</view>
 <block wx:for="{{newsDetails.otherLinks}}" wx:key=''>
@@ -38,17 +38,36 @@
               <text class='publish' wx:else style='left:{{20}}rpx;' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
             </view>
             <view class='mainImg'>
-              <image class='newsImg' src="{{item.featured_image}} "  wx:for-index="index " data-index='{{index}}'></image>
+              <image class='newsImg' wx:if="{{item.featured_image!=null}}" src="{{item.featured_image}} "  wx:for-index="index " data-index='{{index}}'></image>
             </view>
-
           </view>
 
 </block>
 </view>
 </view>
+</view>
 
+
+<!-- <image class='twoImg'  src='{{base64}}'>333</image> -->
+
+<!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
+<canvas canvas-id="shareImg" style="width:545px;height:636px"></canvas>
+  
+<!-- 预览区域  -->
+<view hidden='{{hidden}}' class='preview'>
+  <view class='opacity'></view>
+  <image src='../../../img/close.png' class='close' bindtap='onCloseImg'></image>
+  <image src='{{prurl}}' mode='widthFix' class='news_photo'></image>
+  <button size='mini' bindtap='save'>保存图片</button>
+</view>
+
+<view class='share_view'>
 <view class='home' >
   <navigator url='../news' open-type="switchTab" >
   <image  class='home_img' src='../../../img/home.png'></image>
   </navigator> 
+</view>
+<image class='wechat_friend'  src='../../../img/ic_wechat.png'></image>
+<button class='wechat_friend1' open-type="share" ></button>
+<image type='primary' bindtap='share' src='../../../img/generate_img.png' class='generate_img'></image>
 </view>

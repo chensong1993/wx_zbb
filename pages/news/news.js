@@ -63,18 +63,23 @@ Page({
     if (that.data.buttonClicked) {
       var bannerList = that.data.bannersList;
       var index = that.data.current;
+      var featured_image;
+      var title;
       console.log(index);
       if (index == null) {
         var url = bannerList[0].destUrl;
+        featured_image = bannerList[0].featured_image;
+        title = bannerList[0].title;
       } else {
         var url = bannerList[index].destUrl;
+        featured_image = bannerList[index].featured_image;
+        title = bannerList[0].title;
       }
-
 
       var originalId = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html'));
       console.log(url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.html')));
       wx.navigateTo({
-        url: 'newsDetails/newsDetails?originalId=' + originalId,
+        url: 'newsDetails/newsDetails?originalId=' + originalId + '&titlepic=' + featured_image + '&title=' + title,
       })
     }
     //防止重复点击
@@ -311,7 +316,8 @@ Page({
       var categoer = that.data.newsId;
       var name = newsList[index].name;
       var destUrl = newsList[index].destUrl;
-      var description = newsList[index].description
+      var description = newsList[index].description;
+      var titlepic = newsList[index].titlepic;
       console.log(index);
       if (categoer == 15) {
         wx.navigateTo({
@@ -323,7 +329,7 @@ Page({
         })
       } else {
         wx.navigateTo({
-          url: 'newsDetails/newsDetails?originalId=' + originalId,
+          url: 'newsDetails/newsDetails?originalId=' + originalId + '&titlepic=' + titlepic+'&title='+title,
         })
       }
 

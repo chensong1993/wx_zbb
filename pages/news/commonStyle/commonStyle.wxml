@@ -58,3 +58,18 @@
   </view>
 </block>
 
+
+<!-- <block wx:for="{{announces}}" wx:key=''>
+  <view class='views' bindtap="newsDetails" data-index='{{item.originalId}}'>
+    <view class='mainContent' data-index='{{item.originalId}}'>
+      <text class='title' bindtap="newsDetails" data-index='{{item.originalId}}'>{{item.disc_title}}</text>
+      <text class='newsType' bindtap="newsDetails" data-index='{{item.originalId}}'>PDF</text>
+      <text class='publish'  bindtap="newsDetails" data-index='{{item.originalId}}'>{{item.declaredate}}</text>
+     
+    </view>
+    <view class='mainImg' data-index='{{item.originalId}}'>
+     
+    </view>
+
+  </view>
+</block> -->

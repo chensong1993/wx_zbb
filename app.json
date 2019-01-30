@@ -3,6 +3,7 @@
     "pages/news/news",
     "pages/market/market",
     "pages/data/data",
+    "pages/brand/brand",
     "pages/news/newsSearch/newsSearch",
     "pages/profile/profile",
     "pages/news/newsDetails/newsDetails",

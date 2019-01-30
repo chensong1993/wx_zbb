@@ -4,11 +4,12 @@ var conversionValue;
 var percentV;
 var rankTitle;
 var rankRight;
-var areaValue=0;
+var areaValue = 0;
 var color;
 var load = '正在加载 . . .';
 var loadEnd = '已加载全部内容';
-var loading = function (s) {
+
+var loading = function(s) {
   switch (s) {
     case 1:
       return load;
@@ -21,12 +22,21 @@ var loading = function (s) {
       break
   }
 }
+var formatTime = function (date) {
+  var date = getDate(date); //返回当前时间对象
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  return [year, month, day].join('/')
+
+}
 
 var rankingListTitle = function(index) {
   switch (index) {
     case "4":
       rankTitle = "券商"
-      rankRight="主办"
+      rankRight = "主办"
       return rankTitle;
       break;
     case "5":
@@ -41,11 +51,11 @@ var rankingListTitle = function(index) {
       rankTitle = "会计事务所";
       return rankTitle;
       break;
-   
-      
+
+
   }
 }
-var rankingListRight = function (index) {
+var rankingListRight = function(index) {
   switch (index) {
     case "4":
       rankRight = "主办"
@@ -70,7 +80,7 @@ var rankingListRight = function (index) {
 
 //单位转换
 var stockValue = function(value) {
-  if (value == null||value=="0.00") {
+  if (value == null || value == "0.00") {
     return "--";
   }
   absValue = Math.abs(value);
@@ -103,52 +113,50 @@ var stockValue = function(value) {
 
 //转换成百分比不用保留两位小数
 var percentValues = function(e) {
-  if(e==null||e==0.00){
+  if (e == null || e == 0.00) {
     percentV = "--";
-  }else{
-    percentV = e+"%";
+  } else {
+    percentV = e + "%";
   }
-  return percentV ;
-  console.log(e);
+  return percentV;
 }
 
 //转换成百分比
-var percentValue = function (e) {
+var percentValue = function(e) {
   if (e == null) {
     percentV = "--";
   } else {
     percentV = e.toFixed(2) + "%";
   }
   return percentV;
-  console.log(e);
 }
 //百分比计算
-var areaMethod=function(e){
+var areaMethod = function(e) {
   areaValue = 100 - (e[0].percentage + e[1].percentage + e[2].percentage + e[3].percentage + e[4].percentage)
   console.log(areaValue);
-  return areaValue.toFixed(2)+"%";
-  
+  return areaValue.toFixed(2) + "%";
+
 }
-var stockColor=function(e){
+var stockColor = function(e) {
   if (e < 0) {
-    color ='#5AB963';
-  }else{
+    color = '#5AB963';
+  } else {
     color = '#d71820';
   }
   return color;
 }
 
 //圆角颜色
-var roundedColor=function(index){
-  switch(index){
+var roundedColor = function(index) {
+  switch (index) {
     case 0:
       color = "#d71820";
       return color
-    break;
+      break;
     case 1:
       color = "#32CD32";
       return color
-    break;
+      break;
     case 2:
       color = "#00BFFF";
       return color
@@ -177,9 +185,10 @@ var roundedColor=function(index){
 //   if(e=="做市"){
 
 //   }
- 
+
 // }
 module.exports = {
+  formatTime: formatTime,
   percentValues: percentValues,
   loading: loading,
   load: load,
