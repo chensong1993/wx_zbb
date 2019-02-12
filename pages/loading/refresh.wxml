@@ -1,0 +1,3 @@
+<view class='studty_refresh'>
+      <view class='refresh-loading' wx:if="{{isShow<0}}"></view>
+</view>

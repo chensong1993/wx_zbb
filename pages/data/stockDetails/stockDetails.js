@@ -236,9 +236,18 @@ Page({
   newsDetails: function(e) {
     if (this.data.buttonClicked) {
       var that = this;
-      var originalId = e.target.dataset.index;
+      var index = e.target.dataset.index;
+      var newsList = that.data.stockNewsList;
+      var originalId = newsList[index].originalId;
+      var titlepic = null;
+      if (newsList[index].titlepic == null) {
+        titlepic = "../../../img/ic_icon.png";
+      } else {
+        titlepic = newsList[index].titlepic;
+      }
+      var title = newsList[index].title;
       wx.navigateTo({
-        url: '../../news/newsDetails/newsDetails?originalId=' + originalId,
+        url: '../../news/newsDetails/newsDetails?originalId=' + originalId + '&titlepic=' + titlepic + '&title=' + title,
       })
     }
     util.buttonClicked(this);

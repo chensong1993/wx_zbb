@@ -63,10 +63,18 @@ Page({
       var newsList = that.data.tagList;
       console.log(newsList)
       var newsId = newsList[index].originalId;
+      var title = newsList[index].title;
+      var titlepic = null;
+      if (newsList[index].titlepic == null) {
+        titlepic = "../../../img/ic_icon.png";
+      } else {
+        titlepic = newsList[index].titlepic;
+      }
       console.log(newsId);
-
+      console.log(titlepic);
+      console.log("-----------------------------");
       wx.navigateTo({
-        url: '../newsDetails/newsDetails?originalId=' + newsId,
+        url: '../newsDetails/newsDetails?originalId=' + newsId + '&titlepic=' + titlepic + '&title=' + title,
       })
     }
     //防止重复点击

@@ -55,10 +55,12 @@ Page({
       var newsList = that.data.newsDetails;
 
       var newsId = newsList[index].originalId;
+      var titlepic = newsList[index].destUrl;
+      var title = newsList[index].title;
       console.log(newsId);
 
       wx.navigateTo({
-        url: '../newsDetails/newsDetails?originalId=' + newsId,
+        url: '../newsDetails/newsDetails?originalId=' + newsId + '&titlepic=' + titlepic + '&title=' + title,
       })
     }
     //防止重复点击

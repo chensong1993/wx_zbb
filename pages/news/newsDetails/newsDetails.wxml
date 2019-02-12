@@ -12,7 +12,8 @@
 <text>·</text>
 <text class='date'>{{newsDate}}</text>
 <text>·</text>
-<text class='author'>{{newsDetails.author}}</text>
+<text class='author' wx:if="{{newsDetails.author=='新三板在线'}}">资本邦</text>
+<text class='author' wx:else>{{newsDetails.author}}</text>
 </view>
 
 <view class='brief'>
@@ -37,7 +38,7 @@
               <text class='publish' wx:if='{{item.newsType!=null}}' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
               <text class='publish' wx:else style='left:{{20}}rpx;' bindtap='newsDetails' wx:for-index="index " data-index='{{index}}'>{{item.source}}</text>
             </view>
-            <view class='mainImg'>
+            <view class='mainImg'  data-index='{{index}}'>
               <image class='newsImg' wx:if="{{item.featured_image!=null}}" src="{{item.featured_image}} "  wx:for-index="index " data-index='{{index}}'></image>
             </view>
           </view>
@@ -51,7 +52,7 @@
 <!-- <image class='twoImg'  src='{{base64}}'>333</image> -->
 
 <!-- 画布大小按需定制 这里我按照背景图的尺寸定的  -->
-<canvas canvas-id="shareImg" style="width:545px;height:636px"></canvas>
+<canvas canvas-id="shareImg"></canvas>
   
 <!-- 预览区域  -->
 <view hidden='{{hidden}}' class='preview'>
@@ -61,7 +62,7 @@
   <button size='mini' bindtap='save'>保存图片</button>
 </view>
 
-<view class='share_view'>
+<view class='share_view' style='height:{{bottomHeight}}rpx;'>
 <view class='home' >
   <navigator url='../news' open-type="switchTab" >
   <image  class='home_img' src='../../../img/home.png'></image>

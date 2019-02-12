@@ -183,10 +183,17 @@ Page({
       var newsList = that.data.newsList;
 
       var originalId = newsList[index].originalId;
+      var title = newsList[index].title;
+      var titlepic = null;
+      if (newsList[index].titlepic == null) {
+        titlepic = "../../../img/ic_icon.png";
+      } else {
+        titlepic = newsList[index].titlepic;
+      }
       console.log(index);
 
       wx.navigateTo({
-        url: '../newsDetails/newsDetails?originalId=' + originalId,
+        url: '../newsDetails/newsDetails?originalId=' + originalId + '&titlepic=' + titlepic + '&title=' + title,
       })
     }
 

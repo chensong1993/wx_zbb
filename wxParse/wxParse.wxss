@@ -9,13 +9,13 @@
  * for: 微信小程序富文本解析
  * detail : http://weappdev.com/t/wxparse-alpha0-1-html-markdown/184
  */
-
+/* -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif */
 .wxParse{
     margin: 0 5px;
-    font-family: Helvetica,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif ;
     font-size: 28rpx;
     color: #666;
-    line-height: 1.8;
+    line-height: 2.2;
 }
 view{
     word-break:break-all; overflow:auto;
@@ -166,7 +166,7 @@ view{
 }*/
 
 .wxParse-u {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 .wxParse-hide{
     display: none;
@@ -204,4 +204,7 @@ view{
 }
 .wxParse-figure {
   overflow: hidden;
+}
+.wxParse-p {
+  margin-bottom: 30rpx;
 }

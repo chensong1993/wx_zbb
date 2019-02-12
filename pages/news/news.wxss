@@ -1,6 +1,7 @@
 /* pages/news/news.wxss */
 @import "commonStyle/commonStyle.wxss";
 @import "../loading/loading.wxss";
+@import "../loading/refresh.wxss";
 @import "../loading_more/loading_more.wxss";
 
 /* .mainTitle{
@@ -71,7 +72,8 @@
 }
 
 .tab-item.active {
-  color: #4675f9;
+ font-weight: bold;
+ 
   border-bottom: 8rpx #4675f9 solid;
 }
 

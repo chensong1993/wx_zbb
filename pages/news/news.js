@@ -21,7 +21,7 @@ Page({
     buttonClicked: true,
     setInter: '123',
     LoadMores: -1,
-    isShow: 1
+    isShow: -1
     
     /**
      * 
@@ -121,6 +121,7 @@ Page({
         currentTab: cur,
         scrollLeft: (cur - 2) * singleNavWidth - 5,
         scroll: -1,
+        isShow: -1
       });
     }
     var datas = that.data.category;
@@ -161,14 +162,16 @@ Page({
           that.setData({
             newsList: res.data.results,
             LoadMores: -1,
-            scroll: 1
+            scroll: 1,
+            isShow: 1
           })
 
         } else {
           that.setData({
             newsList: res.data.results,
             LoadMores: 1,
-            scroll: 1
+            scroll: 1,
+            isShow: 1
           })
         }
         // clearInterval(that.interval);
@@ -200,7 +203,9 @@ Page({
     this.data.page = 1;
     //判断是第一次加载更多
     this.data.moreOne = 1;
-
+    this.setData({
+      isShow: -1
+    })
     if (this.data.currentTab === cur) {
       return false;
     } else {
@@ -245,16 +250,19 @@ Page({
             that.setData({
               newsList: res.data.results,
               LoadMores: -1,
-              scroll: 1
+              scroll: 1,
+              isShow: 1
             })
 
           } else {
             that.setData({
               newsList: res.data.results,
               LoadMores: 1,
-              scroll: 1
+              scroll: 1,
+              isShow: 1
             })
           }
+        
           //  clearInterval(that.interval);
           console.log(res.data.results)
         },
@@ -317,7 +325,13 @@ Page({
       var name = newsList[index].name;
       var destUrl = newsList[index].destUrl;
       var description = newsList[index].description;
-      var titlepic = newsList[index].titlepic;
+      var titlepic = null;
+      if (newsList[index].titlepic == null) {
+        titlepic = "../../../img/ic_icon.png";
+      } else {
+        titlepic = newsList[index].titlepic;
+      }
+
       console.log(index);
       if (categoer == 15) {
         wx.navigateTo({
@@ -401,11 +415,13 @@ Page({
         that.setData({
           category: cout
         })
-
+        that.setData({
+          isShow: 1
+        })
         // console.log(cout) 
       }
     })
-
+    setTimeout(function(){
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',
       method: 'GET',
@@ -433,6 +449,7 @@ Page({
 
       }
     })
+    }, 1000)
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/banners/',
       method: 'GET',
@@ -653,7 +670,9 @@ Page({
     var newsId = that.data.newsId;
     that.setData({
       oneTab: '0',
-      ok: true
+      ok: true,
+      scrollviewTop:0,
+      isShow:-1
     });
     // that.loading();
 
@@ -776,7 +795,8 @@ Page({
         that.setData({ //很重要 
           newsList: res.data.results,
           ok: false,
-          scroll: 1
+          scroll: 1,
+          isShow:1
         })
 
         that.data.newsList = res.data.results;

@@ -1,6 +1,12 @@
 <!-- //顶部状态栏 -->
-<view class='Brefresh'>
-  <image class='refresh' src='../../img/refresh.png' bindtap='refresh'></image>
+<view class='Brefresh' wx:if="{{isShow>0}}">
+  <image  class='refresh' src='../../img/refresh.png' bindtap='refresh'>   
+  </image>
+ 
+</view>
+<view class='Brefresh' wx:else>
+   <include  src="../loading/refresh.wxml" />
+    <view wx:if="{{isShow}}"></view>
 </view>
 <!-- 搜索按钮 -->
 <view class='heard_bor'>
@@ -12,7 +18,7 @@
 
     <block wx:for="{{category}}" wx:key=''>
 
-      <view bind class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
+      <view wx:if="{{item.name!='推广'}}" class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" data-id='{{item.id}}' bindtap="swichNav">{{item.name}}</view>
     </block>
   </scroll-view>
 </view>
@@ -20,7 +26,7 @@
 <swiper wx:if="{{scroll==1}}" class="tab-content" current="{{currentTab}}" duration="600" skip-hidden-item-layout='true' bindchange="switchTab" style="height:{{winHeight}}rpx" data-id='{{category}}'>
   <swiper-item wx:for="{{category}}" wx:key=''>
     <!-- bindscrolltolower='bindDownLoad' -->
-    <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3" lower-threshold="50">
+    <scroll-view scroll-y="true" class="scoll-h" scroll-top="{{scrollviewTop}}" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3" lower-threshold="50">
       <view wx:if="{{index==0}}">
         <swiper class='bannerH' indicator-dots="{{indicatorDots}}" indicator-color="white" indicator-active-color="#4093ff" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}' bindchange='BannerIndex'>
           <block wx:for="{{bannerList}}" wx:key=''>
@@ -81,8 +87,8 @@
 
     <scroll-view scroll-y="true" class="scoll-h" enable-back-to-top="true" bindscrolltolower="scrollBottom" bindscrolltoupper="scrollTop" lower-threshold="3">
 
-      <include src="../loading/loading.wxml" />
-      <view wx:if="{{isShow}}"></view>
+      <!-- <include src="../loading/loading.wxml" />
+      <view wx:if="{{isShow}}"></view> -->
       <view class='mainLoading'>
         <image class='loadText' src='../../img/ic_load_text.png'></image>
       </view>

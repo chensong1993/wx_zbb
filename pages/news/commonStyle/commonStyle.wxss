@@ -11,8 +11,9 @@ color: transparent;
 }
 
 .views {
-  font-size: 28rpx;
+  font-size: 30rpx;
   clear: both;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif ;
   overflow: hidden;
   position: relative;
   margin-left: 20rpx;
@@ -38,6 +39,7 @@ color: transparent;
 .title {
   height: auto;
   width: auto;
+  font-weight: bold;
 }
 
 .newsType {
@@ -48,14 +50,15 @@ color: transparent;
   bottom: 20rpx;
   left: 10rpx;
   margin-right: 50rpx;
+  font-size: 28rpx;
   color: #4093ff;
 }
 
 .publish {
-  size: 18rpx;
   position: absolute;
   bottom: 20rpx;
   left: 90rpx;
+   font-size: 28rpx;
 }
 
 .newsImg {
