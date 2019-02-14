@@ -12,7 +12,7 @@
 <text>·</text>
 <text class='date'>{{newsDate}}</text>
 <text>·</text>
-<text class='author' wx:if="{{newsDetails.author=='新三板在线'}}">资本邦</text>
+<text class='author' wx:if="{{newsDetails.author=='新三板在线'}}"></text>
 <text class='author' wx:else>{{newsDetails.author}}</text>
 </view>
 
@@ -70,5 +70,6 @@
 </view>
 <image class='wechat_friend'  src='../../../img/ic_wechat.png'></image>
 <button class='wechat_friend1' open-type="share" ></button>
-<image type='primary' bindtap='share' src='../../../img/generate_img.png' class='generate_img'></image>
+<image  bindtap='share' src='../../../img/generate_img.png' class='generate_img'></image>
+<button class='generate_but' bindgetuserinfo="onGotUserInfo" open-type="getUserInfo"></button>
 </view>

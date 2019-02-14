@@ -41,7 +41,7 @@
 }
 
 .briefContent {
-  font-size: 34rpx;
+  font-size: 36rpx;
   line-height: 60rpx;
 }
 
@@ -64,6 +64,7 @@
   background: rgb(240, 239, 239);
   border-radius: 20rpx;
   font-size: 28rpx;
+  color: #666;
 }
 
 /* //新闻列表 */
@@ -195,7 +196,20 @@ canvas {
   margin-top: -33rpx;
   border-radius: 30rpx;
 }
-
+.generate_but{
+   width: 66rpx;
+  height: 66rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 45rpx;
+  margin-top: -33rpx;
+  border-radius: 30rpx;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+.generate_but::after{
+  border: none;
+}
 .wechat_friend {
   width: 66rpx;
   height: 66rpx;
@@ -221,7 +235,7 @@ canvas {
 }
 
 canvas {
-  width: 545px;
-  height: 700px;
+  width: 645px;
+  height: 800px;
   color: white;
 }

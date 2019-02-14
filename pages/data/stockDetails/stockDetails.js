@@ -420,8 +420,8 @@ Page({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
+         // wx.getUserInfo({
+          //  success: res => {
               app.globalData.loading = -1;
               that.setData({
                 login: app.globalData.loading,
@@ -431,7 +431,7 @@ Page({
                 data: {
                   _id: app.globalData.openid,
                   openid: app.globalData.openid,
-                  userInfo: res.userInfo
+                  userInfo: e.detail.userInfo
                 },
                 fail() {
                   app.globalData.loading = 1;
@@ -440,9 +440,9 @@ Page({
                   })
                 }
               })
-              console.log(res.userInfo);
-            }
-          })
+          console.log(e.detail.userInfo);
+          //  }
+         // })
 
         }
       }

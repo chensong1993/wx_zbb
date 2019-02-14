@@ -249,7 +249,7 @@
   <view wx:if="{{currentTab==3}}">
     <!-- //pdf样式布局 -->
     <block wx:for="{{announces}}" wx:key=''>
-      <view class='views'  data-index='{{index}}'>
+      <view class='views' data-index='{{index}}'>
         <view class='mainPdf' bindtap="showPdf" data-index='{{index}}'>
           <text class='title' bindtap="showPdf" data-index='{{index}}'>{{item.disc_title}}</text>
           <text class='pdfType' bindtap="showPdf" data-index='{{index}}'>PDF</text>
@@ -266,7 +266,8 @@
 <view class='login' wx:if="{{login>0}}">
   <text>登陆后，可以在个人中心查看自选股票</text>
   <view class='loginBut'>
-    <image class='wechat' wx:if="{{star<0}}" bindtap="onGotUserInfo" src='../../../img/ic_wechat.png'></image>
+    <image class='wechat' wx:if="{{star<0}}"  src='../../../img/ic_wechat.png'></image>
+     <button class='wechat_but' wx:if="{{star<0}}" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo"></button>
   </view>
 </view>
 

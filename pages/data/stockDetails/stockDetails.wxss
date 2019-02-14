@@ -289,7 +289,7 @@
 }
 
 .login_mian {
-  position: absolute;
+  position: fixed;
   top: 0;
   filter: alpha(Opacity=80);
   -moz-opacity: 0.5;
@@ -330,7 +330,23 @@
   width: 100rpx;
   height: 100rpx;
 }
-.home{
+
+.wechat_but {
+  bottom: 20rpx;
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  left: -50rpx;
+  margin-left: 50%;
+  border: none;
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.wechat_but::after {
+  border: none;
+}
+
+.home {
   position: fixed;
   bottom: 85rpx;
   right: 35rpx;
@@ -341,9 +357,9 @@
   border-radius: 100rpx;
   border: 1rpx solid white;
   box-shadow: 2rpx 2rpx 10rpx rgb(224, 224, 224);
-
 }
-.home_img{
+
+.home_img {
   position: fixed;
   z-index: 9999;
   bottom: 97rpx;
@@ -360,7 +376,6 @@
   margin-left: 10rpx;
 }
 
-
 .pdfType {
   height: auto;
   width: auto;
@@ -374,4 +389,3 @@
   padding: 0 5rpx;
   border: 2rpx solid #d71820;
 }
-
