@@ -395,7 +395,11 @@ Page({
     // const testDB = wx.cloud.database({
     //   env: 'zibenbang'
     // })
-
+ setTimeout(function () {
+   that.setData({
+     isShow: 1
+   })
+    },3000);
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',
       method: 'GET',
@@ -421,6 +425,7 @@ Page({
         // console.log(cout) 
       }
     })
+   
     setTimeout(function(){
     wx.request({
       url: 'http://api.chinaipo.com/zh-hans/api/category/',

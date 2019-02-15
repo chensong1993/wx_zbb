@@ -350,10 +350,55 @@ Page({
         ctx.fillText("阅读全文", 505, 755, 200);
         ctx.font = "normal blod 30rpx sans-serif "
         ctx.setFillStyle("black");
-        ctx.fillText(nickName, 245, 675, 200);
-        ctx.font = "normal normal 26rpx sans-serif "
-        ctx.setFillStyle("#666");
-        ctx.fillText("正在阅读本文章", 395, 675, 400);
+        var text1 = nickName +"   邀您阅读"; //这是要绘制的文本
+        var chr1 = text1.split(""); //这个方法是将一个字符串分割成字符串数组
+        var temp1 = "";
+        var row1 = [];
+        for (var a = 0; a < chr1.length; a++) {
+          if (ctx.measureText(temp1).width < 375) {
+            temp1 += chr1[a];
+          } else {
+            a--; //这里添加了a-- 是为了防止字符丢失，效果图中有对比
+            row1.push(temp1);
+            temp1 = "";
+          }
+        }
+        row1.push(temp1);
+
+        //如果数组长度大于2 则截取前两个
+        if (row1.length > 2) {
+          var rowCut = row1.slice(0, 2);
+          var rowPart = rowCut[1];
+          var test = "";
+          var empty = [];
+          for (var a = 0; a < rowPart.length; a++) {
+            if (ctx.measureText(test).width < 375) {
+              test += rowPart[a];
+            } else {
+              break;
+            }
+          }
+          empty.push(test);
+          var group = empty[0] + "..." //这里只显示两行，超出的用...表示
+          rowCut.splice(1, 1, group);
+          row1 = rowCut;
+        }
+
+        for (var b = 0; b < row1.length; b++) {
+          if (row1.length<2){
+            ctx.font = "normal normal 28rpx sans-serif "
+            ctx.setFillStyle("black");
+            ctx.fillText(row1[b], 245, 685 + b * 40, 375);
+          }else{
+            ctx.font = "normal normal 28rpx sans-serif "
+            ctx.setFillStyle("black");
+            ctx.fillText(row1[b], 245, 665 + b * 40, 400);
+          }
+        }
+        // ctx.fillText(nickName, 245, 665, 200);
+        // ctx.font = "normal normal 26rpx sans-serif "
+        // ctx.setFillStyle("#666");
+        // ctx.fillText("正在阅读本文章", 245, 665, 400);
         ctx.stroke();
          //头像
         ctx.save();

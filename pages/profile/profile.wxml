@@ -1,7 +1,8 @@
 <wxs src="profile.wxs" module="utils" />
 <view class='loading_main' wx:if="{{loading>0}}" >
-<button class='loading' wx:if="{{loading>0}}" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo">微信登录</button>
+<button class='loading' wx:if="{{loading>0}}" bindgetuserinfo="onGotUserInfo" open-type="getUserInfo">微信授权登录</button>
 <!-- <view class='loading' wx:if="{{loading>0}}"  bindtap="onGotUserInfo">微信登录</view> -->
+<image class='wechat_load' src='../../img/wechat_load_w.png' ></image>
 </view>
 <view class='userMain' wx:if="{{loading<0}}">
   <view class='userAll' bindtap=''>

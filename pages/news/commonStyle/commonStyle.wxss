@@ -59,6 +59,7 @@ color: transparent;
   bottom: 20rpx;
   left: 90rpx;
    font-size: 28rpx;
+   color: #666;
 }
 
 .newsImg {

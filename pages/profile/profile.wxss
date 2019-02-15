@@ -56,14 +56,23 @@
   height: 100rpx;
   line-height: 100rpx;
   width: 500rpx;
-  margin: 0 30rpx;
-  border-radius: 50rpx;
-  background: -webkit-linear-gradient(left, rgb(255, 174, 0), #40e2ff); /* Safari 5.1 - 6.0 */
-  background: -o-linear-gradient(right, red, #40d2ff); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(right, red, #40b3ff); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, rgb(255, 0, 170), #4093ff); /* 标准的语法 */
+  margin: 0 30rpx ;
+  padding-left: 80rpx;
+  border: none;
+  background: #036efa;
+  color: white;
 }
-
+.wechat_load{
+  font-size: 28rpx;
+  height: 50rpx;
+  width: 50rpx;
+  position: absolute;
+  margin-top: -75rpx;
+  margin-left: -130rpx;
+}
+.loading::after{
+   border: none;
+}
 .list_title {
   padding: 0 20rpx;
   height: 40rpx;
